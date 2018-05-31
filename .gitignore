@@ -1,0 +1,15 @@
+# Extensions
+
+*._*.*
+*.bak
+*.map
+
+# Files
+
+.DS_Store
+.sass-cache
+Thumbs.db
+
+# Directories
+
+node_modules/
