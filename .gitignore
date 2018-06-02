@@ -1,15 +1,89 @@
-# Extensions
-
-*._*.*
+# Compiled source #
+###################
 *.bak
+*.com
+*.class
+*.dll
+*.exe
 *.map
+*.o
+*.so
 
-# Files
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
 
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# OS generated files #
+######################
 .DS_Store
-.sass-cache
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
 
-# Directories
+# Editor files #
+######################
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
 
+# Codekit (https://codekitapp.com/)
+config.codekit
+config.codekit3
+.codekit-cache
+/min
+
+# Sass files #
+##############
+.sass-cache/
+*.css.map
+
+
+# Node #
+########
+# Bower dependency directory (https://bower.io/)
+bower_components
+
+# Dependency directories
 node_modules/
+jspm_packages/
+
+# Perch CMS #
+#############
+# Perch Runway (https://perchrunway.com/)
+perch/resources/
+perch/resources/*.cache
+perch/config/config.local.php
+
+# WordPress #
+#############
+*.log
+wp-config.php
+wp-content/advanced-cache.php
+wp-content/backup-db/
+wp-content/backups/
+wp-content/blogs.dir/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/uploads/
+wp-content/wp-cache-config.php
+wp-content/plugins/hello.php
+wp-content/wflogs/*
+wp-content/plugins/wordfence/tmp/configCache.php
