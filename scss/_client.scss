@@ -1,0 +1,312 @@
+//  Client Styles
+//  -----------------------------
+//
+//  Table of Contents:
+//
+// Base Typography
+// Button
+// Page Tabs
+//
+
+@import 'settings';
+
+
+// Base Typography
+// ---------------
+
+h3 {
+  color: $primary-color;
+}
+
+.text-lead {
+  font-size: 1.25rem;
+}
+
+
+// Button
+// ------
+
+.button {
+  text-transform: uppercase;
+
+  &.secondary {
+    color: $color-white;
+    &:hover {
+      color: $color-white; // prevent FZ override
+    }
+  }
+}
+
+
+// Sections
+// --------
+
+section *:last-child {
+  margin-bottom: 0; // remove padding from last child
+}
+
+// Hero Banner Image
+
+.hero {
+  position: relative;
+  min-height: 427px;
+  height: 427px;
+  color: $primary-color;
+  background-image: url('https://public-web-production-f.squarecdn.com/assets/pages/payments/hero.extra-large-1428ed4c11f4f3d058dc72672115ef50e6460b52b0e153aa59e044b1964a8f91.jpg');
+  background-image: url(../img/hero/hero-large.jpg);
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: auto 489px;
+  overflow: hidden;
+}
+
+.hero .content {
+  position: absolute;
+  bottom: 0;
+  padding-bottom: 80px;
+}
+
+.hero-title-wrap {
+  position: relative;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-right: 40px;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+	  height: 100%;
+    background-color: rgba($color-white, 0.7);
+    z-index: 1;
+  }
+}
+
+.hero-title {
+  position: relative;
+  margin: 0;
+  z-index: 2;
+}
+
+// Feature Sections
+
+.section-intro,
+.section-cta {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 60px;
+  max-width: 40em;
+}
+
+.section-cta {
+  .button {
+    margin-top: 1rem;
+  }
+}
+
+.section-feature {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+
+  .content-overlay {
+    padding: 2rem 3rem;
+    background-color: rgba($black, 0.35); 
+  }
+}
+
+// Section Colours
+
+.section-gray {
+  background-color: $light-gray;
+}
+
+.section-inverse {
+  color: $color-white;
+
+  .section-feature-title,
+  .section-feature-subtitle {
+    color: $color-white;
+  }
+}
+
+.section-feature-image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.section-feature-guide  {
+  background-image: url(../img/hero/section-guide-large.jpg);
+}
+
+@media screen and (min-width: 40em) {
+ 
+  .section-cta-inline {
+    text-align: left;
+
+    .cell-buttons {
+      text-align: right;
+    }
+  }
+
+}
+
+
+// Page Tabs
+// ---------
+
+.content-tabs {
+  position: relative;
+  margin-top: -45px;
+
+  .tabs {
+    border: 0;
+  }
+
+  .tabs-content {
+    padding-top: 2.625rem;
+    padding-bottom: 2rem;
+    border: 0;
+  }
+
+  .tabs-panel {
+    padding: 0;
+  }
+}
+
+.tabs-title {
+  a {
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 45px;
+    color: $black;
+    text-transform: uppercase;
+    font-weight: $font-weight-bold;
+    font-size: 0.875rem;
+    letter-spacing: 0.05rem;
+    line-height: 45px;
+  }
+
+  & + .tabs-title {
+    margin-left: 10px;
+  }
+
+  > a[aria-selected='false'] {
+    background: rgba($color-white, 0.5);
+  }
+
+  > a:hover[aria-selected='false'] {
+    background-color: $color-white;
+  }
+}
+
+.tabs-panel-title {
+  margin-bottom: 1.25rem;
+}
+
+
+// Info Boxes
+// ---------
+
+.feature-box {
+  padding: 1.125rem; // 18px
+  background-color: $light-gray;
+
+  p {
+    font-weight: $font-weight-bold;
+  }
+}
+
+
+// Flexbox
+// ------
+
+.cell-center {
+  align-self: center;
+}
+
+
+// Lists
+// -----
+
+.list-inline {
+  li {
+    display: inline-block;
+  }
+}
+
+.list-unstyled {
+  margin-left: 0;
+  list-style: none;
+}
+
+.overview-list {
+  li {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    display: inline-block;
+  }
+}
+
+.list-column-features {
+  li {
+    margin-bottom: 1.25rem;
+  }
+}
+
+.list-column {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+  -webkit-column-gap: 4em;
+  -moz-column-gap: 4em;
+  column-gap: 4em;
+}
+
+
+// Spacing
+// -------
+
+.mx-auto {
+  margin: 0 auto;
+}
+
+
+// Footer
+// ------
+
+.footer {
+  padding: 2.625rem 1rem;
+  color: $color-white;
+  background-color: $navy-blue;
+}
+
+.footer-nav {
+  border-bottom: 1px solid rgba($color-white, 0.25);
+  li {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.footer-nav-social li {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.footer-nav {
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 640px) {
+
+  .footer-nav li {
+    display: inline;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+}
