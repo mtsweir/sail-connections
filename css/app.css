@@ -6388,15 +6388,25 @@ section *:last-child {
 
 .hero {
   position: relative;
-  min-height: 427px;
-  height: 427px;
+  height: 250px;
   color: #01266c;
-  background-image: url("https://public-web-production-f.squarecdn.com/assets/pages/payments/hero.extra-large-1428ed4c11f4f3d058dc72672115ef50e6460b52b0e153aa59e044b1964a8f91.jpg");
-  background-image: url(../img/hero/hero-large.jpg);
+  background-color: #8a8a8a;
   background-position: center bottom;
   background-repeat: no-repeat;
-  background-size: auto 489px;
+  background-size: auto 100%;
   overflow: hidden; }
+
+@media screen and (min-width: 480px) {
+  .hero {
+    height: 300px; } }
+
+@media screen and (min-width: 768px) {
+  .hero {
+    height: 480px; } }
+
+@media screen and (min-width: 1200px) {
+  .hero {
+    height: 600px; } }
 
 .hero .content {
   position: absolute;
