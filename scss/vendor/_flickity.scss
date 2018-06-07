@@ -1,0 +1,38 @@
+//
+// Flickity
+// Touch, responsive, flickable carousels
+// https://flickity.metafizzy.co/style.html
+//
+
+.carousel {
+  height: 250px;
+  background-color: $black;
+}
+
+.carousel-cell {
+  width: 50%;
+  height: 100%;
+  text-align: center;
+}
+
+/* .is-fullscreen added to carousel when fullscreen size cells to full height when fullscreen */
+.carousel.is-fullscreen .carousel-cell {
+  height: 100%;
+}
+
+.carousel-cell img {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  max-height: 100%;
+  top: 50%;
+  transform: translateY(-50%)
+}
+
+// @media screen and (min-width: 640px) {
+
+//   .carousel-cell {
+//     width: 33.3333%;
+//   }
+
+// }
