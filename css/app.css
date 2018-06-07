@@ -6418,17 +6418,6 @@ section *:last-child {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-right: 40px; }
-  .hero-title-wrap::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.7);
-    z-index: 1; }
 
 .hero-title {
   position: relative;
@@ -6439,7 +6428,7 @@ section *:last-child {
 .section-cta {
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   max-width: 40em; }
 
 .section-cta .button {
@@ -6510,11 +6499,39 @@ section *:last-child {
 .tabs-panel-title {
   margin-bottom: 1.25rem; }
 
+.overview-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
+  .overview-list dt {
+    flex-basis: 50%;
+    padding-right: 0.5rem; }
+  .overview-list dd {
+    flex-basis: 50%; }
+
+@media screen and (min-width: 640px) {
+  .overview-list dt, .overview-list dd {
+    flex-basis: 25%; } }
+
+@media screen and (min-width: 1024px) {
+  .overview-list dt, .overview-list dd {
+    flex-basis: auto; }
+  .overview-list dt {
+    padding-left: 3rem; } }
+
 .feature-box {
+  margin-bottom: 2rem;
   padding: 1.125rem;
   background-color: #e6e6e6; }
+  .feature-box > :first-child {
+    margin-top: 0; }
+  .feature-box > :last-child {
+    margin-bottom: 0; }
   .feature-box p {
     font-weight: 700; }
+
+.sc-carousel {
+  margin-bottom: 2rem; }
 
 .cell-center {
   align-self: center; }
@@ -6525,11 +6542,6 @@ section *:last-child {
 .list-unstyled {
   margin-left: 0;
   list-style: none; }
-
-.overview-list li {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  display: inline-block; }
 
 .list-column-features li {
   margin-bottom: 1.25rem; }
@@ -6568,3 +6580,40 @@ section *:last-child {
     display: inline;
     padding-left: 0.5rem;
     padding-right: 0.5rem; } }
+
+.sc-top-bar {
+  background-color: #005593; }
+  .sc-top-bar .sc-menu {
+    background-color: transparent; }
+
+.sc-menu li.is-active a {
+  color: #fff;
+  background-color: #00aeeF; }
+
+.sc-menu .submenu {
+  background-color: #00aeeF;
+  border: 0; }
+
+.menu a {
+  color: #fff; }
+
+.carousel {
+  height: 250px;
+  background-color: #0a0a0a; }
+
+.carousel-cell {
+  width: 50%;
+  height: 100%;
+  text-align: center; }
+
+/* .is-fullscreen added to carousel when fullscreen size cells to full height when fullscreen */
+.carousel.is-fullscreen .carousel-cell {
+  height: 100%; }
+
+.carousel-cell img {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  max-height: 100%;
+  top: 50%;
+  transform: translateY(-50%); }
