@@ -1,0 +1,27 @@
+.sc-top-bar {
+  background-color: $navy-blue;
+
+  .sc-menu {
+    background-color: transparent;
+  }
+}
+
+.sc-menu {
+  li.is-active a {
+    color: $color-white;
+    background-color: $light-blue;
+  }
+}
+
+.sc-menu {
+  .submenu {
+    background-color: $light-blue;
+    border: 0;
+  }
+}
+
+.menu {
+  a {
+    color: $color-white;
+  }
+}
