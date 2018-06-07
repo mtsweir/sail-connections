@@ -99,14 +99,6 @@ $global-button-cursor: auto;
 $global-color-pick-contrast-tolerance: 0;
 $print-transparent-backgrounds: true;
 
-// Custom Globals
-// --------------
-$navy-blue: #005593;
-$light-blue: #00aeeF;
-$color-white: #fff;
-$font-weight-bold: 700;
-$text-uppercase: uppercase;
-
 @include add-foundation-colors;
 
 // 2. Breakpoints

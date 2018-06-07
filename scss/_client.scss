@@ -13,6 +13,13 @@
 // Global Settings
 // ---------------
 
+$navy-blue: #005593;
+$light-blue: #00aeeF;
+$color-white: #fff;
+
+$font-weight-bold: 700;
+$text-uppercase: uppercase;
+
 // Height of hero images
 $hero-image-sm: 250px;
 $hero-image-md: 300px;
@@ -97,18 +104,18 @@ section *:last-child {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-right: 40px;
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-	  height: 100%;
-    background-color: rgba($color-white, 0.7);
-    z-index: 1;
-  }
+  // &::after {
+  //   content: '';
+  //   position: absolute;
+  //   top: 0;
+  //   right: 0;
+  //   bottom: 0;
+  //   left: 0;
+  //   width: 100%;
+	//   height: 100%;
+  //   background-color: rgba($color-white, 0.7);
+  //   z-index: 1;
+  // }
 }
 
 .hero-title {
@@ -123,7 +130,7 @@ section *:last-child {
 .section-cta {
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   max-width: 40em;
 }
 
@@ -203,6 +210,8 @@ section *:last-child {
   }
 }
 
+// Tabs
+
 .tabs-title {
   a {
     padding-top: 0;
@@ -233,17 +242,65 @@ section *:last-child {
   margin-bottom: 1.25rem;
 }
 
+// Content
+
+.overview-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  dt {
+    flex-basis: 50%;
+    padding-right: 0.5rem;
+  }
+  dd {
+    flex-basis: 50%;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .overview-list {
+    dt, dd {
+      flex-basis: 25%;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .overview-list {
+    dt, dd {
+      flex-basis: auto;
+    }
+    dt {
+      padding-left: 3rem;
+    }
+  }
+}
+
 
 // Info Boxes
 // ---------
 
 .feature-box {
-  padding: 1.125rem; // 18px
+  margin-bottom: 2rem;
+  padding: 1.125rem;
   background-color: $light-gray;
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
 
   p {
     font-weight: $font-weight-bold;
   }
+}
+
+.sc-carousel {
+  margin-bottom: 2rem;
 }
 
 
@@ -267,14 +324,6 @@ section *:last-child {
 .list-unstyled {
   margin-left: 0;
   list-style: none;
-}
-
-.overview-list {
-  li {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    display: inline-block;
-  }
 }
 
 .list-column-features {
