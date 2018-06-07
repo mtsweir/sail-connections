@@ -52,5 +52,11 @@
 @include motion-ui-transitions;
 @include motion-ui-animations;
 
-// Sail Connections - Styles
+// Sail Connections
+
+// Styles
 @import 'client';
+@import 'sc-header';
+
+// Vendor
+@import '../scss/vendor/flickity';

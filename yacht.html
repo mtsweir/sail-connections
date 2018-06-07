@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yacht</title>
   <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="node_modules/flickity/dist/flickity.min.css" media="screen">
+  <link rel="stylesheet" href="node_modules/flickity-fullscreen/fullscreen.css" media="screen">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
   <!-- Hero images -->
   <style>
@@ -107,6 +109,30 @@
           <div class="tabs-panel is-active" id="panelAbout">
             <h3 class="tabs-panel-title text-center">Lagoon 52, Bareboat Catamaran Charter</h3>
             <p>As bareboat sailors have gained confidence, the boats available for charter have increased in size. The Lagoon 52 is one of those newer, high-volume catamarans with performance features that make the whole sailing experience pure luxury that everyone can enjoy in comfort. Good crew quarters make this model equally ideal as a crewed bareboat option. With a knowledgeable skipper and crew aboard, sit back, let someone else do most of the work, and truly relax on your sailing vacation.</p>
+            <div class="content feature-box">
+              <dl class="overview-list">
+                <dt>Length</dt>
+                <dd>52’ (15.8m)</dd>
+                <dt>Charter Type:</dt>
+                <dd>Bareboat</dd>
+                <dt>Guest Max:</dt>
+                <dd>8</dd>
+                <dt>Cabins:</dt>
+                <dd>4</dd>
+              </dl>
+            </div>
+
+            <div class="sc-carousel carousel" data-flickity='{"fullscreen": true, "lazyLoad": 2, "pageDots": false, "cellAlign": "left"}'>
+              <div class="carousel-cell"><img src="/img/hero/hero-sm.jpg" /></div>
+              <div class="carousel-cell"><img src="/img/hero/hero-sm.jpg" /></div>
+              <div class="carousel-cell"><img src="/img/hero/hero-sm.jpg" /></div>
+            </div>
+
+            <p>In creating the 52, the people at Lagoon have excelled, making innovative and sometimes radical choices to deliver elegance, comfort, user-friendliness and, it goes without saying, top cruising performance under sail.</p>
+            <p>The Lagoon 52 marks a new era in the design of blue water cruising catamarans. The decision to position the mast further aft adds a wide possibility of sail combinations to an already impressive performance. For over a decade now the Lagoon designers have gradually been moving their masts aft, thus centering weight more evenly and improving performance of the sail plan. The Lagoon 52 was one of the first cruising catamarans to benefit from this development.</p>
+            <p>The main objective in creating the Lagoon 52 has been to improve the use of space. Bright and comfortable living areas suggest a ‘just like home’ feel for guests on board. Use of continuous horizontal lines without interruption gives the interior fluent and harmonious open spaces, while outside the sleek lines bring elegance from stem to stern, with a focus on comfort and safety.</p>
+            <p>The 52F (Flybridge) and 52S (SporTop) distinguish the two above-deck layouts.</p>
+            <p>The Lagoon 52 is available bareboat, crewed bareboat, and in several locations permanently crewed for the ultimate luxury sailing holiday.</p>
           </div>
           <div class="tabs-panel" id="panelSpecifications">
             <h3 class="tabs-panel-title text-center">Specifications</h3>
@@ -120,33 +146,6 @@
             <h3 class="tabs-panel-title text-center">Crew Options</h3>
             <p>four</p>
           </div>
-        </div>
-      </section>
-
-      <section class="overview padding-bottom-3">
-        <div class="content feature-box">
-          <ul class="overview-list no-bullet text-center margin-0">
-            <li><b>Length:</b> 52’ (15.8m)</li>
-            <li><b>Charter Type:</b> Bareboat</li>
-            <li><b>Guest Max:</b> 8</li>
-            <li><b>Cabins:</b> 4</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="carousel padding-bottom-3">
-        <div class="content">
-          carousel
-        </div>
-      </section>
-
-      <section class="main-content padding-bottom-3">
-        <div class="content">
-          <p>In creating the 52, the people at Lagoon have excelled, making innovative and sometimes radical choices to deliver elegance, comfort, user-friendliness and, it goes without saying, top cruising performance under sail.</p>
-          <p>The Lagoon 52 marks a new era in the design of blue water cruising catamarans. The decision to position the mast further aft adds a wide possibility of sail combinations to an already impressive performance. For over a decade now the Lagoon designers have gradually been moving their masts aft, thus centering weight more evenly and improving performance of the sail plan. The Lagoon 52 was one of the first cruising catamarans to benefit from this development.</p>
-          <p>The main objective in creating the Lagoon 52 has been to improve the use of space. Bright and comfortable living areas suggest a ‘just like home’ feel for guests on board. Use of continuous horizontal lines without interruption gives the interior fluent and harmonious open spaces, while outside the sleek lines bring elegance from stem to stern, with a focus on comfort and safety.</p>
-          <p>The 52F (Flybridge) and 52S (SporTop) distinguish the two above-deck layouts.</p>
-          <p>The Lagoon 52 is available bareboat, crewed bareboat, and in several locations permanently crewed for the ultimate luxury sailing holiday.</p>
         </div>
       </section>
     
@@ -169,11 +168,11 @@
           <div class="grid-x grid-padding-y grid-margin-x">
             <blockquote class="large-6 cell">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-              — John Smith
+              <cite>John Smith</cite>
             </blockquote>
             <blockquote class="large-6 cell">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-              — John Smith
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              <cite>John Smith</cite>
             </blockquote>
           </div>
         </div>
@@ -259,10 +258,15 @@
   </div><!-- grid-container -->
 </footer>
 
+</div><!-- END Off-canvas Content -->
+
+<!-- Core Scripts -->
 <script src="node_modules/jquery/dist/jquery.js"></script>
 <script src="node_modules/what-input/dist/what-input.js"></script>
 <script src="node_modules/foundation-sites/dist/js/foundation.js"></script>
 <script src="js/min/app-min.js"></script>
-
+<!-- Vendor Scripts -->
+<script src="node_modules/flickity/dist/flickity.pkgd.min.js"></script>
+<script src="node_modules/flickity-fullscreen/fullscreen.js"></script>
 </body>
 </html>
