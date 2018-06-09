@@ -53,10 +53,7 @@
 @include motion-ui-animations;
 
 // Sail Connections
-
-// Styles
-@import 'client';
-@import 'sc-header';
+@import 'sc-config';
 
 // Vendor
 @import '../scss/vendor/flickity';

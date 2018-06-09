@@ -1,0 +1,35 @@
+// Footer
+// ------
+
+.footer {
+  padding: 2.625rem 1rem;
+  color: $color-white;
+  background-color: $navy-blue;
+}
+
+.footer-nav {
+  border-bottom: 1px solid rgba($color-white, 0.25);
+  li {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.footer-nav-social li {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.footer-nav {
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 640px) {
+
+  .footer-nav li {
+    display: inline;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+}

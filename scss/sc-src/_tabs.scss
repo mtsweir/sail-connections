@@ -1,0 +1,54 @@
+// Tabs
+// ----
+
+.tabs-title {
+  a {
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 45px;
+    color: $black;
+    text-transform: uppercase;
+    font-weight: $font-weight-bold;
+    font-size: 0.875rem;
+    letter-spacing: 0.05rem;
+    line-height: 45px;
+  }
+
+  & + .tabs-title {
+    margin-left: 10px;
+  }
+
+  > a[aria-selected='false'] {
+    background: rgba($color-white, 0.5);
+  }
+
+  > a:hover[aria-selected='false'] {
+    background-color: $color-white;
+  }
+}
+
+.tabs-panel-title {
+  margin-bottom: 1.25rem;
+}
+
+// Page Tabs
+// ---------
+
+.content-tabs {
+  position: relative;
+  margin-top: -45px;
+
+  .tabs {
+    border: 0;
+  }
+
+  .tabs-content {
+    padding-top: 2.625rem;
+    padding-bottom: 2rem;
+    border: 0;
+  }
+
+  .tabs-panel {
+    padding: 0;
+  }
+}

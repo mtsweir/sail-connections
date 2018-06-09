@@ -1,0 +1,178 @@
+//  Base Theme
+//
+// Typography
+// Sections
+// Content
+//
+
+// Typography
+// ----------
+
+h3 {
+  color: $primary-color;
+}
+
+.text-lead {
+  font-size: 1.25rem;
+}
+
+
+// Sections
+// --------
+
+section *:last-child {
+  margin-bottom: 0; // remove padding from last child
+}
+
+// Feature Sections
+
+.section-intro,
+.section-cta {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+  max-width: 40em;
+}
+
+.section-cta {
+  .button {
+    margin-top: 1rem;
+  }
+}
+
+.section-feature {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+
+  .content-overlay {
+    padding: 2rem 3rem;
+    background-color: rgba($black, 0.35); 
+  }
+}
+
+// Section Colours
+
+.section-gray {
+  background-color: $light-gray;
+}
+
+.section-inverse {
+  color: $color-white;
+
+  .section-feature-title,
+  .section-feature-subtitle {
+    color: $color-white;
+  }
+}
+
+.section-feature-image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.section-feature-guide  {
+  background-image: url(../img/hero/section-guide-large.jpg);
+}
+
+@media screen and (min-width: 40em) {
+ 
+  .section-cta-inline {
+    text-align: left;
+
+    .cell-buttons {
+      text-align: right;
+    }
+  }
+
+}
+
+// Content
+// -------
+
+.overview-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  dt {
+    flex-basis: 50%;
+    padding-right: 0.5rem;
+  }
+  dd {
+    flex-basis: 50%;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .overview-list {
+    dt, dd {
+      flex-basis: 25%;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .overview-list {
+    dt, dd {
+      flex-basis: auto;
+    }
+    dt {
+      padding-left: 3rem;
+    }
+  }
+}
+
+
+// Info Boxes
+
+.feature-box {
+  margin-bottom: 2rem;
+  padding: 1.125rem;
+  background-color: $light-gray;
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  p {
+    font-weight: $font-weight-bold;
+  }
+}
+
+.sc-carousel {
+  margin-bottom: 2rem;
+}
+
+
+// Lists
+
+.list-inline {
+  li {
+    display: inline-block;
+  }
+}
+
+.list-unstyled {
+  margin-left: 0;
+  list-style: none;
+}
+
+.list-column-features {
+  li {
+    margin-bottom: 1.25rem;
+  }
+}
+
+.list-column {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+  -webkit-column-gap: 4em;
+  -moz-column-gap: 4em;
+  column-gap: 4em;
+}

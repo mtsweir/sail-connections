@@ -1,0 +1,13 @@
+// Buttons
+// -------
+
+.button {
+  text-transform: uppercase;
+
+  &.secondary {
+    color: $color-white;
+    &:hover {
+      color: $color-white; // prevent FZ override
+    }
+  }
+}
