@@ -1,30 +1,79 @@
 // Header
 // ------
 
+// Logo
+
+.logo {
+  margin-right: 2rem;
+  width: 220px;
+  height: auto;
+}
+
+
+// Nav Wrapper
+
 .sc-top-bar {
+  padding: 1.25rem 2rem;
   background-color: $navy-blue;
 
+  // Reset background colour
   .sc-menu {
+    align-items: center;
     background-color: transparent;
   }
 }
 
+
+// Primary Nav
+
 .sc-menu {
-  li.is-active a {
+  // default link styles
+  a {
     color: $color-white;
-    background-color: $light-blue;
+    text-transform: uppercase;
+    &:hover {
+      color: rgba($color-white, 0.7);
+    }
   }
 }
 
-.sc-menu {
+
+// Dropdown Nav
+
+.dropdown.sc-menu {
+
   .submenu {
     background-color: $light-blue;
     border: 0;
+    min-width: 220px;
+  }
+
+  // set appearance when dropdown tab is active
+  .is-active {
+    background-color: $light-blue;
+
+    > a {
+      color: $color-white;
+    }
+  }
+
+  // Resets to remove right arrow and custom padding
+  > li.is-dropdown-submenu-parent > a {
+    padding-right: 1rem;
+  }
+
+  li.is-dropdown-submenu-parent > a::after {
+    content: none;
   }
 }
 
-.menu {
+.is-submenu-item {
+  border-bottom: 1px solid rgba($color-white, 0.2);
   a {
-    color: $color-white;
+    text-transform: none;
+  }
+
+  &:last-child {
+    border-bottom: 0;
   }
 }

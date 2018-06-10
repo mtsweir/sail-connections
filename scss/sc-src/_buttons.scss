@@ -11,3 +11,21 @@
     }
   }
 }
+
+// Button with Icons
+
+// Button with icon before text label
+.button-icon-left {
+  i {
+    margin-right: 0.25rem;
+    vertical-align: middle
+  }
+}
+
+// Button with icon after text label
+.button-icon-right {
+  i {
+    margin-left: 0.25rem;
+    vertical-align: middle
+  }
+}
