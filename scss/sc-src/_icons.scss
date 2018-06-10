@@ -1,0 +1,68 @@
+// Icons
+// ------
+//
+// To hide text from assistive technology, while still keeping it visible, add the attribute aria-hidden="true".
+// Use class="show-for-sr" to visually hide content, while still allowing assistive technology to read it.
+//
+// Examples:
+//
+// <div>
+//   <i class="sc-icon-chat" aria-hidden="true"></i>
+//   <span class="show-for-sr">Icon text</span>
+// </div>
+//
+// <button>
+//   <i class="sc-icon-chat" aria-hidden="true"></i>
+//   Button text
+// </button>
+//
+
+@font-face {
+  font-family: 'sc-icons';
+  src:  url('../fonts/sc-icons.eot?h5xyon');
+  src:  url('../fonts/sc-icons.eot?h5xyon#iefix') format('embedded-opentype'),
+    url('../fonts/sc-icons.ttf?h5xyon') format('truetype'),
+    url('../fonts/sc-icons.woff?h5xyon') format('woff'),
+    url('../fonts/sc-icons.svg?h5xyon#sc-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="sc-icon"], [class*=" sc-icon"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'sc-icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Original Material Icon names preserved after content definition
+
+.sc-icon-chat:before {
+  content: "\e900"; // .icon-baseline-chat_bubble-24px
+}
+
+// Iconmoon Free
+
+.sc-icon-instagram:before {
+  content: "\e904";
+}
+
+.sc-icon-linkedin:before {
+  content: "\e901";
+}
+
+.sc-icon-twitter:before {
+  content: "\e902";
+}
+
+.sc-icon-facebook:before {
+  content: "\e903";
+}
