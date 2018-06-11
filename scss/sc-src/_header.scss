@@ -1,32 +1,33 @@
 // Header
 // ------
 
-// Logo
-
-.logo {
-  margin-right: 2rem;
-  width: 220px;
-  height: auto;
-}
-
-
 // Nav Wrapper
 
-.sc-top-bar {
-  padding: 1.25rem 2rem;
-  background-color: $navy-blue;
+.top-bar {
+  padding: 0.75rem 1rem;
+  background-color: $color-primary;
 
   // Reset background colour
-  .sc-menu {
+  .menu {
     align-items: center;
     background-color: transparent;
   }
 }
 
+// Logo
 
-// Primary Nav
+.logo {
+  width: auto;
+  height: 34px;
+}
 
-.sc-menu {
+.menu .menu-text {
+  padding: 0;
+}
+
+// Link Style
+
+.menu {
   // default link styles
   a {
     color: $color-white;
@@ -37,20 +38,34 @@
   }
 }
 
+// Primary Nav
+
+// styles...
+
+// Secondary Nav
+
+.top-bar {
+  .top-bar-right {
+    li + li {
+      margin-left: 0.5rem;
+    }
+  }
+}
+
 
 // Dropdown Nav
 
-.dropdown.sc-menu {
+.dropdown.menu {
 
   .submenu {
-    background-color: $light-blue;
+    background-color: $color-secondary-3;
     border: 0;
     min-width: 220px;
   }
 
   // set appearance when dropdown tab is active
   .is-active {
-    background-color: $light-blue;
+    background-color: $color-secondary-3;
 
     > a {
       color: $color-white;
@@ -76,4 +91,50 @@
   &:last-child {
     border-bottom: 0;
   }
+}
+
+
+@media screen and (max-width: 767px) {
+
+  .top-bar {
+
+    // Primary Nav
+    .top-bar-left {
+      flex: 1 0 50%;
+      max-width: initial;
+    }
+
+    // Secondary Nav
+    .top-bar-right {
+      flex: 1 0 auto;
+      display: flex;
+      justify-content: flex-end;
+
+      .button-text {
+        display: none;
+      }
+
+      .button-icon-left i {
+        margin-right: 0;
+      }
+    }
+
+  }
+
+}
+
+@media screen and (min-width: 768px) {
+
+  .top-bar {
+    padding: 1.5rem;
+  }
+
+  .menu-text {
+    margin-right: 1.5rem;
+  }
+
+  .logo {
+    height: 50px;
+  }
+
 }
