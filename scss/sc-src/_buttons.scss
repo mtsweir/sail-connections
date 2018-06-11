@@ -1,14 +1,28 @@
 // Buttons
 // -------
 
+/// Background color on hover for buttons.
+// $button-background-hover: scale-color($button-background, $lightness: -15%) !default;
+
 .button {
   text-transform: uppercase;
 
-  &.secondary {
+  &.secondary,
+  &.button-secondary-2 {
     color: $color-white;
     &:hover {
       color: $color-white; // prevent FZ override
     }
+    &:focus {
+      color: $color-white;
+    }
+  }
+
+  &.button-secondary-2 {
+    @include button-style($color-secondary-2, auto, $color-white);
+  }
+  &.button-secondary-3 {
+    @include button-style($color-secondary-3, auto, $color-white);
   }
 }
 

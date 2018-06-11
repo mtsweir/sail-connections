@@ -1,14 +1,26 @@
 // Global Settings
 // ---------------
 
-// Colours
+// Brand Colours
 $navy-blue: #005593;
-$light-blue: #00aeeF;
+$teal: #00a5a1;
+$light-blue: #00aeef;
+$dark-blue: #01266C;
+
+// System Colours
+$color-primary: $navy-blue;
+$color-secondary-2: $teal;
+$color-secondary-3: $light-blue;
+$color-secondary-4: $dark-blue;
 $color-white: #fff;
+$color-grey-medium: #727272;
 
 // Typography
 $font-weight-bold: 700;
 $text-uppercase: uppercase;
+
+// UI Components
+$border-radius-circle: 50%;
 
 // Hero Banner
 // Banner heights set at responsive breakpoints
