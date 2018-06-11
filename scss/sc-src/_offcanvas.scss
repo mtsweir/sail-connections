@@ -1,0 +1,60 @@
+.sc-off-canvas {
+  padding: 3rem 1.5rem 1.5rem;
+  background-color: $color-white;
+  box-shadow: inset 7px 0 8px -6px $light-gray !important;
+
+  .close-button {
+    top: 0;
+    right: 0;
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  .menu a,
+  .menu a:hover {
+    padding: 1rem 0;
+    color: $color-grey-medium;
+    text-transform: none;
+  }
+
+  // Menu separator
+  hr {
+    margin: 1rem 0;
+    height: 0px;
+    border: solid $light-gray;
+    border-width: 1px 0px 0px;
+  }
+}
+
+// Accordion arrow colour
+
+.sc-off-canvas .is-accordion-submenu-parent:not(.has-submenu-toggle) > a::after {
+  right: 0;
+  border-color: $color-white transparent transparent;
+}
+
+// Menu social links
+
+.sc-off-canvas .oc-menu-social {
+  padding: 1rem 0;
+
+  a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    width: 34px;
+    height: 34px;
+    border: 1px solid rgba($color-grey-medium, 0.5);
+    border-radius: $border-radius-circle;
+  }
+  a + a {
+    margin-left: 0.75rem;
+  }
+}
+
+// Site Overlay
+
+.js-off-canvas-overlay {
+  background: rgba($black, 0.2);
+}
