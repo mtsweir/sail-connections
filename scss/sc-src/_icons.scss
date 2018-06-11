@@ -1,20 +1,9 @@
-// Icons
-// ------
+// Icons v1.0
+// ----------
 //
-// To hide text from assistive technology, while still keeping it visible, add the attribute aria-hidden="true".
-// Use class="show-for-sr" to visually hide content, while still allowing assistive technology to read it.
-//
-// Examples:
-//
-// <div>
-//   <i class="sc-icon-chat" aria-hidden="true"></i>
-//   <span class="show-for-sr">Icon text</span>
-// </div>
-//
-// <button>
-//   <i class="sc-icon-chat" aria-hidden="true"></i>
-//   Button text
-// </button>
+// 1. Use !important to prevent issues with browser extensions that change fonts.
+// 2. Better Font Rendering.
+// 3. Preserve original icon names for reference where relevant.
 //
 
 @font-face {
@@ -29,27 +18,30 @@
 }
 
 [class^="sc-icon"], [class*=" sc-icon"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'sc-icons' !important;
+  font-family: 'sc-icons' !important; // 1
   speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased; // 2
+  -moz-osx-font-smoothing: grayscale; // 2
 }
 
-// Original Material Icon names preserved after content definition
+// Font Awesome Icons
 
-.sc-icon-chat:before {
-  content: "\e900"; // .icon-baseline-chat_bubble-24px
+.sc-icon-menu:before {
+  content: "\e900"; // 3 - sc-icon-bars
+}
+.sc-icon-mail:before {
+  content: "\e905"; // 3 - sc-icon-envelope 
+}
+.sc-icon-tick:before {
+  content: "\e906"; // 3 - sc-icon-check
 }
 
-// Iconmoon Free
+// Iconmoon Free Icons
 
 .sc-icon-instagram:before {
   content: "\e904";
