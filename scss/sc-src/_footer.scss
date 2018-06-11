@@ -4,32 +4,43 @@
 .footer {
   padding: 2.625rem 1rem;
   color: $color-white;
-  background-color: $navy-blue;
+  text-transform: uppercase;
+  background-color: $color-primary;
+
+  a {
+    color: $color-white;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  li {
+    & + li {
+      margin-left: 1rem;
+    }
+  }
 }
+
+// Primary Nav
 
 .footer-nav {
   border-bottom: 1px solid rgba($color-white, 0.25);
-  li {
-    display: block;
-    margin-bottom: 0.5rem;
+}
+
+// Social Nav
+
+.footer-nav-social {
+  font-size: 1.25rem;
+
+  a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    color: $color-primary;
+    line-height: 1;
+    background-color: $color-white;
+    border-radius: $border-radius-circle;
   }
-}
-
-.footer-nav-social li {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-
-.footer-nav {
-  text-transform: uppercase;
-}
-
-@media screen and (min-width: 640px) {
-
-  .footer-nav li {
-    display: inline;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-  }
-
 }
