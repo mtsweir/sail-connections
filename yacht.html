@@ -26,24 +26,52 @@
   </style>
 </head>
 <body>
-
+  
 <!-- Off-canvas Menu -->
-<div class="off-canvas position-left" id="offCanvas" data-off-canvas>
-  <!-- Your menu or Off-canvas content goes here -->
+<div class="off-canvas sc-off-canvas position-right" id="offCanvas" data-off-canvas>
 
-  <!-- Close button -->
-  <button class="close-button" aria-label="Close menu" type="button" data-close>
-    <span aria-hidden="true">&times;</span>
-  </button>
+  <!-- Close toggle -->
+  <span role="button" class="close-button" href="#" aria-label="Close menu" data-close>
+    <i class="sc-icon-menu" aria-hidden="true"></i>
+  </span>
 
-  <!-- Menu -->
-  <ul class="vertical menu">
-    <li><a href="#">Foundation</a></li>
-    <li><a href="#">Dot</a></li>
-    <li><a href="#">ZURB</a></li>
-    <li><a href="#">Com</a></li>
-    <li><a href="#">Slash</a></li>
-    <li><a href="#">Sites</a></li>
+  <!-- Mobile Menu -->
+  <ul class="vertical menu accordion-menu" data-accordion-menu>
+    <li><a href="#">Home</a></li>
+    <li>
+      <a href="#">Charter Yachts</a>
+      <ul class="menu vertical nested">
+        <li><a href="#">Sailing Yachts</a></li>
+        <li><a href="#">Catamarans</a></li>
+        <li><a href="#">Crewed Yachts</a></li>
+        <li><a href="#">All Yachts</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Destinations</a></li>
+    <li aria-hidden="true"><hr></li>
+    <li><a href="#">Our Services</a></li>
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">News</a></li>
+    <li><a href="#">Contact</a></li>
+    <li aria-hidden="true"><hr></li>
+    <li class="oc-menu-social">
+      <a href="#">
+        <span class="show-for-sr">Facebook</span>
+        <i class="sc-icon-facebook" aria-hidden="true"></i>
+      </a>
+      <a href="#">
+        <span class="show-for-sr">Twitter</span>
+        <i class="sc-icon-twitter" aria-hidden="true"></i>
+      </a>
+      <a href="#">
+        <span class="show-for-sr">Instagram</span>
+        <i class="sc-icon-instagram" aria-hidden="true"></i>
+      </a>
+      <a href="#">
+        <span class="show-for-sr">Linkedin</span>
+        <i class="sc-icon-linkedin" aria-hidden="true"></i>
+      </a>
+    </li>
   </ul>
 
 </div>
@@ -52,13 +80,13 @@
 <div class="off-canvas-content" data-off-canvas-content>
 
 <header class="sc-header">
-  <div class="sc-top-bar top-bar">
+  <div class="top-bar">
     <div class="top-bar-left">
-      <ul class="dropdown menu sc-menu" data-dropdown-menu>
+      <ul class="dropdown menu" data-dropdown-menu>
         <li class="menu-text">
           <img class="logo" src="img/sc-logo.svg" alt="Sail Connections">
         </li>
-        <li>
+        <li class="show-for-medium">
           <a href="#">Charter Yachts</a>
           <ul class="menu vertical">
             <li><a href="#">Sailing Yachts</a></li>
@@ -67,21 +95,27 @@
             <li><a href="#">All Yachts</a></li>
           </ul>
         </li>
-        <li><a href="#">Destinations</a></li>
-        <li><a href="#">Our Services</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">News</a></li>
-        <li><a href="#">Contact</a></li>
+        <li class="show-for-medium"><a href="#">Destinations</a></li>
+        <li class="show-for-medium"><a href="#">Our Services</a></li>
+        <li class="show-for-medium"><a href="#">About Us</a></li>
+        <li class="show-for-medium"><a href="#">News</a></li>
+        <li class="show-for-medium"><a href="#">Contact</a></li>
       </ul>
     </div>
     <div class="top-bar-right">
       <ul class="menu">
         <li>
-          <button type="button" class="button secondary button-icon-left" data-toggle="offCanvas">
-            <i class="sc-icon-chat" aria-hidden="true"></i>
-            Enquire
-          </button
-        ></li>
+          <a class="button button-secondary-2 button-icon-left" href="#">
+            <i class="sc-icon-mail" aria-hidden="true"></i>
+            <span class="button-text">Enquire</span>
+          </a>
+        </li>
+        <li>
+          <button type="button" class="button button-secondary-3 button-icon-left" data-toggle="offCanvas">
+            <i class="sc-icon-menu" aria-hidden="true"></i>
+            <span class="button-text">Menu</span>
+          </button>
+        </li>
       </ul>
     </div>
   </div>
@@ -199,7 +233,7 @@
             <h3 class="section-feature-title">The Sail Connections Guarantee</h3>
             <p>One contact - every option - advice you can trust.</p>
           </div>
-          <ul class="list-column list-column-features">
+          <ul class="list-unstyled list-column list-column-2 list-column-features">
             <li>Matching any competitive offer</li>
             <li>Sourcing boats with discounts available</li>
             <li>Personalising our proposal just for you</li>
@@ -209,7 +243,7 @@
           </ul>
           <div class="section-cta text-center">
             <p>We will match any discount website offer on charter boat price, and still provide our customary high level of service.</p>
-            <a href="#" class="button secondary">Get in Touch</a>
+            <a href="#" class="button button-icon-left secondary"><i class="sc-icon-mail" aria-hidden="true"></i> Get in Touch</a>
           </div>
         </div>
 
@@ -243,19 +277,39 @@
 
         <div class="content text-center">
           <nav>
-            <ul class="footer-nav list-unstyled padding-bottom-1 margin-bottom-2">
-              <li>Charter Yachts</li>
-              <li>Destinations</li>
-              <li>Our Services</li>
-              <li>About Us</li>
-              <li>News</li>
-              <li>Contact</li>
+            <ul class="footer-nav list-unstyled list-inline padding-bottom-1 margin-bottom-2">
+              <li><a href="#">Yachts</a></li>
+              <li><a href="#">Destinations</a></li>
+              <li><a href="#">Our Services</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">News</a></li>
+              <li><a href="#">Contact</a></li>
             </ul>
             <ul class="footer-nav-social list-unstyled list-inline">
-              <li><a href="#"><span class="show-for-sr">Facebook</span><i class="sc-icon-facebook" aria-hidden="true"></i></a></li>
-              <li><a href="#"><span class="show-for-sr">Twitter</span><i class="sc-icon-twitter" aria-hidden="true"></i></a></li>
-              <li><a href="#"><span class="show-for-sr">Instagram</span><i class="sc-icon-instagram" aria-hidden="true"></i</a>></li>
-              <li><a href="#"><span class="show-for-sr">Linkedin</span><i class="sc-icon-linkedin" aria-hidden="true"></i></a></li>
+              <li>
+                <a href="#">
+                  <span class="show-for-sr">Facebook</span>
+                  <i class="sc-icon-facebook" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="show-for-sr">Twitter</span>
+                  <i class="sc-icon-twitter" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="show-for-sr">Instagram</span>
+                  <i class="sc-icon-instagram" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="show-for-sr">Linkedin</span>
+                  <i class="sc-icon-linkedin" aria-hidden="true"></i>
+                </a>
+              </li>
             </ul>
           </nav>
         </div>
