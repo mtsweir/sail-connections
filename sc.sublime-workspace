@@ -1,0 +1,269 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"padd",
+				"padding-bottom"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/jandunlop/Documents/GitHub/sail-connections"
+	],
+	"file_history":
+	[
+		"/Users/jandunlop/Documents/GitHub/sail-connections/sail-connections",
+		"/Users/jandunlop/Desktop/charter-enquiry-fr/index.html",
+		"/Users/jandunlop/Documents/GitHub/sail-connections/yacht.html",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Wilderness Motorhomes/LyseoIT744/LyseoIT744 Tour Files/LyseoIT744-Night.xml",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Wilderness Motorhomes/virtual-tour6/basejumper2-day.xml",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Wilderness Motorhomes/virtual-tour6/basejumper2-night.xml",
+		"/Applications/krpano-1.19-pr16/krpano-license-key",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Luxury Charter Group/LCG LIVE/Website-Live/cms/data/settings.dat.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/page.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/includes/form.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/includes/head.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/includes/call-to-action-button-top.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/includes/call-to-action.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/post.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/staff.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/blog.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/css/main.css",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/index.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/page-new.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/faqs.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/faq.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/includes/footer.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/includes/footer-testimonials.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/.htaccess",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/includes/call-to-action-static.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/includes/body-end.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/includes/body-start.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Savusavu Village Marina/2016 Marina Website/Content Supplied/notes.txt",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/includes/headers.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/www.conf",
+		"/Users/jandunlop/Dropbox (Personal)/Projects/Lisadunlop.com/index.html",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/crontab",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/robots.txt",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2016/root/cms/data/settings.dat.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/404.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/page-old.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/faq-list.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/cms/data/settings.dat.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/sucuri-db-config.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/sitemap.xml",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/testimonials.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/.htaccess-new",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/includes/address.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/includes/address_top.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/includes/header.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/js/jquery.main.js",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2016/root/page.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/includes/call-to-action-button-bottom.php",
+		"/Users/jandunlop/Desktop/Test Pano/Test/pano.xml",
+		"/Users/jandunlop/Desktop/Test Pano/Test/plugins/showtext.xml",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/cms/plugins/permalinks/permalinks_notFound404.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/includes/paypal.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/testimonials-old.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/inner.html",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/blog-old.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/post-old.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/faq-old.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/faqs-old.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/includes/staff.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/includes/header-old.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/homepage.html",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/index-old.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/icons.html",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/includes/call-to-action-old.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/index.html",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/staff-old.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/includes/footer-old.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Naia/2017/root-new-site/page.php",
+		"/Users/jandunlop/Dropbox (Personal)/Clients/Turner Hopkins/2017/root-2017/cms/plugins/permalinks/permalinks.php"
+	],
+	"find":
+	{
+		"height": 24.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"kuplu-pasport.ru",
+			"beforebeforehope.review",
+			"chelnytut.ru",
+			"kalyan-hayam.ru",
+			"limobalt.ru",
+			"betonplus34.ru",
+			"voptop24.ru",
+			"ekb-expert.ru",
+			"mservisstanok.ru",
+			"yerenwg.com",
+			"cums1xxx.date",
+			"doll8pin.win",
+			"petfashion54.ru",
+			"xxx1hand.us",
+			"sexyyz.pw",
+			"bangzclips.com",
+			"rxdrugsonline.net",
+			"eurobolic.ru",
+			"autoab.ru",
+			"yadoedu.ru",
+			"mfk18.ru",
+			"dom-pod-kljuch.ru",
+			"silkroad-pharmacy.net",
+			"apovuz-spb.ru",
+			"12160.info",
+			"sexyvids.top",
+			"0x.ca",
+			"info-kino.ru"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 24.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "sc.sublime-project",
+	"replace":
+	{
+		"height": 44.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 259.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

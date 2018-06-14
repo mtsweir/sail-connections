@@ -6775,11 +6775,12 @@ section *:last-child {
 
 .carousel {
   height: 250px;
-  background-color: #0a0a0a; }
+  background-color: #e6e6e6; }
 
 .carousel-cell {
-  width: 50%;
+  width: 33%;
   height: 100%;
+  margin-right: 1px;
   text-align: center; }
 
 /* .is-fullscreen added to carousel when fullscreen size cells to full height when fullscreen */
