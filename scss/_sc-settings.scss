@@ -17,13 +17,18 @@ $color-grey-medium: #727272;
 
 // Typography
 $font-weight-bold: 700;
+$font-weight-normal: 400;
 $text-uppercase: uppercase;
 
 // UI Components
 $border-radius-circle: 50%;
 
-// Hero Banner
-// Banner heights set at responsive breakpoints
+// Icons
+$icon-font: 'sc-icons';
+
+// Content
+
+// Hero Banner - banner heights set at responsive breakpoints
 $hero-image-sm: 250px; // Default
 $hero-image-md: 300px; // 480px
 $hero-image-lg: 480px; // 768px

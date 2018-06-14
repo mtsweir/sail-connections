@@ -1,10 +1,11 @@
 // Global Variables
-@import 'sc-src/settings';
+@import 'sc-settings';
 
 // Base Theme
 @import 'sc-src/base';
 
 // Components
+@import 'sc-src/accordion';
 @import 'sc-src/banner';
 @import 'sc-src/buttons';
 @import 'sc-src/footer';
@@ -12,3 +13,5 @@
 @import 'sc-src/icons';
 @import 'sc-src/offcanvas';
 @import 'sc-src/tabs';
+@import 'sc-src/typography';
+@import 'sc-src/utilites';
