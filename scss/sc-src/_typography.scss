@@ -1,0 +1,19 @@
+// Typography
+// ----------
+
+h3 {
+  color: $primary-color;
+}
+
+.text-lead {
+  font-size: 1.25rem;
+}
+
+// Blockquotes
+
+blockquote {
+  cite {
+    padding-top: 1rem;
+    font-size: initial;
+  }
+}

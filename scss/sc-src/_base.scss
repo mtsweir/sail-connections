@@ -1,44 +1,35 @@
-//  Base Theme
+// Base
+// ----
 //
-// Typography
 // Sections
-// Content
+// Info Boxes
+// Lists
 //
-
-// Typography
-// ----------
-
-h3 {
-  color: $primary-color;
-}
-
-.text-lead {
-  font-size: 1.25rem;
-}
-
 
 // Sections
-// --------
 
-section *:last-child {
-  margin-bottom: 0; // remove padding from last child
-}
+// section *:last-child {
+//   margin-bottom: 0;
+// }
 
-// Feature Sections
+// CTA Content
 
-.section-intro,
-.section-cta {
+.content-cta {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 40px;
-  max-width: 40em;
+	max-width: 40em;
+
+	.button {
+		margin-top: 1rem;
+	}
 }
 
-.section-cta {
-  .button {
-    margin-top: 1rem;
-  }
+.button.cta-button {
+	margin-top: 1rem;
 }
+
+// dssdsd
 
 .section-feature {
   padding-top: 4rem;
@@ -59,8 +50,7 @@ section *:last-child {
 .section-inverse {
   color: $color-white;
 
-  .section-feature-title,
-  .section-feature-subtitle {
+  .content-cta-title {
     color: $color-white;
   }
 }
@@ -87,8 +77,33 @@ section *:last-child {
 
 }
 
-// Content
-// -------
+
+// Info Boxes
+
+.feature-box {
+  margin-bottom: 2rem;
+  padding: 1.125rem;
+  background-color: $light-gray;
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  p {
+    font-weight: $font-weight-bold;
+  }
+}
+
+.sc-carousel {
+  margin-bottom: 2rem;
+}
+
+
+// Lists
 
 .overview-list {
   display: flex;
@@ -122,34 +137,6 @@ section *:last-child {
     }
   }
 }
-
-
-// Info Boxes
-
-.feature-box {
-  margin-bottom: 2rem;
-  padding: 1.125rem;
-  background-color: $light-gray;
-
-  > :first-child {
-    margin-top: 0;
-  }
-
-  > :last-child {
-    margin-bottom: 0;
-  }
-
-  p {
-    font-weight: $font-weight-bold;
-  }
-}
-
-.sc-carousel {
-  margin-bottom: 2rem;
-}
-
-
-// Lists
 
 .list-inline {
   li {
