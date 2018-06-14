@@ -1,37 +1,60 @@
-// Hero Banner
-// -----------
+// Banners
+// -------
+
+// 1. fallback for old browsers
+// 2. Chrome 10-25, Safari 5.1-6
+// 3. W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+
 
 .hero {
   position: relative;
   height: $hero-image-sm;
-  color: $primary-color;
+  color: $color-white;
   background-color: $dark-gray;
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: auto 100%;
-  overflow: hidden;
+	overflow: hidden;
+	
+	&::after {
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background: $black; // 1
+		background: -webkit-linear-gradient(0deg, rgba($black, 0.7) 0%, rgba($black, 0) 60%); // 2
+		background: linear-gradient(0deg, rgba($black, 0.7) 0%, rgba($black, 0) 60%); // 3
+	}
+}
+
+// Secondary banner height with default image
+
+.hero.hero-secondary {
+	height: 250px;
 }
 
 // Hero Sizes
-@media screen and (min-width: 480px) {
+
+@media screen and (min-width: $breakpoint-xs) {
   .hero {
     height: $hero-image-md;
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $breakpoint-md) {
   .hero {
     height: $hero-image-lg;
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: $breakpoint-xxl) {
   .hero {
     height: $hero-image-xl;
   }
 }
 
-@media screen and (min-width: 1600px) {
+@media screen and (min-width: $breakpoint-max) {
   .hero {
     background-size: cover;
   }
@@ -40,7 +63,7 @@
 .hero .content {
   position: absolute;
   bottom: 0;
-  padding-bottom: 80px;
+  padding-bottom: 60px;
 }
 
 .hero-title-wrap {
@@ -64,6 +87,24 @@
 
 .hero-title {
   position: relative;
-  margin: 0;
+	margin: 0;
+	font-size: 1.75rem;
+	line-height: 1.25;
   z-index: 2;
+}
+
+@media screen and (min-width: $breakpoint-md) {
+
+	.hero-title {
+		font-size: 2.5rem;
+	}
+
+}
+
+@media screen and (min-width: $breakpoint-lg) {
+
+	.hero-title {
+		font-size: 3rem;
+	}
+
 }

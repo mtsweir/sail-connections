@@ -26,9 +26,17 @@ $border-radius-circle: 50%;
 // Icons
 $icon-font: 'sc-icons';
 
-// Content
+// Media Queries
+$breakpoint-min: 20em;   // 320px
+$breakpoint-xs: 30em;    // 480px
+$breakpoint-sm: 40em;    // 640px
+$breakpoint-md: 48em;    // 768px
+$breakpoint-lg: 60em;    // 960px
+$breakpoint-xl: 64em;    // 1024px
+$breakpoint-xxl: 75em;   // 1200px
+$breakpoint-max: 87.5em; // 1400px
 
-// Hero Banner - banner heights set at responsive breakpoints
+// Banners - banner heights set at responsive breakpoints
 $hero-image-sm: 250px; // Default
 $hero-image-md: 300px; // 480px
 $hero-image-lg: 480px; // 768px

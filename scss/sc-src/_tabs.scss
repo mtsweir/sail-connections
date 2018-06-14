@@ -51,7 +51,7 @@
 	margin-bottom: 1.25rem;
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: $breakpoint-sm) {
 
 	.page-tabs {
 		position: relative;
@@ -65,7 +65,7 @@
 
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $breakpoint-md) {
 
 	.tabs-title {
 		a {
