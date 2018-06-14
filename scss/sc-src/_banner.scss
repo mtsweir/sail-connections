@@ -1,9 +1,11 @@
 // Banners
 // -------
-
+//
+/// Gradient generator: https://cssgradient.io/
 // 1. fallback for old browsers
 // 2. Chrome 10-25, Safari 5.1-6
 // 3. W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+
+// 4. Secondary banner height with default image
 
 .hero {
   position: relative;
@@ -28,62 +30,11 @@
 	}
 }
 
-// Secondary banner height with default image
-
 .hero.hero-secondary {
-	height: 250px;
+	height: 250px; // 4
 }
 
-// Hero Sizes
-
-@media screen and (min-width: $breakpoint-xs) {
-  .hero {
-    height: $hero-image-md;
-  }
-}
-
-@media screen and (min-width: $breakpoint-md) {
-  .hero {
-    height: $hero-image-lg;
-  }
-}
-
-@media screen and (min-width: $breakpoint-xxl) {
-  .hero {
-    height: $hero-image-xl;
-  }
-}
-
-@media screen and (min-width: $breakpoint-max) {
-  .hero {
-    background-size: cover;
-  }
-}
-
-.hero .content {
-  position: absolute;
-  bottom: 0;
-  padding-bottom: 60px;
-}
-
-.hero-title-wrap {
-  position: relative;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-right: 40px;
-  // &::after {
-  //   content: '';
-  //   position: absolute;
-  //   top: 0;
-  //   right: 0;
-  //   bottom: 0;
-  //   left: 0;
-  //   width: 100%;
-	//   height: 100%;
-  //   background-color: rgba($color-white, 0.7);
-  //   z-index: 1;
-  // }
-}
+// Banner Content
 
 .hero-title {
   position: relative;
@@ -93,7 +44,28 @@
   z-index: 2;
 }
 
+.hero .content {
+  position: absolute;
+  bottom: 0;
+  padding-bottom: 30px;
+}
+
+
+@media screen and (min-width: $breakpoint-xs) {
+  .hero {
+    height: $hero-image-md;
+  }
+}
+
 @media screen and (min-width: $breakpoint-md) {
+
+  .hero {
+		height: $hero-image-lg;
+
+		.content {
+			padding-bottom: 80px;
+		}
+	}
 
 	.hero-title {
 		font-size: 2.5rem;
@@ -108,3 +80,34 @@
 	}
 
 }
+
+@media screen and (min-width: $breakpoint-xxl) {
+  .hero {
+    height: $hero-image-xl;
+  }
+}
+
+@media screen and (min-width: $breakpoint-max) {
+  .hero {
+    background-size: cover;
+  }
+}
+
+//.hero-title-wrap {
+  //position: relative;
+  //padding-top: 8px;
+  //padding-bottom: 8px;
+  //padding-right: 40px;
+  // &::after {
+  //   content: '';
+  //   position: absolute;
+  //   top: 0;
+  //   right: 0;
+  //   bottom: 0;
+  //   left: 0;
+  //   width: 100%;
+	//   height: 100%;
+  //   background-color: rgba($color-white, 0.7);
+  //   z-index: 1;
+  // }
+//}
