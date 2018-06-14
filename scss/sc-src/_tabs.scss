@@ -5,17 +5,17 @@
 	padding-top: 2rem;
 
   .tabs {
-    border: 0;
+		border: 0;
   }
 
   .tabs-content {
-    padding-top: 2.625rem;
-    padding-bottom: 2rem;
-    border: 0;
+		padding-top: 2.625rem;
+		padding-bottom: 2rem;
+		border: 0;
   }
 
   .tabs-panel {
-    padding: 0;
+		padding: 0;
   }
 }
 
@@ -24,44 +24,57 @@
 
 .tabs-title {
   a {
-    padding-top: 0;
-    padding-bottom: 0;
-    height: 45px;
-    color: $black;
-    text-transform: uppercase;
-    font-weight: $font-weight-bold;
-    font-size: 0.875rem;
-    letter-spacing: 0.05rem;
-    line-height: 45px;
-  }
+		padding: 0 0.75rem 0;
+		height: 45px;
+		color: $black;
+		text-transform: uppercase;
+		font-weight: $font-weight-bold;
+		font-size: 0.875rem;
+		letter-spacing: 0.05rem;
+		line-height: 45px;
+	}
 
   & + .tabs-title {
-    margin-left: 10px;
-  }
+		margin-left: 0.25rem;
+	}
 
   > a[aria-selected='false'] {
-    background: rgba($color-white, 0.7);
-  }
+		background: rgba($color-white, 0.7);
+	}
 
   > a:hover[aria-selected='false'] {
-    background-color: $color-white;
-  }
+		background-color: $color-white;
+	}
 }
 
 .tabs-panel-title {
-  margin-bottom: 1.25rem;
+	margin-bottom: 1.25rem;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 640px) {
 
 	.page-tabs {
-  	position: relative;
+		position: relative;
 		margin-top: -45px;
 		padding-top: 0;
 	}
 
 	.tabs-panel-title {
 		text-align: center;
+	}
+
+}
+
+@media screen and (min-width: 768px) {
+
+	.tabs-title {
+		a {
+			padding: 0 1.5rem 0;
+		}
+
+		& + .tabs-title {
+			margin-left: 0.5rem;
+		}
 	}
 
 }
