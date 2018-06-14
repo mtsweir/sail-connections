@@ -1,0 +1,52 @@
+// Accordion
+// ---------
+
+.accordion-item {
+	border-top: 1px solid $medium-gray;
+
+	&.is-active > .accordion-title::before {
+		content: "\e907"; // sc-icon-angle-down
+		color: $dark-gray;
+	}
+
+	&:last-child > .accordion-content:last-child {
+		border-bottom: 0;
+	}
+}
+
+// Accordion titles styled same as tabs
+.accordion-title {
+	padding-left: 0;
+	padding-right: 0;
+	color: $black;
+	text-transform: uppercase;
+	font-weight: $font-weight-bold;
+	font-size: 0.875rem;
+	letter-spacing: 0.05rem;
+
+	&::before {
+		content: "\e908"; // sc-icon-angle-up
+		top: 1.5rem;
+		right: 0;
+		color: $dark-gray;
+		font-family: $icon-font;
+		font-size: 1.5rem;
+		font-weight: $font-weight-normal;
+	}
+
+	&:hover, &:focus {
+		background-color: transparent;
+	}
+
+}
+
+.accordion-content {
+	padding: 0 0 2rem;
+}
+
+// Border resets
+.accordion-title,
+:last-child:not(.is-active) > .accordion-title,
+.accordion-content {
+	border: 0;
+}
