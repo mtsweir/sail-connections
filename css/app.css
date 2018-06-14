@@ -6370,23 +6370,15 @@ ol.list-upper-roman {
 .long-delay {
   animation-delay: 700ms !important; }
 
-h3 {
-  color: #005593; }
-
-.text-lead {
-  font-size: 1.25rem; }
-
-section *:last-child {
-  margin-bottom: 0; }
-
-.section-intro,
-.section-cta {
+.content-cta {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 40px;
   max-width: 40em; }
+  .content-cta .button {
+    margin-top: 1rem; }
 
-.section-cta .button {
+.button.cta-button {
   margin-top: 1rem; }
 
 .section-feature {
@@ -6401,8 +6393,7 @@ section *:last-child {
 
 .section-inverse {
   color: #fff; }
-  .section-inverse .section-feature-title,
-  .section-inverse .section-feature-subtitle {
+  .section-inverse .content-cta-title {
     color: #fff; }
 
 .section-feature-image {
@@ -6418,6 +6409,20 @@ section *:last-child {
     text-align: left; }
     .section-cta-inline .cell-buttons {
       text-align: right; } }
+
+.feature-box {
+  margin-bottom: 2rem;
+  padding: 1.125rem;
+  background-color: #e6e6e6; }
+  .feature-box > :first-child {
+    margin-top: 0; }
+  .feature-box > :last-child {
+    margin-bottom: 0; }
+  .feature-box p {
+    font-weight: 700; }
+
+.sc-carousel {
+  margin-bottom: 2rem; }
 
 .overview-list {
   display: flex;
@@ -6438,20 +6443,6 @@ section *:last-child {
     flex-basis: auto; }
   .overview-list dt {
     padding-left: 3rem; } }
-
-.feature-box {
-  margin-bottom: 2rem;
-  padding: 1.125rem;
-  background-color: #e6e6e6; }
-  .feature-box > :first-child {
-    margin-top: 0; }
-  .feature-box > :last-child {
-    margin-bottom: 0; }
-  .feature-box p {
-    font-weight: 700; }
-
-.sc-carousel {
-  margin-bottom: 2rem; }
 
 .list-inline li {
   display: inline-block; }
@@ -6491,6 +6482,41 @@ section *:last-child {
     -webkit-column-count: 2;
     -moz-column-count: 2;
     column-count: 2; } }
+
+.accordion-item {
+  border-top: 1px solid #cacaca; }
+  .accordion-item.is-active > .accordion-title::before {
+    content: "\e907";
+    color: #8a8a8a; }
+  .accordion-item:last-child > .accordion-content:last-child {
+    border-bottom: 0; }
+
+.accordion-title {
+  padding-left: 0;
+  padding-right: 0;
+  color: #0a0a0a;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.05rem; }
+  .accordion-title::before {
+    content: "\e908";
+    top: 1.5rem;
+    right: 0;
+    color: #8a8a8a;
+    font-family: "sc-icons";
+    font-size: 1.5rem;
+    font-weight: 400; }
+  .accordion-title:hover, .accordion-title:focus {
+    background-color: transparent; }
+
+.accordion-content {
+  padding: 0 0 2rem; }
+
+.accordion-title,
+:last-child:not(.is-active) > .accordion-title,
+.accordion-content {
+  border: 0; }
 
 .hero {
   position: relative;
@@ -6535,6 +6561,7 @@ section *:last-child {
   z-index: 2; }
 
 .button {
+  margin: 0;
   text-transform: uppercase; }
   .button.secondary, .button.button-secondary-2 {
     color: #fff; }
@@ -6682,8 +6709,14 @@ section *:last-child {
 .sc-icon-mail:before {
   content: "\e905"; }
 
-.sc-icon-tick:before {
+.sc-icon-check:before {
   content: "\e906"; }
+
+.sc-icon-angle-down:before {
+  content: "\e907"; }
+
+.sc-icon-angle-up:before {
+  content: "\e908"; }
 
 .sc-icon-instagram:before {
   content: "\e904"; }
@@ -6738,6 +6771,17 @@ section *:last-child {
 .js-off-canvas-overlay {
   background: rgba(10, 10, 10, 0.2); }
 
+.page-tabs {
+  padding-top: 2rem; }
+  .page-tabs .tabs {
+    border: 0; }
+  .page-tabs .tabs-content {
+    padding-top: 2.625rem;
+    padding-bottom: 2rem;
+    border: 0; }
+  .page-tabs .tabs-panel {
+    padding: 0; }
+
 .tabs-title a {
   padding-top: 0;
   padding-bottom: 0;
@@ -6761,17 +6805,29 @@ section *:last-child {
 .tabs-panel-title {
   margin-bottom: 1.25rem; }
 
-.content-tabs {
-  position: relative;
-  margin-top: -45px; }
-  .content-tabs .tabs {
-    border: 0; }
-  .content-tabs .tabs-content {
-    padding-top: 2.625rem;
-    padding-bottom: 2rem;
-    border: 0; }
-  .content-tabs .tabs-panel {
-    padding: 0; }
+@media screen and (min-width: 768px) {
+  .page-tabs {
+    position: relative;
+    margin-top: -45px;
+    padding-top: 0; }
+  .tabs-panel-title {
+    text-align: center; } }
+
+h3 {
+  color: #005593; }
+
+.text-lead {
+  font-size: 1.25rem; }
+
+blockquote cite {
+  padding-top: 1rem;
+  font-size: initial; }
+
+.cell-center {
+  align-self: center; }
+
+.mx-auto {
+  margin: 0 auto; }
 
 .carousel {
   height: 250px;
