@@ -1,10 +1,8 @@
 // Buttons
 // -------
 
-/// Background color on hover for buttons.
-// $button-background-hover: scale-color($button-background, $lightness: -15%) !default;
-
 .button {
+	margin: 0;
   text-transform: uppercase;
 
   &.secondary,

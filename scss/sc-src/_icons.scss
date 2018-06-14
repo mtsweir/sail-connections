@@ -1,9 +1,9 @@
-// Icons v1.0
+// Icons v1.1
 // ----------
+// Preserve original iconmoon icon names for reference where relevant.
 //
 // 1. Use !important to prevent issues with browser extensions that change fonts.
 // 2. Better Font Rendering.
-// 3. Preserve original icon names for reference where relevant.
 //
 
 @font-face {
@@ -32,13 +32,23 @@
 // Font Awesome Icons
 
 .sc-icon-menu:before {
-  content: "\e900"; // 3 - sc-icon-bars
+  content: "\e900"; // sc-icon-bars
 }
+
 .sc-icon-mail:before {
-  content: "\e905"; // 3 - sc-icon-envelope 
+  content: "\e905"; // sc-icon-envelope 
 }
-.sc-icon-tick:before {
-  content: "\e906"; // 3 - sc-icon-check
+
+.sc-icon-check:before {
+  content: "\e906";
+}
+
+.sc-icon-angle-down:before {
+  content: "\e907";
+}
+
+.sc-icon-angle-up:before {
+  content: "\e908";
 }
 
 // Iconmoon Free Icons
