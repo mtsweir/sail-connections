@@ -189,3 +189,25 @@
   }
 
 }
+
+.spec-list li {
+  margin-bottom: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid $light-gray;
+
+  span {
+    font-weight: bold;
+  }
+  
+}
+
+@media screen and (min-width: $breakpoint-sm) {
+
+.spec-list {
+   column-count: 2;
+   column-gap: 20px;
+   column-count: 2;
+   column-gap : 20px;
+}
+
+}
