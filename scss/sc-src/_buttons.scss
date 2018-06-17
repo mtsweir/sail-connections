@@ -24,7 +24,17 @@
   }
 }
 
-// Button with Icons
+// Form button custom width
+
+.form-button {
+	min-width: 100%;
+}
+
+@media screen and (min-width: $breakpoint-sm) {
+	.form-button {
+		min-width: 320px;
+	}
+}
 
 // Button with icon before text label
 .button-icon-left {
