@@ -1,0 +1,20 @@
+// Modals
+// ------
+
+.sc-modal {
+
+	.lead {
+		margin-bottom: 0;
+	}
+
+	// Offset forms from content above
+	form {
+		margin-top: 1.5rem;
+	}
+}
+
+@media screen and (min-width: $breakpoint-md) {
+	.sc-modal {
+		padding: 2rem 3rem 2.5rem;
+	}
+}

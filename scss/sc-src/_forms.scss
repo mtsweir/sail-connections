@@ -1,0 +1,15 @@
+// Forms
+//
+// Labels
+//
+
+// Labels
+label {
+	color: $color-dark-grey;
+}
+
+// Input Text
+// Reset default appearance on Mobile Safari, add more as needed
+input[type='text'], [type='password'], [type='email'], [type='number'], [type='search'], [type='tel'], [type='time'], textarea, select {
+	-webkit-appearance: none;
+}
