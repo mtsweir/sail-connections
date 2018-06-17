@@ -2951,21 +2951,19 @@ textarea {
   border: 1px solid #cacaca;
   border-radius: 0;
   background-color: #fefefe;
-  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
   font-family: inherit;
   font-size: 1rem;
   font-weight: normal;
   line-height: 1.5;
   color: #0a0a0a;
-  transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out;
   appearance: none; }
   [type='text']:focus, [type='password']:focus, [type='date']:focus, [type='datetime']:focus, [type='datetime-local']:focus, [type='month']:focus, [type='week']:focus, [type='email']:focus, [type='number']:focus, [type='search']:focus, [type='tel']:focus, [type='time']:focus, [type='url']:focus, [type='color']:focus,
   textarea:focus {
     outline: none;
     border: 1px solid #8a8a8a;
     background-color: #fefefe;
-    box-shadow: 0 0 5px #cacaca;
-    transition: box-shadow 0.5s, border-color 0.25s ease-in-out; }
+    transition: border-color 0.25s ease-in-out; }
 
 textarea {
   max-width: 100%; }
@@ -3108,7 +3106,6 @@ select {
   padding: 0.5rem;
   appearance: none;
   border: 1px solid #cacaca;
-  border-radius: 0;
   background-color: #fefefe;
   font-family: inherit;
   font-size: 1rem;
@@ -3121,7 +3118,7 @@ select {
   background-repeat: no-repeat;
   background-size: 9px 6px;
   padding-right: 1.5rem;
-  transition: box-shadow 0.5s, border-color 0.25s ease-in-out; }
+  transition: border-color 0.25s ease-in-out; }
   @media screen and (min-width: 0\0) {
     select {
       background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAYCAYAAACbU/80AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAIpJREFUeNrEkckNgDAMBBfRkEt0ObRBBdsGXUDgmQfK4XhH2m8czQAAy27R3tsw4Qfe2x8uOO6oYLb6GlOor3GF+swURAOmUJ+RwtEJs9WvTGEYxBXqI1MQAZhCfUQKRzDMVj+TwrAIV6jvSUEkYAr1LSkcyTBb/V+KYfX7xAeusq3sLDtGH3kEGACPWIflNZfhRQAAAABJRU5ErkJggg=="); } }
@@ -3130,7 +3127,7 @@ select {
     border: 1px solid #8a8a8a;
     background-color: #fefefe;
     box-shadow: 0 0 5px #cacaca;
-    transition: box-shadow 0.5s, border-color 0.25s ease-in-out; }
+    transition: border-color 0.25s ease-in-out; }
   select:disabled {
     background-color: #e6e6e6;
     cursor: not-allowed; }
@@ -6599,6 +6596,13 @@ ol.list-upper-roman {
       background-color: #008bbf;
       color: #fff; }
 
+.form-button {
+  min-width: 100%; }
+
+@media screen and (min-width: 40em) {
+  .form-button {
+    min-width: 320px; } }
+
 .button-icon-left i {
   margin-right: 0.25rem;
   vertical-align: middle; }
@@ -6634,6 +6638,12 @@ ol.list-upper-roman {
     line-height: 1;
     background-color: #fff;
     border-radius: 50%; }
+
+label {
+  color: #373a3c; }
+
+input[type='text'], [type='password'], [type='email'], [type='number'], [type='search'], [type='tel'], [type='time'], textarea, select {
+  -webkit-appearance: none; }
 
 .top-bar {
   padding: 0.75rem 1rem;
@@ -6746,6 +6756,16 @@ ol.list-upper-roman {
 
 .sc-icon-facebook:before {
   content: "\e903"; }
+
+.sc-modal .lead {
+  margin-bottom: 0; }
+
+.sc-modal form {
+  margin-top: 1.5rem; }
+
+@media screen and (min-width: 48em) {
+  .sc-modal {
+    padding: 2rem 3rem 2.5rem; } }
 
 .sc-off-canvas {
   padding: 3rem 1.5rem 1.5rem;
