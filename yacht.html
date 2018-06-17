@@ -1,29 +1,29 @@
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yacht</title>
-  <link rel="stylesheet" href="css/app.css">
-  <link rel="stylesheet" href="node_modules/flickity/dist/flickity.min.css" media="screen">
-  <link rel="stylesheet" href="node_modules/flickity-fullscreen/fullscreen.css" media="screen">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-  <!-- Hero images -->
-  <style>
-    .hero {
-      background-image: url(../img/banners/hero-sm.jpg);
-    }
-    @media screen and (min-width: 480px) {
-      .hero { background-image: url(../img/banners/hero-md.jpg); }
-    }
-    @media screen and (min-width: 768px) {
-      .hero { background-image: url(../img/banners/hero-lg.jpg); }
-    }
-    @media screen and (min-width: 1200px) {
-      .hero { background-image: url(../img/banners/hero-xl.jpg); }
-    }
-  </style>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Yacht</title>
+	<link rel="stylesheet" href="css/app.css">
+	<link rel="stylesheet" href="node_modules/flickity/dist/flickity.min.css" media="screen">
+	<link rel="stylesheet" href="node_modules/flickity-fullscreen/fullscreen.css" media="screen">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<!-- Hero images -->
+	<style>
+		.hero {
+			background-image: url(../img/banners/hero-sm.jpg);
+		}
+		@media screen and (min-width: 480px) {
+			.hero { background-image: url(../img/banners/hero-md.jpg); }
+		}
+		@media screen and (min-width: 768px) {
+			.hero { background-image: url(../img/banners/hero-lg.jpg); }
+		}
+		@media screen and (min-width: 1200px) {
+			.hero { background-image: url(../img/banners/hero-xl.jpg); }
+		}
+	</style>
 </head>
 <body>
   
@@ -105,7 +105,7 @@
     <div class="top-bar-right">
       <ul class="menu">
         <li>
-          <a class="button button-secondary-2 button-icon-left" href="#">
+          <a class="button button-secondary-2 button-icon-left" href="#" data-open="exampleModal1">
             <i class="sc-icon-mail" aria-hidden="true"></i>
             <span class="button-text">Enquire</span>
           </a>
@@ -333,6 +333,79 @@
 </footer>
 
 </div><!-- END Off-canvas Content -->
+
+<!-- Modal -->
+<div class="reveal large sc-modal" id="exampleModal1" data-reveal>
+	<p class="lead">Enquire about this yacht</p>
+	<p class="subheader">Receive a personalized proposal with boat, cost and extra options as applicable.</p>
+
+	<form>
+		<div class="grid-container full">
+			<div class="grid-x grid-margin-x">
+				<div class="medium-4 cell">
+					<label>First Name:
+						<input type="text" placeholder="First name">
+					</label>
+				</div>
+				<div class="medium-4 cell">
+					<label>Last Name:
+						<input type="text" placeholder="Last name">
+					</label>
+				</div>
+				<div class="medium-4 cell">
+					<label>Email Address:
+						<input type="text" placeholder="Email address">
+					</label>
+				</div>
+				<div class="medium-4 cell">
+					<label>Your Phone Number:
+						<input type="text" placeholder="Phone number">
+					</label>
+				</div>
+				<div class="medium-4 cell">
+					<label>Charter Destination:
+						<input type="text" placeholder="Charter destination">
+					</label>
+				</div>
+				<div class="medium-4 cell">
+					<label>Yacht Preference:
+						<select>
+							<option selected disabled>Please select...</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select>
+					</label>
+				</div>
+				<div class="medium-4 cell">
+					<label>When and for how long:
+						<input type="text" placeholder="When and for how long">
+					</label>
+				</div>
+				<div class="medium-4 cell">
+					<label>Your Budget:
+						<input type="text" placeholder="Your budget">
+					</label>
+				</div>
+				<div class="cell">
+					<label>
+						 Comments:
+						<textarea rows="4"></textarea>
+					</label>
+				</div>
+				<div class="cell">
+					<button class="button secondary form-button">Send Request</button>
+				</div>
+			</div>
+		</div>
+	</form>
+
+
+	<button class="close-button" data-close aria-label="Close modal" type="button">
+		<span aria-hidden="true">&times;</span>
+	</button>
+</div>
+<!-- END Modal -->
 
 <!-- Core Scripts -->
 <script src="node_modules/jquery/dist/jquery.js"></script>
