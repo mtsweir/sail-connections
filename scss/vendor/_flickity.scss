@@ -1,7 +1,10 @@
 // Flickity
+// --------
 // https://flickity.metafizzy.co/style.html
 //
+//
 
+// Settings
 .carousel {
   height: 250px;
   background-color: $light-gray;
@@ -42,4 +45,81 @@
     width: 33.3333%;
   }
 
+}
+
+
+// Hero Carousel
+
+.hero-carousel {
+	background: $color-secondary-4;
+
+	&::after {
+		content: none;
+	}
+
+	.hero-carousel-cell::after {
+		@extend .hero::after;
+	}
+
+	// set image widths to fill container
+	img {
+		width: 100%;
+		height: auto;
+	}
+
+	// change positioning of dot nav to relative to achive line visuals
+	.flickity-page-dots {
+		left: 15%; right: 15%;
+		bottom: 20px;
+		width: auto;
+	}
+
+	// convert dots to lines
+	.flickity-page-dots .dot {
+		position: relative;
+		margin: 0;
+		width: 25%;
+		height: 4px;
+		background: transparent;
+		border-radius: 0;
+		opacity: 1;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0; bottom: 0;
+			left: 1px; right: 1px;
+			background: $color-grey-medium;
+		}
+	}
+
+	// Show active colour on hover
+	.flickity-page-dots .dot:hover::before {
+		background: $color-secondary-2;
+	}
+
+	// Active slide
+	.flickity-page-dots .dot.is-selected {
+		background: transparent;
+		&::before {
+			background: $color-secondary-2;
+		}
+	}
+}
+
+.hero-carousel-cell {
+  width: 100%;
+}
+
+.hero-carousel-cell-content {
+	position: absolute;
+	left: 15%; right: 15%;
+	bottom: 80px;
+	text-align: center;
+	z-index: 10;
+}
+
+// carousel content
+.hero-carousel-title {
+	color: $color-white;
 }
