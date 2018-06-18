@@ -53,12 +53,8 @@
 .hero-carousel {
 	background: $color-secondary-4;
 
-	&::after {
-		content: none;
-	}
-
-	.hero-carousel-cell::after {
-		@extend .hero::after;
+	.hero-carousel-cell {
+		@extend %pseudo-inner-shadow;
 	}
 
 	// set image widths to fill container
