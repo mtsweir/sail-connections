@@ -1,5 +1,14 @@
 // Buttons
 // -------
+//
+// Buttons
+// - icon before text label
+// - icon after text label
+// Form button
+//
+
+
+// Buttons
 
 .button {
 	margin: 0;
@@ -24,7 +33,24 @@
   }
 }
 
-// Form button custom width
+// -icon before text label
+
+.button-icon-left {
+  i {
+    margin-right: 0.25rem;
+    vertical-align: middle
+  }
+}
+
+// - icon after text label
+.button-icon-right {
+  i {
+    margin-left: 0.25rem;
+    vertical-align: middle
+  }
+}
+
+// Form button
 
 .form-button {
 	min-width: 100%;
@@ -34,20 +60,4 @@
 	.form-button {
 		min-width: 320px;
 	}
-}
-
-// Button with icon before text label
-.button-icon-left {
-  i {
-    margin-right: 0.25rem;
-    vertical-align: middle
-  }
-}
-
-// Button with icon after text label
-.button-icon-right {
-  i {
-    margin-left: 0.25rem;
-    vertical-align: middle
-  }
 }

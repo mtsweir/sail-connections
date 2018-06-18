@@ -1,7 +1,16 @@
 // Forms
 //
+// Legend
 // Labels
+// Input Text
 //
+
+
+// Legend
+legend.middle {
+	margin: 0 0 1rem;
+	padding: 0.5625rem 0;
+}
 
 // Labels
 label {
@@ -9,7 +18,7 @@ label {
 }
 
 // Input Text
-// Reset default appearance on Mobile Safari, add more as needed
+// 1. Reset default appearance on Mobile Safari, add more as needed
 input[type='text'], [type='password'], [type='email'], [type='number'], [type='search'], [type='tel'], [type='time'], textarea, select {
-	-webkit-appearance: none;
+	-webkit-appearance: none; // 1
 }

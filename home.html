@@ -9,21 +9,6 @@
 	<link rel="stylesheet" href="node_modules/flickity/dist/flickity.min.css" media="screen">
 	<link rel="stylesheet" href="node_modules/flickity-fullscreen/fullscreen.css" media="screen">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-	<!-- Hero images -->
-	<style>
-		.hero {
-			background-image: url(../img/banners/default-banner.jpg);
-		}
-		@media screen and (min-width: 480px) {
-			.hero { background-image: url(../img/banners/default-banner.jpg); }
-		}
-		@media screen and (min-width: 768px) {
-			.hero { background-image: url(../img/banners/default-banner.jpg); }
-		}
-		@media screen and (min-width: 1200px) {
-			.hero { background-image: url(../img/banners/default-banner-xl.jpg); }
-		}
-	</style>
 </head>
 <body>
   
@@ -121,74 +106,77 @@
   </div>
 </header>
 
-<section class="hero">
-  <div class="grid-container">
-    <div class="grid-x">
-      <div class="cell">
-        <div class="content">
-          <div class="hero-title-wrap">
-            <h1 class="hero-title">Lagoon 52, Bareboat Catamaran</h1>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="hero-carousel section-inverse" data-flickity>
+	<div class="hero-carousel-cell">
+		<div class="hero-carousel-cell-content">
+			<h3 class="hero-carousel-title">Slide label</h3>
+			<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+			<a href="https://www.google.co.nz" class="button secondary">Button</a>
+		</div>
+		<img src="img/banners/home-banner-1.png" alt="">
+	</div>
+	<div class="hero-carousel-cell">
+		<img src="img/banners/home-banner-1.png" alt="">
+	</div>
+	<div class="hero-carousel-cell">
+		<img src="img/banners/home-banner-1.png" alt="">
+	</div>
+	<div class="hero-carousel-cell">
+		<img src="img/banners/home-banner-1.png" alt="">
+	</div>
+</div>
+
+<section class="search section-inverse section-bg-secondary-4">
+	<form action="#">
+		<div class="grid-container">
+			<div class="grid-x">
+				<!-- <div class="cell medium-auto">
+					<legend class="text-right middle">Yacht Search</legend>
+				</div> -->
+				<div class="cell medium-auto">
+					<label for="searchDestination">Destination</label>
+					<select id="searchDestination">
+						<option selected disabled>Destination</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+					</select>
+				</div>
+				<div class="cell medium-auto">
+					<label for="searchYachtType">Yacht Type</label>
+					<select id="searchYachtType">
+						<option selected disabled>Yacht Type</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+					</select>
+				</div>
+				<div class="cell medium-auto">
+					<label for="searchCharterType">Charter Type</label>
+					<select id="searchCharterType">
+						<option selected disabled>Charter Type</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+					</select>
+				</div>
+				<div class="cell medium-4 large-3">
+					<label for="searchKeyword">Keyword</label>
+					<div class="input-group">
+						<input class="input-group-field" type="text" id="searchKeyword" placeholder="Keyword...">
+						<div class="input-group-button">
+							<input type="submit" class="button secondary" value="Search">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
 </section>
 
 <div class="grid-container">
   <div class="grid-x grid-padding-x">
     <div class="large-12 cell">
-
-      <section class="section-page-tabs page-tabs padding-bottom-3">
-        <ul class="tabs" data-active-collapse="true" data-responsive-accordion-tabs="tabs small-accordion medium-tabs large-tabs" id="page-tabs">
-          <li class="tabs-title is-active"><a href="#panelAbout" aria-selected="true">Overview</a></li>
-          <li class="tabs-title"><a href="#panelSpecifications">Specifications</a></li>
-          <li class="tabs-title"><a href="#panelSkipperedOptions">Skippered Options</a></li>
-          <li class="tabs-title"><a href="#paneCrewOptions">Crew Options</a></li>
-        </ul>        
-        <div class="tabs-content" data-tabs-content="page-tabs">
-          <div class="tabs-panel is-active" id="panelAbout">
-            <h3 class="tabs-panel-title">Lagoon 52, Bareboat Catamaran Charter</h3>
-            <p>As bareboat sailors have gained confidence, the boats available for charter have increased in size. The Lagoon 52 is one of those newer, high-volume catamarans with performance features that make the whole sailing experience pure luxury that everyone can enjoy in comfort. Good crew quarters make this model equally ideal as a crewed bareboat option. With a knowledgeable skipper and crew aboard, sit back, let someone else do most of the work, and truly relax on your sailing vacation.</p>
-            <div class="content feature-box">
-              <dl class="overview-list">
-                <dt>Length</dt>
-                <dd>52’ (15.8m)</dd>
-                <dt>Charter Type:</dt>
-                <dd>Bareboat</dd>
-                <dt>Guest Max:</dt>
-                <dd>8</dd>
-                <dt>Cabins:</dt>
-                <dd>4</dd>
-              </dl>
-            </div>
-
-            <div class="sc-carousel carousel" data-flickity='{"fullscreen": true, "lazyLoad": 2, "pageDots": false, "cellAlign": "left"}'>
-              <div class="carousel-cell"><img src="/img/banners/hero-sm.jpg" /></div>
-              <div class="carousel-cell"><img src="/img/banners/hero-sm.jpg" /></div>
-              <div class="carousel-cell"><img src="/img/banners/hero-sm.jpg" /></div>
-            </div>
-
-            <p>In creating the 52, the people at Lagoon have excelled, making innovative and sometimes radical choices to deliver elegance, comfort, user-friendliness and, it goes without saying, top cruising performance under sail.</p>
-            <p>The Lagoon 52 marks a new era in the design of blue water cruising catamarans. The decision to position the mast further aft adds a wide possibility of sail combinations to an already impressive performance. For over a decade now the Lagoon designers have gradually been moving their masts aft, thus centering weight more evenly and improving performance of the sail plan. The Lagoon 52 was one of the first cruising catamarans to benefit from this development.</p>
-            <p>The main objective in creating the Lagoon 52 has been to improve the use of space. Bright and comfortable living areas suggest a ‘just like home’ feel for guests on board. Use of continuous horizontal lines without interruption gives the interior fluent and harmonious open spaces, while outside the sleek lines bring elegance from stem to stern, with a focus on comfort and safety.</p>
-            <p>The 52F (Flybridge) and 52S (SporTop) distinguish the two above-deck layouts.</p>
-            <p>The Lagoon 52 is available bareboat, crewed bareboat, and in several locations permanently crewed for the ultimate luxury sailing holiday.</p>
-          </div>
-          <div class="tabs-panel" id="panelSpecifications">
-            <h3 class="tabs-panel-title">Specifications</h3>
-            <p>two</p>
-          </div>
-          <div class="tabs-panel" id="panelSkipperedOptions">
-            <h3 class="tabs-panel-title">Skippered Options</h3>
-            <p>three</p>
-          </div>
-          <div class="tabs-panel" id="paneCrewOptions">
-            <h3 class="tabs-panel-title">Crew Options</h3>
-            <p>four</p>
-          </div>
-        </div>
-      </section>
     
       <section class="section-cta-inline padding-bottom-3">
         <div class="grid-x content feature-box">
@@ -223,7 +211,7 @@
   </div><!-- grid-x grid-padding-x -->
 </div><!-- grid-container -->
 
-<section class="section-feature section-gray">
+<section class="section-feature section-bg-grey">
   <div class="grid-container">
     <div class="grid-x grid-padding-x">
       <div class="large-12 cell">
