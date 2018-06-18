@@ -9,21 +9,6 @@
 	<link rel="stylesheet" href="node_modules/flickity/dist/flickity.min.css" media="screen">
 	<link rel="stylesheet" href="node_modules/flickity-fullscreen/fullscreen.css" media="screen">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-	<!-- Hero images -->
-	<style>
-		.hero {
-			background-image: url(../img/banners/default-banner.jpg);
-		}
-		@media screen and (min-width: 480px) {
-			.hero { background-image: url(../img/banners/default-banner.jpg); }
-		}
-		@media screen and (min-width: 768px) {
-			.hero { background-image: url(../img/banners/default-banner.jpg); }
-		}
-		@media screen and (min-width: 1200px) {
-			.hero { background-image: url(../img/banners/default-banner-xl.jpg); }
-		}
-	</style>
 </head>
 <body>
   
@@ -121,19 +106,25 @@
   </div>
 </header>
 
-<section class="hero">
-  <div class="grid-container">
-    <div class="grid-x">
-      <div class="cell">
-        <div class="content">
-          <div class="hero-title-wrap">
-            <h1 class="hero-title">Lagoon 52, Bareboat Catamaran</h1>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<div class="hero-carousel section-inverse" data-flickity>
+	<div class="hero-carousel-cell">
+		<div class="hero-carousel-cell-content">
+			<h3 class="hero-carousel-title">Slide label</h3>
+			<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+			<a href="https://www.google.co.nz" class="button secondary">Button</a>
+		</div>
+		<img src="img/banners/home-banner-1.png" alt="">
+	</div>
+	<div class="hero-carousel-cell">
+		<img src="img/banners/home-banner-1.png" alt="">
+	</div>
+	<div class="hero-carousel-cell">
+		<img src="img/banners/home-banner-1.png" alt="">
+	</div>
+	<div class="hero-carousel-cell">
+		<img src="img/banners/home-banner-1.png" alt="">
+	</div>
+</div>
 
 <section class="search section-inverse section-bg-secondary-4">
 	<form action="#">
