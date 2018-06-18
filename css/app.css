@@ -5230,7 +5230,7 @@ a.thumbnail {
   .show-for-large-only {
     display: none !important; } }
 
-.show-for-sr,
+.show-for-sr, .search label,
 .show-on-focus {
   position: absolute !important;
   width: 1px;
@@ -6370,8 +6370,8 @@ ol.list-upper-roman {
 .content-cta {
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 40px;
-  max-width: 40em; }
+  margin-bottom: 1.25rem;
+  max-width: 50em; }
   .content-cta .button {
     margin-top: 1rem; }
 
@@ -6383,9 +6383,37 @@ ol.list-upper-roman {
   padding-bottom: 4rem; }
   .section-feature .content-overlay {
     padding: 2rem 3rem;
-    background-color: rgba(10, 10, 10, 0.35); }
+    background-color: rgba(10, 10, 10, 0.4); }
 
-.section-gray {
+.search {
+  margin-bottom: 3rem;
+  padding-top: 1rem;
+  background-color: #01266C; }
+  .search .input-group-field {
+    height: 2.4375rem; }
+
+@media screen and (max-width: 29.9375em) {
+  .search .input-group {
+    flex-wrap: wrap; }
+  .search .input-group-button {
+    flex: 1 0 100%; }
+  .search .button {
+    width: 100%;
+    height: 2.4375rem;
+    margin-top: 1rem; } }
+
+@media screen and (min-width: 30em) {
+  .search .input-group-button {
+    margin-left: 0.5rem; } }
+
+@media screen and (min-width: 40em) {
+  .search .cell + .cell {
+    margin-left: 0.5rem; } }
+
+.section-bg-secondary-4 {
+  background-color: #01266C; }
+
+.section-bg-grey {
   background-color: #e6e6e6; }
 
 .section-inverse {
@@ -6415,7 +6443,7 @@ ol.list-upper-roman {
     margin-top: 0; }
   .feature-box > :last-child {
     margin-bottom: 0; }
-  .feature-box p {
+  .feature-box span {
     font-weight: 700; }
 
 .sc-carousel {
@@ -6427,9 +6455,11 @@ ol.list-upper-roman {
   justify-content: center; }
   .overview-list dt {
     flex-basis: 50%;
-    padding-right: 0.5rem; }
+    padding-right: 0.5rem;
+    margin-bottom: 0; }
   .overview-list dd {
-    flex-basis: 50%; }
+    flex-basis: 50%;
+    margin-bottom: 0; }
 
 @media screen and (min-width: 40em) {
   .overview-list dt, .overview-list dd {
@@ -6465,7 +6495,11 @@ ol.list-upper-roman {
 .list-column {
   -webkit-column-gap: 2rem;
   -moz-column-gap: 2rem;
-  column-gap: 2rem; }
+  column-gap: 2rem;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  margin-top: 1rem;
+  padding-top: 1rem; }
   .list-column li {
     -webkit-column-break-inside: avoid;
     /* Chrome, Safari, Opera */
@@ -6479,6 +6513,20 @@ ol.list-upper-roman {
     -webkit-column-count: 2;
     -moz-column-count: 2;
     column-count: 2; } }
+
+.spec-list li {
+  margin-bottom: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e6e6e6; }
+  .spec-list li span {
+    font-weight: 700; }
+
+@media screen and (min-width: 40em) {
+  .spec-list {
+    column-count: 2;
+    column-gap: 20px;
+    column-count: 2;
+    column-gap: 20px; } }
 
 .accordion-item {
   border-top: 1px solid #cacaca; }
@@ -6552,17 +6600,27 @@ ol.list-upper-roman {
 
 @media screen and (min-width: 30em) {
   .hero {
-    height: 300px; } }
+    background-size: cover; } }
+
+@media screen and (min-width: 40em) {
+  .hero {
+    height: 250px; }
+    .hero .content {
+      padding-bottom: 70px; }
+  .hero-title {
+    font-size: 2rem; } }
 
 @media screen and (min-width: 48em) {
   .hero {
-    height: 480px; }
+    height: 300px; }
     .hero .content {
       padding-bottom: 80px; }
   .hero-title {
     font-size: 2.5rem; } }
 
 @media screen and (min-width: 60em) {
+  .hero {
+    height: 480px; }
   .hero-title {
     font-size: 3rem; } }
 
@@ -6596,13 +6654,6 @@ ol.list-upper-roman {
       background-color: #008bbf;
       color: #fff; }
 
-.form-button {
-  min-width: 100%; }
-
-@media screen and (min-width: 40em) {
-  .form-button {
-    min-width: 320px; } }
-
 .button-icon-left i {
   margin-right: 0.25rem;
   vertical-align: middle; }
@@ -6610,6 +6661,13 @@ ol.list-upper-roman {
 .button-icon-right i {
   margin-left: 0.25rem;
   vertical-align: middle; }
+
+.form-button {
+  min-width: 100%; }
+
+@media screen and (min-width: 40em) {
+  .form-button {
+    min-width: 320px; } }
 
 .footer {
   padding: 2.625rem 1rem;
@@ -6638,6 +6696,10 @@ ol.list-upper-roman {
     line-height: 1;
     background-color: #fff;
     border-radius: 50%; }
+
+legend.middle {
+  margin: 0 0 1rem;
+  padding: 0.5625rem 0; }
 
 label {
   color: #373a3c; }
@@ -6841,7 +6903,7 @@ input[type='text'], [type='password'], [type='email'], [type='number'], [type='s
 .tabs-panel-title {
   margin-bottom: 1.25rem; }
 
-@media screen and (min-width: 40em) {
+@media screen and (min-width: 64em) {
   .page-tabs {
     position: relative;
     margin-top: -45px;
@@ -6849,11 +6911,14 @@ input[type='text'], [type='password'], [type='email'], [type='number'], [type='s
   .tabs-panel-title {
     text-align: center; } }
 
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 64em) {
   .tabs-title a {
     padding: 0 1.5rem 0; }
   .tabs-title + .tabs-title {
     margin-left: 0.5rem; } }
+
+h2 {
+  color: #005593; }
 
 h3 {
   color: #005593; }
