@@ -6,6 +6,7 @@
 // 2. Chrome 10-25, Safari 5.1-6
 // 3. W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+
 // 4. Secondary banner height with default image
+// 5. Element is never the target of mouse events, ensures elements can still be clicked
 
 .hero {
   position: relative;
@@ -27,6 +28,7 @@
 		background: $black; // 1
 		background: -webkit-linear-gradient(0deg, rgba($black, 0.7) 0%, rgba($black, 0) 60%); // 2
 		background: linear-gradient(0deg, rgba($black, 0.7) 0%, rgba($black, 0) 60%); // 3
+		pointer-events: none; // 5
 	}
 }
 
