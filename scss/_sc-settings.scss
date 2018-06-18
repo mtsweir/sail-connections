@@ -1,5 +1,16 @@
 // Global Settings
 // ---------------
+//
+// Brand Colours
+// System Colours
+// Typography
+// UI Components
+// Icons
+// Media Queries
+// - max width
+// Banners
+//
+
 
 // Brand Colours
 $navy-blue: #005593;
@@ -37,7 +48,11 @@ $breakpoint-xl: 64em;    // 1024px
 $breakpoint-xxl: 75em;   // 1200px
 $breakpoint-max: 87.5em; // 1400px
 
-// Banners - banner heights set at responsive breakpoints
+// - max width
+$breakpoint-xs-down: 29.9375em; // 479px
+
+// Banners
+// banner heights set at responsive breakpoints
 $hero-image-sm: 250px; // Default
 $hero-image-md: 300px; // 480px
 $hero-image-lg: 480px; // 768px
