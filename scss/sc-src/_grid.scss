@@ -1,0 +1,51 @@
+// Grid
+// ----
+//
+// Grid Container
+// Grid Item
+//
+
+// Grid Container
+
+.card-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	grid-column-gap: $spacing-md; // x spacing
+	grid-row-gap: $spacing-lg; // y spacing
+	margin: $spacing-2xl 0;
+	text-align: center;
+}
+
+@media screen and (min-width: $breakpoint-md) {
+
+	.card-list-md-2 {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+}
+
+@media screen and (min-width: $breakpoint-xl) {
+
+	.card-list-lg-4 {
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+}
+
+// Grid Item
+
+.card {
+	img {
+		margin-bottom: $spacing-xs;
+	}
+
+	// add hover colour to card title
+	&:hover .card-title {
+		color: $anchor-color-hover;
+	}
+}
+
+.card-title {
+	color: $color-link;
+	font-size: 1rem;
+}
