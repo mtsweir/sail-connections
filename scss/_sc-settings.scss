@@ -25,6 +25,7 @@ $color-secondary-4: $dark-blue;
 $color-white: #fff;
 $color-dark-grey: #373a3c;
 $color-grey-medium: #727272;
+$color-light-grey: #f4f4f4;
 
 // Link Colours
 $color-link: $color-secondary-2;
@@ -37,6 +38,7 @@ $text-uppercase: uppercase;
 // UI Components
 $border-radius-circle: 50%;
 $tab-height: 45px;
+$panel-bg: $color-light-grey;
 
 // Icons
 $icon-font: 'sc-icons';
@@ -52,6 +54,8 @@ $breakpoint-2xl: 75em;   // 1200px
 $breakpoint-3xl: 87.5em; // 1400px
 
 $breakpoint-xs-down: 29.9375em; // 479px
+$breakpoint-sm-down: 39.938em;  // 630px
+$breakpoint-md-down: 47.938em;  // 767px
 
 // Banners - Heights set at responsive breakpoints
 $hero-image-sm: 250px; // Default

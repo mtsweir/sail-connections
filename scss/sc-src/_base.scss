@@ -26,7 +26,7 @@ section {
 }
 
 .section-bg-grey {
-  background-color: $light-gray;
+  background-color: $panel-bg;
 }
 
 .section-inverse {
@@ -48,9 +48,10 @@ section {
     background-color: rgba($black, 0.4); 
 	}
 	
-	.content-cta {
-		margin-bottom: 0;
-	}
+	// just commenting out for now
+	// .content-cta {
+	// 	margin-bottom: 0;
+	// }
 }
 
 .section-feature-image {
@@ -216,11 +217,11 @@ section {
 
 @media screen and (min-width: $breakpoint-sm) {
 
-.spec-list {
-   column-count: 2;
-   column-gap: 20px;
-   column-count: 2;
-   column-gap : 20px;
-}
+	.spec-list {
+		column-count: 2;
+		column-gap: 20px;
+		column-count: 2;
+		column-gap : 20px;
+	}
 
 }
