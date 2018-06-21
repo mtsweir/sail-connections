@@ -1,5 +1,18 @@
 // Typography
 // ----------
+//
+// Headers
+// Paragraphs
+// Blockquotes
+// Horizontal rule
+//
+
+* {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+// Headers
 
 h2 {
   color: $primary-color;
@@ -9,6 +22,8 @@ h3 {
   color: $primary-color;
 }
 
+// Paragraphs
+
 .text-lead {
   font-size: 1.25rem;
 }
@@ -17,7 +32,19 @@ h3 {
 
 blockquote {
   cite {
-    padding-top: 1rem;
+    padding-top: $spacing-md;
     font-size: initial;
   }
+}
+
+// Horizontal rule
+
+hr {
+	display: block;
+	margin: $spacing-2xl 0;
+	padding: 0;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid $medium-gray;
+	box-sizing: content-box;
 }

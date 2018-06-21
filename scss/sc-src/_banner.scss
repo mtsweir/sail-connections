@@ -90,14 +90,14 @@
 
 }
 
-@media screen and (min-width: $breakpoint-xxl) {
+@media screen and (min-width: $breakpoint-2xl) {
 
   .hero {
     height: $hero-image-xl;
   }
 }
 
-@media screen and (min-width: $breakpoint-max) {
+@media screen and (min-width: $breakpoint-3xl) {
   .hero {
     background-size: cover;
   }

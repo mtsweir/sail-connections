@@ -2,7 +2,7 @@
 // ------
 
 .footer {
-  padding: 2.625rem 1rem;
+  padding: $spacing-3xl $spacing-md;
   color: $color-white;
   text-transform: uppercase;
   background-color: $color-primary;
@@ -16,7 +16,7 @@
 
   li {
     & + li {
-      margin-left: 1rem;
+      margin-left: $spacing-md;
     }
   }
 }

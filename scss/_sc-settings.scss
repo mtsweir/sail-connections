@@ -3,14 +3,13 @@
 //
 // Brand Colours
 // System Colours
+// Link Colours
 // Typography
 // UI Components
 // Icons
 // Media Queries
-// - max width
 // Banners
 //
-
 
 // Brand Colours
 $navy-blue: #005593;
@@ -27,6 +26,9 @@ $color-white: #fff;
 $color-dark-grey: #373a3c;
 $color-grey-medium: #727272;
 
+// Link Colours
+$color-link: $color-secondary-2;
+
 // Typography
 $font-weight-bold: 700;
 $font-weight-normal: 400;
@@ -39,21 +41,31 @@ $border-radius-circle: 50%;
 $icon-font: 'sc-icons';
 
 // Media Queries
-$breakpoint-min: 20em;   // 320px
+$breakpoint-2xs: 20em;   // 320px
 $breakpoint-xs: 30em;    // 480px
 $breakpoint-sm: 40em;    // 640px
 $breakpoint-md: 48em;    // 768px
 $breakpoint-lg: 60em;    // 960px
 $breakpoint-xl: 64em;    // 1024px
-$breakpoint-xxl: 75em;   // 1200px
-$breakpoint-max: 87.5em; // 1400px
+$breakpoint-2xl: 75em;   // 1200px
+$breakpoint-3xl: 87.5em; // 1400px
 
-// - max width
 $breakpoint-xs-down: 29.9375em; // 479px
 
-// Banners
-// banner heights set at responsive breakpoints
+// Banners - Heights set at responsive breakpoints
 $hero-image-sm: 250px; // Default
 $hero-image-md: 300px; // 480px
 $hero-image-lg: 480px; // 768px
 $hero-image-xl: 600px; // 1200px
+
+// Spacing
+$spacing-3xs: 0.125rem; // 2px
+$spacing-2xs: 0.25rem;  // 4px
+$spacing-xs: 0.5rem;    // 8px
+$spacing-sm: 0.75rem;   // 12px
+$spacing-md: 1rem;      // 16px
+$spacing-lg: 1.5rem;    // 24px
+$spacing-xl: 2rem;      // 32px
+$spacing-2xl: 2.5rem;   // 40px
+$spacing-3xl: 3rem;     // 48px
+$spacing-4xl: 4rem;     // 64px

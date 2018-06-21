@@ -48,8 +48,9 @@
 // 2. reset height to match default size
 
 .search {
-	margin-bottom: 3rem;
-	padding-top: 1rem;
+	margin-bottom: $spacing-lg;
+	padding-top: $spacing-lg;
+	padding-bottom: $spacing-lg;
 	background-color: $dark-blue;
 
 	label {
