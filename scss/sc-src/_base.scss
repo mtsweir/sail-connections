@@ -2,106 +2,24 @@
 // ----
 //
 // Sections
-// - Inline Search
-// - Colours
+// Section - Colours
+// Section - Featured
 // Info Boxes
 // Lists
 //
 
 // Sections
 
-// section *:last-child {
-//   margin-bottom: 0;
-// }
+section {
+	padding-top: $spacing-2xl;
+	padding-bottom: $spacing-2xl;
 
-// CTA Content
-
-.content-cta {
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1.25rem;
-	max-width: 50em;
-
-	.button {
-		margin-top: 1rem;
-	}
+	// & *:last-child {
+	// 	margin-bottom: 0;
+	// }
 }
 
-.button.cta-button {
-	margin-top: 1rem;
-}
-
-// dssdsd
-
-.section-feature {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-
-  .content-overlay {
-    padding: 2rem 3rem;
-    background-color: rgba($black, 0.4); 
-  }
-}
-
-// - Inline Search
-// 1. hide labels visually using base Zurb class
-// 2. reset height to match default size
-
-.search {
-	margin-bottom: $spacing-lg;
-	padding-top: $spacing-lg;
-	padding-bottom: $spacing-lg;
-	background-color: $dark-blue;
-
-	label {
-		@extend .show-for-sr; // 1
-	}
-
-	.input-group-field {
-		height: 2.4375rem; // 2
-	}
-}
-
-@media screen and (max-width: $breakpoint-xs-down) {
-
-	.search {
-
-		.input-group {
-			flex-wrap: wrap;
-		}
-
-		.input-group-button {
-			flex: 1 0 100%;
-		}
-
-		.button {
-			width: 100%;
-    	height: 2.4375rem;
-    	margin-top: 1rem;
-		}
-	}
-
-}
-
-@media screen and (min-width: $breakpoint-xs) {
-
-	.search {
-		.input-group-button {
-			margin-left: 0.5rem;
-		}
-	}
-}
-
-@media screen and (min-width: $breakpoint-sm) {
-
-	.search {
-		.cell + .cell {
-			margin-left: 0.5rem; // add some space between cells
-		}
-	}
-}
-
-// - Colours
+// Section - Colours
 
 .section-bg-secondary-4 {
   background-color: $color-secondary-4;
@@ -119,6 +37,22 @@
   }
 }
 
+// Section - Featured
+
+.section-feature {
+  padding-top: $spacing-4xl;
+	padding-bottom: $spacing-4xl;
+
+  .content-overlay {
+    padding: $spacing-xl $spacing-3xl;
+    background-color: rgba($black, 0.4); 
+	}
+	
+	.content-cta {
+		margin-bottom: 0;
+	}
+}
+
 .section-feature-image {
   background-position: center center;
   background-repeat: no-repeat;
@@ -127,6 +61,25 @@
 
 .section-feature-guide  {
   background-image: url(../img/banners/section-guide-large.jpg);
+}
+
+
+
+// CTA Content
+
+.content-cta {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: $spacing-xl;
+	max-width: 50em;
+
+	.button {
+		margin-top: $spacing-md;
+	}
+}
+
+.button.cta-button {
+	margin-top: $spacing-md;
 }
 
 @media screen and (min-width: 40em) {
@@ -140,7 +93,6 @@
   }
 
 }
-
 
 // Info Boxes
 
@@ -161,11 +113,6 @@
     font-weight: $font-weight-bold;
   }
 }
-
-.sc-carousel {
-  margin-bottom: 2rem;
-}
-
 
 // Lists
 

@@ -2,9 +2,13 @@
 // --------
 // https://flickity.metafizzy.co/style.html
 //
+// Settings
+// Hero Carousel
+// Content Carousel
 //
 
 // Settings
+
 .carousel {
   height: 250px;
   background-color: $light-gray;
@@ -46,7 +50,6 @@
   }
 
 }
-
 
 // Hero Carousel
 
@@ -115,7 +118,14 @@
 	z-index: 10;
 }
 
-// carousel content
+// Carousel content
+
 .hero-carousel-title {
 	color: $color-white;
+}
+
+// Content Carousel
+
+.sc-carousel {
+  margin-bottom: 2rem;
 }

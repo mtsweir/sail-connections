@@ -1,24 +1,87 @@
 // Forms
+// -----
 //
 // Legend
 // Labels
 // Input Text
+// Inline Search
 //
 
-
 // Legend
+// 1. Zurb complied value
+
 legend.middle {
-	margin: 0 0 1rem;
-	padding: 0.5625rem 0;
+	margin: 0 0 $spacing-md;
+	padding: 0.5625rem 0; // 1
 }
 
 // Labels
+
 label {
 	color: $color-dark-grey;
 }
 
 // Input Text
 // 1. Reset default appearance on Mobile Safari, add more as needed
+
 input[type='text'], [type='password'], [type='email'], [type='number'], [type='search'], [type='tel'], [type='time'], textarea, select {
 	-webkit-appearance: none; // 1
+}
+
+// Inline Search
+// 1. Hide labels visually using base Zurb class
+// 2. Zurb complied value
+
+.search {
+	margin-bottom: $spacing-lg;
+	padding-top: $spacing-lg;
+	padding-bottom: $spacing-lg;
+	background-color: $dark-blue;
+
+	label {
+		@extend .show-for-sr; // 1
+	}
+
+	.input-group-field {
+		height: 2.4375rem; // 2
+	}
+}
+
+@media screen and (max-width: $breakpoint-xs-down) {
+
+	.search {
+
+		.input-group {
+			flex-wrap: wrap;
+		}
+
+		.input-group-button {
+			flex: 1 0 100%;
+		}
+
+		.button {
+			width: 100%;
+    	height: 2.4375rem;
+    	margin-top: $spacing-md;
+		}
+	}
+
+}
+
+@media screen and (min-width: $breakpoint-xs) {
+
+	.search {
+		.input-group-button {
+			margin-left: $spacing-xs;
+		}
+	}
+}
+
+@media screen and (min-width: $breakpoint-sm) {
+
+	.search {
+		.cell + .cell {
+			margin-left: $spacing-xs; // add some space between cells
+		}
+	}
 }
