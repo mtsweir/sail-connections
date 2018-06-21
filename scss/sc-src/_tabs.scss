@@ -2,15 +2,13 @@
 // ----
 
 .page-tabs {
-	padding-top: 2rem;
 
   .tabs {
 		border: 0;
   }
 
   .tabs-content {
-		padding-top: 2.625rem;
-		padding-bottom: 2rem;
+		padding-top: $spacing-3xl;
 		border: 0;
   }
   
@@ -24,18 +22,18 @@
 
 .tabs-title {
   a {
-		padding: 0 0.75rem 0;
-		height: 45px;
+		padding: 0 $spacing-sm 0;
+		height: $tab-height;
 		color: $black;
 		text-transform: uppercase;
 		font-weight: $font-weight-bold;
 		font-size: 0.875rem;
 		letter-spacing: 0.05rem;
-		line-height: 45px;
+		line-height: $tab-height;
 	}
 
   & + .tabs-title {
-		margin-left: 0.25rem;
+		margin-left: $spacing-2xs;
 	}
 
   > a[aria-selected='false'] {
@@ -48,14 +46,14 @@
 }
 
 .tabs-panel-title {
-	margin-bottom: 1.25rem;
+	margin-bottom: $spacing-lg;
 }
 
 @media screen and (min-width: $breakpoint-xl) {
 
 	.page-tabs {
 		position: relative;
-		margin-top: -45px;
+		margin-top: -$tab-height;
 		padding-top: 0;
 	}
 
@@ -69,11 +67,11 @@
 
 	.tabs-title {
 		a {
-			padding: 0 1.5rem 0;
+			padding: 0 $spacing-lg 0;
 		}
 
 		& + .tabs-title {
-			margin-left: 0.5rem;
+			margin-left: $spacing-xs;
 		}
 	}
 

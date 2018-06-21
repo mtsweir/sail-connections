@@ -4,7 +4,7 @@
 // Nav Wrapper
 
 .top-bar {
-  padding: 0.75rem 1rem;
+  padding: $spacing-sm $spacing-md;
   background-color: $color-primary;
 
   // Reset background colour
@@ -43,7 +43,7 @@
 .top-bar {
   .top-bar-right {
     li + li {
-      margin-left: 0.5rem;
+      margin-left: $spacing-xs;
     }
   }
 }
@@ -69,7 +69,7 @@
 
   // Resets to remove right arrow and custom padding
   > li.is-dropdown-submenu-parent > a {
-    padding-right: 1rem;
+    padding-right: $spacing-md;
   }
 
   li.is-dropdown-submenu-parent > a::after {
@@ -120,11 +120,11 @@
 @media screen and (min-width: $breakpoint-md) {
 
   .top-bar {
-    padding: 1.5rem;
+    padding: $spacing-lg;
   }
 
   .menu-text {
-    margin-right: 1.5rem;
+    margin-right: $spacing-lg;
   }
 
   .logo {
