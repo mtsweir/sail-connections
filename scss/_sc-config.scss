@@ -7,14 +7,17 @@
 // Base Theme
 @import 'sc-src/base';
 
+// Sections
+@import 'sc-src/header';
+@import 'sc-src/footer';
+@import 'sc-src/blog';
+
 // Components
 @import 'sc-src/accordion';
 @import 'sc-src/banner';
 @import 'sc-src/buttons';
-@import 'sc-src/footer';
 @import 'sc-src/forms';
 @import 'sc-src/grid';
-@import 'sc-src/header';
 @import 'sc-src/icons';
 @import 'sc-src/modals';
 @import 'sc-src/offcanvas';

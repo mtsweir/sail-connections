@@ -1,0 +1,82 @@
+// Blog
+// ----
+
+.article-list-item {
+	//display: flex;
+	margin-bottom: $spacing-2xl;
+}
+
+.article-list-title {
+	font-size: 1.25rem;
+	a {
+		color: $color-dark-grey;
+		&:hover {
+			color: $color-secondary-2;
+		}
+	}
+}
+
+.category-tag {
+	display: block;
+	margin-top: $spacing-md;
+	margin-bottom: $spacing-xs;
+	font-size: 0.75rem;
+	text-transform: uppercase;
+	color: $color-dark-grey;
+	font-weight: 600;
+	margin-left: $spacing-sm;
+
+	// experimental pseudo element for visual decoration
+	&:before {
+		content: "";
+		display: inline-block;
+		width: 3px;
+		height: 12px;
+		position: relative;
+		top: 2px;
+		left: -8px;
+		background-color: $color-secondary-2;
+		-moz-transform-origin: center;
+		-ms-transform-origin: center;
+		-o-transform-origin: center;
+		transform-origin: center;
+		-moz-transform: skew(-28deg);
+		-ms-transform: skew(-28deg);
+		-o-transform: skew(-28deg);
+		transform: skew(-28deg);
+	}
+}
+
+@media screen and (max-width: $breakpoint-md-down) {
+
+		.article-list-image {
+			img {
+				width: 100%;
+			}
+		}
+}
+
+@media screen and (min-width: $breakpoint-sm) {
+
+	.article-list-item {
+		display: flex;
+	}
+
+	.article-list-image {
+		flex: 1 0 40%;
+		margin-right: $spacing-xl;
+	}
+
+	.category-tag {
+		margin-top: 0;
+	}
+
+}
+
+@media screen and (min-width: $breakpoint-md) {
+
+	.article-list-image {
+		flex: 1 0 25%;
+	}
+
+}
