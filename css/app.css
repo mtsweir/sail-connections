@@ -6156,8 +6156,17 @@ ol.list-upper-roman {
   pointer-events: none; }
 
 section {
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem; }
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem; }
+  section *:last-child {
+    margin-bottom: 0; }
+  section.section-collapse {
+    padding: 0; }
+
+@media screen and (min-width: 60em) {
+  section {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem; } }
 
 .section-bg-secondary-4 {
   background-color: #01266C; }
@@ -6191,7 +6200,7 @@ section {
   margin-bottom: 2rem;
   max-width: 50em; }
   .content-cta .button {
-    margin-top: 1rem; }
+    margin-top: 2rem; }
 
 .button.cta-button {
   margin-top: 1rem; }
@@ -6204,7 +6213,7 @@ section {
 
 .feature-box {
   margin: 2rem 0;
-  padding: 1.5rem;
+  padding: 1rem;
   background-color: #e6e6e6; }
   .feature-box > :first-child {
     margin-top: 0; }
@@ -6287,6 +6296,14 @@ section {
     column-gap: 20px;
     column-count: 2;
     column-gap: 20px; } }
+
+.list-image-grid img {
+  margin-bottom: 1.5rem;
+  width: 100%;
+  height: auto; }
+
+.list-image-grid li:last-child img {
+  padding-bottom: 0; }
 
 .top-bar {
   padding: 0.75rem 1rem;
@@ -6399,30 +6416,8 @@ section {
   margin-bottom: 0.5rem;
   font-size: 0.75rem;
   text-transform: uppercase;
-  color: #373a3c;
-  font-weight: 600;
-  margin-left: 0.75rem; }
-  .category-tag:before {
-    content: "";
-    display: inline-block;
-    width: 3px;
-    height: 12px;
-    position: relative;
-    top: 2px;
-    left: -8px;
-    background-color: #00a5a1;
-    -moz-transform-origin: center;
-    -ms-transform-origin: center;
-    -o-transform-origin: center;
-    transform-origin: center;
-    -moz-transform: skew(-28deg);
-    -ms-transform: skew(-28deg);
-    -o-transform: skew(-28deg);
-    transform: skew(-28deg); }
-
-@media screen and (max-width: 47.938em) {
-  .article-list-image img {
-    width: 100%; } }
+  color: #00a5a1;
+  font-weight: 600; }
 
 @media screen and (min-width: 40em) {
   .article-list-item {
@@ -6439,6 +6434,8 @@ section {
 
 .accordion-item {
   border-top: 1px solid #cacaca; }
+  .accordion-item:first-child {
+    border-top: 0; }
   .accordion-item.is-active > .accordion-title::before {
     content: "\e907";
     color: #8a8a8a; }
@@ -6762,7 +6759,7 @@ input[type='text'], [type='password'], [type='email'], [type='number'], [type='s
   .page-tabs {
     position: relative;
     margin-top: -45px;
-    padding: 0; } }
+    padding-top: 0; } }
 
 @media screen and (min-width: 64em) {
   .tabs-title a {
@@ -6789,12 +6786,16 @@ blockquote cite {
 
 hr {
   display: block;
-  margin: 2.5rem 0;
+  margin: 0.75rem 0;
   padding: 0;
   height: 1px;
   border: 0;
   border-top: 1px solid #e6e6e6;
   box-sizing: content-box; }
+
+@media screen and (min-width: 60em) {
+  hr {
+    margin: 2rem 0; } }
 
 .cell-center {
   align-self: center; }
@@ -6879,5 +6880,6 @@ hr {
 .hero-carousel-title {
   color: #fff; }
 
-.sc-carousel {
-  margin-bottom: 2rem; }
+.sc-carousel,
+section .sc-carousel {
+  margin: 2rem 0 3rem; }
