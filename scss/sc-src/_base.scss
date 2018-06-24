@@ -11,12 +11,25 @@
 // Sections
 
 section {
-	padding-top: $spacing-2xl;
-	padding-bottom: $spacing-2xl;
+	padding-top: $spacing-lg;
+	padding-bottom: $spacing-lg;
 
-	// & *:last-child {
-	// 	margin-bottom: 0;
-	// }
+	& *:last-child {
+		margin-bottom: 0;
+	}
+
+	&.section-collapse {
+		padding: 0;
+	}
+}
+
+@media screen and (min-width: $breakpoint-lg) {
+
+	section {
+		padding-top: $spacing-2xl;
+		padding-bottom: $spacing-2xl;
+	}
+
 }
 
 // Section - Colours
@@ -75,7 +88,7 @@ section {
 	max-width: 50em;
 
 	.button {
-		margin-top: $spacing-md;
+		margin-top: $spacing-xl;
 	}
 }
 
@@ -99,7 +112,7 @@ section {
 
 .feature-box {
 	margin: $spacing-xl 0;
-	padding: $spacing-lg;
+	padding: $spacing-md;
 	background-color: $light-gray;
 
   > :first-child {
@@ -224,4 +237,18 @@ section {
 		column-gap : 20px;
 	}
 
+}
+
+.list-image-grid {
+	img {
+		margin-bottom: $spacing-lg;
+		width: 100%;
+		height: auto;
+	}
+
+	li:last-child {
+		img {
+			padding-bottom: 0;
+		}
+	}
 }

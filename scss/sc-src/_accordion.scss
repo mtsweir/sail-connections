@@ -4,6 +4,10 @@
 .accordion-item {
 	border-top: 1px solid $medium-gray;
 
+	&:first-child {
+		border-top: 0;
+	}
+
 	&.is-active > .accordion-title::before {
 		content: "\e907"; // sc-icon-angle-down
 		color: $dark-gray;

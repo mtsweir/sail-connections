@@ -8,13 +8,13 @@
 // 4. Secondary banner height with default image
 
 .hero {
-  position: relative;
-  height: $hero-image-sm;
-  color: $color-white;
-  background-color: $dark-gray;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
+	position: relative;
+	height: $hero-image-sm;
+	color: $color-white;
+	background-color: $dark-gray;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
 	overflow: hidden;
 	@extend %pseudo-inner-shadow;
 }

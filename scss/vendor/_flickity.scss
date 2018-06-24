@@ -126,6 +126,7 @@
 
 // Content Carousel
 
-.sc-carousel {
-  margin-bottom: 2rem;
+.sc-carousel,
+section .sc-carousel {
+  margin: $spacing-xl 0 $spacing-3xl;
 }

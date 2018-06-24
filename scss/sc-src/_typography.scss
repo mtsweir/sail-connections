@@ -41,10 +41,18 @@ blockquote {
 
 hr {
 	display: block;
-	margin: $spacing-2xl 0;
+	margin: $spacing-sm 0;
 	padding: 0;
 	height: 1px;
 	border: 0;
 	border-top: 1px solid $light-gray;
 	box-sizing: content-box;
+}
+
+@media screen and (min-width: $breakpoint-lg) {
+
+	hr {
+		margin: $spacing-xl 0;
+	}
+
 }
