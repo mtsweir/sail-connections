@@ -6192,7 +6192,7 @@ section {
   background-size: cover; }
 
 .section-feature-guide {
-  background-image: url(../img/banners/section-guide-large.jpg); }
+  background-image: url(../img/banners/default/banner-guide-2000w.jpg); }
 
 .content-cta {
   margin-left: auto;
@@ -6305,25 +6305,48 @@ section {
 .list-image-grid li:last-child img {
   padding-bottom: 0; }
 
-.top-bar {
+.search-results {
+  margin-bottom: 3rem; }
+
+.result-item {
+  text-align: left; }
+  .result-item .card-title {
+    margin-bottom: 0; }
+  .result-item img {
+    width: 100%; }
+
+.result-item-details {
+  color: #0a0a0a; }
+
+.search-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e6e6e6; }
+
+.sc-header .top-bar {
   padding: 0.75rem 1rem;
   background-color: #005593; }
-  .top-bar .menu {
-    align-items: center;
-    background-color: transparent; }
+
+.sc-header .menu {
+  align-items: center;
+  background-color: transparent; }
+  .sc-header .menu a {
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase; }
+    .sc-header .menu a:hover {
+      color: rgba(255, 255, 255, 0.7); }
+
+.sc-header .menu-text {
+  padding: 0; }
 
 .logo {
   width: auto;
   height: 34px; }
-
-.menu .menu-text {
-  padding: 0; }
-
-.menu a {
-  color: #fff;
-  text-transform: uppercase; }
-  .menu a:hover {
-    color: rgba(255, 255, 255, 0.7); }
 
 .top-bar .top-bar-right li + li {
   margin-left: 0.5rem; }
@@ -6367,7 +6390,7 @@ section {
 @media screen and (min-width: 48em) {
   .top-bar {
     padding: 1.5rem; }
-  .menu-text {
+  .sc-header .menu-text {
     margin-right: 1.5rem; }
   .logo {
     height: 50px; } }
@@ -6478,9 +6501,10 @@ section {
   background-repeat: no-repeat;
   background-size: cover;
   overflow: hidden; }
-
-.hero.hero-secondary {
-  height: 250px; }
+  .hero.hero-secondary {
+    height: 250px; }
+    .hero.hero-secondary .content {
+      padding-bottom: 30px; }
 
 .hero-title {
   position: relative;
@@ -6501,16 +6525,12 @@ section {
 @media screen and (min-width: 40em) {
   .hero {
     height: 250px; }
-    .hero .content {
-      padding-bottom: 70px; }
   .hero-title {
     font-size: 2rem; } }
 
 @media screen and (min-width: 48em) {
   .hero {
     height: 300px; }
-    .hero .content {
-      padding-bottom: 80px; }
   .hero-title {
     font-size: 2.5rem; } }
 
@@ -6519,6 +6539,10 @@ section {
     height: 480px; }
   .hero-title {
     font-size: 3rem; } }
+
+@media screen and (min-width: 64em) {
+  .hero .content {
+    padding-bottom: 80px; } }
 
 @media screen and (min-width: 75em) {
   .hero {
@@ -6611,7 +6635,9 @@ input[type='text'], [type='password'], [type='email'], [type='number'], [type='s
 
 @media screen and (min-width: 48em) {
   .card-list-md-2 {
-    grid-template-columns: repeat(2, 1fr); } }
+    grid-template-columns: repeat(2, 1fr); }
+  .card-list-md-4 {
+    grid-template-columns: repeat(4, 1fr); } }
 
 @media screen and (min-width: 64em) {
   .card-list-lg-4 {
@@ -6660,6 +6686,12 @@ input[type='text'], [type='password'], [type='email'], [type='number'], [type='s
 .sc-icon-angle-up:before {
   content: "\e908"; }
 
+.sc-icon-arrow-left:before {
+  content: "\e90a"; }
+
+.sc-icon-arrow-right:before {
+  content: "\e909"; }
+
 .sc-icon-instagram:before {
   content: "\e904"; }
 
@@ -6671,6 +6703,39 @@ input[type='text'], [type='password'], [type='email'], [type='number'], [type='s
 
 .sc-icon-facebook:before {
   content: "\e903"; }
+
+.search-filter-header {
+  flex-basis: 100%;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e6e6e6; }
+
+.search-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between; }
+
+.search-filter-nav {
+  margin: 0.5rem 0; }
+  .search-filter-nav .menu {
+    justify-content: left; }
+  .search-filter-nav .menu-text {
+    padding: 0; }
+  .search-filter-nav .menu .is-active > a {
+    color: #0a0a0a;
+    font-weight: 700;
+    background: transparent; }
+
+.search-results-count {
+  margin: 0.5rem 0 !important; }
+
+@media screen and (min-width: 20em) and (max-width: 29.9375em) {
+  .search-filter-nav .menu-text {
+    flex-basis: 100%;
+    margin-bottom: 0.5rem; }
+  .search-filter-nav li:nth-child(2) {
+    margin-left: 0 !important; } }
 
 .sc-modal .lead {
   margin-bottom: 0; }
@@ -6796,6 +6861,12 @@ hr {
 @media screen and (min-width: 60em) {
   hr {
     margin: 2rem 0; } }
+
+.fw-normal {
+  font-weight: 400 !important; }
+
+.fw-bold {
+  font-weight: 700 !important; }
 
 .cell-center {
   align-self: center; }
