@@ -51,6 +51,14 @@
   content: "\e908";
 }
 
+.sc-icon-arrow-left:before {
+  content: "\e90a"; // .sc-icon-long-arrow-left
+}
+
+.sc-icon-arrow-right:before {
+  content: "\e909"; // .sc-icon-long-arrow-right
+}
+
 // Iconmoon Free Icons
 
 .sc-icon-instagram:before {

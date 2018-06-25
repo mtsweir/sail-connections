@@ -17,10 +17,14 @@
 	background-size: cover;
 	overflow: hidden;
 	@extend %pseudo-inner-shadow;
-}
 
-.hero.hero-secondary {
-	height: 250px; // 4
+	&.hero-secondary {
+		height: 250px; // 4
+
+		.content {
+			padding-bottom: 30px;
+		}
+	}
 }
 
 // Banner Content
@@ -41,6 +45,7 @@
 
 
 @media screen and (min-width: $breakpoint-xs) {
+
   .hero {
     //height: $hero-image-sm;
     background-size: cover;
@@ -48,12 +53,9 @@
 }
 
 @media screen and (min-width: $breakpoint-sm) {
+
   .hero {
     height: $hero-image-sm;
-
-    .content {
-      padding-bottom: 70px;
-    }
   }
 
   .hero-title {
@@ -66,10 +68,6 @@
 
   .hero {
 		height: $hero-image-md;
-
-		.content {
-			padding-bottom: 80px;
-		}
 	}
 
 	.hero-title {
@@ -81,7 +79,7 @@
 @media screen and (min-width: $breakpoint-lg) {
 
   .hero {
-    height: $hero-image-lg;
+		height: $hero-image-lg;
   }
 
 	.hero-title {
@@ -90,10 +88,20 @@
 
 }
 
+@media screen and (min-width: $breakpoint-xl) {
+
+  .hero {
+		.content {
+			padding-bottom: 80px;
+		}
+  }
+
+}
+
 @media screen and (min-width: $breakpoint-2xl) {
 
   .hero {
-    height: $hero-image-xl;
+		height: $hero-image-xl;
   }
 }
 

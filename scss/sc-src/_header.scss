@@ -3,15 +3,34 @@
 
 // Nav Wrapper
 
-.top-bar {
-  padding: $spacing-sm $spacing-md;
-  background-color: $color-primary;
+.sc-header {
 
-  // Reset background colour
-  .menu {
-    align-items: center;
-    background-color: transparent;
-  }
+	.top-bar {
+		padding: $spacing-sm $spacing-md;
+		background-color: $color-primary;
+	}
+	
+	// Link Styles
+	.menu {
+		align-items: center;
+		background-color: transparent; // Reset background colour
+
+		a {
+			color: $color-white;
+			font-weight: $global-weight-bold;
+			text-transform: uppercase;
+
+			&:hover {
+				color: rgba($color-white, 0.7);
+			}
+		}
+
+	}
+
+	.menu-text {
+		padding: 0;
+	}
+
 }
 
 // Logo
@@ -19,23 +38,6 @@
 .logo {
   width: auto;
   height: 34px;
-}
-
-.menu .menu-text {
-  padding: 0;
-}
-
-// Link Style
-
-.menu {
-  // default link styles
-  a {
-    color: $color-white;
-    text-transform: uppercase;
-    &:hover {
-      color: rgba($color-white, 0.7);
-    }
-  }
 }
 
 // Secondary Nav
@@ -123,7 +125,7 @@
     padding: $spacing-lg;
   }
 
-  .menu-text {
+  .sc-header .menu-text {
     margin-right: $spacing-lg;
   }
 
