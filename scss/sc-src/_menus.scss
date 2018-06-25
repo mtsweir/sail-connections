@@ -1,0 +1,52 @@
+// Menus
+// -----
+
+.search-filter-header {
+	flex-basis: 100%;
+	margin-bottom: $spacing-sm;
+	padding-bottom: $spacing-sm;
+	border-bottom: 1px solid $color-border;
+}
+
+.search-filter {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.search-filter-nav {
+	margin: $spacing-xs 0;
+
+	.menu {
+		justify-content: left;
+	}
+
+	.menu-text {
+		padding: 0;
+	}
+
+	.menu .is-active > a {
+		color: $body-font-color;
+		font-weight: $font-weight-bold;
+		background: transparent;
+	}
+}
+
+.search-results-count {
+	margin: $spacing-xs 0 !important; // override section reset
+}
+
+@media screen and (min-width: $breakpoint-2xs) and (max-width: $breakpoint-xs-down) {
+
+	.search-filter-nav {
+		.menu-text {
+			flex-basis: 100%;
+			margin-bottom: $spacing-xs;
+		}
+		li:nth-child(2) {
+			margin-left: 0 !important;
+		}
+	}
+
+}

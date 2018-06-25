@@ -35,10 +35,18 @@ $font-weight-bold: 700;
 $font-weight-normal: 400;
 $text-uppercase: uppercase;
 
+// UI Panels
+$panel-bg: $color-light-grey;
+
+// UI Tabs
+$tab-height: 45px;
+
+// UI Borders
+$color-border: $light-gray;
+$color-border-medium: $color-grey-medium;
+
 // UI Components
 $border-radius-circle: 50%;
-$tab-height: 45px;
-$panel-bg: $color-light-grey;
 
 // Icons
 $icon-font: 'sc-icons';

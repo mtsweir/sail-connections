@@ -6,6 +6,7 @@
 // Section - Featured
 // Info Boxes
 // Lists
+// Search Results
 //
 
 // Sections
@@ -74,7 +75,7 @@ section {
 }
 
 .section-feature-guide  {
-  background-image: url(../img/banners/section-guide-large.jpg);
+  background-image: url(../img/banners/default/banner-guide-2000w.jpg);
 }
 
 
@@ -251,4 +252,39 @@ section {
 			padding-bottom: 0;
 		}
 	}
+}
+
+
+// Search Results
+
+.search-results {
+	margin-bottom: $spacing-3xl;
+}
+
+.result-item {
+	text-align: left;
+
+	.card-title {
+		margin-bottom: 0;
+	}
+
+	img {
+		width: 100%;
+	}
+}
+
+.result-item-details {
+	color: $body-font-color;
+}
+
+// Search Pagination
+
+.search-pagination {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: $spacing-lg;
+	padding-top: $spacing-xl;
+	border-top: 1px solid $color-border;
 }

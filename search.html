@@ -1,0 +1,569 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Search</title>
+	<link rel="stylesheet" href="css/app.css">
+	<link rel="stylesheet" href="node_modules/flickity/dist/flickity.min.css" media="screen">
+	<link rel="stylesheet" href="node_modules/flickity-fullscreen/fullscreen.css" media="screen">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<!-- Hero images -->
+	<style>
+		.hero {
+			background-image: url(../img/banners/default/banner-search-480w.jpg);
+		}
+		@media screen and (min-width: 640px) {
+			.hero { background-image: url(../img/banners/default/banner-search-960w.jpg); }
+		}
+		@media screen and (min-width: 960px) {
+			.hero { background-image: url(../img/banners/default/banner-search-1400w.jpg); }
+		}
+		@media screen and (min-width: 1400px) {
+			.hero { background-image: url(../img/banners/default/banner-search-2000w.jpg); }
+		}
+	</style>
+</head>
+<body>
+  
+<!-- Off-canvas Menu -->
+<div class="off-canvas sc-off-canvas position-right" id="offCanvas" data-off-canvas>
+
+  <!-- Close toggle -->
+  <span role="button" class="close-button" href="#" aria-label="Close menu" data-close>
+    <i class="sc-icon-menu" aria-hidden="true"></i>
+  </span>
+
+  <!-- Mobile Menu -->
+  <ul class="vertical menu accordion-menu" data-accordion-menu>
+    <li><a href="#">Home</a></li>
+    <li>
+      <a href="#">Charter Yachts</a>
+      <ul class="menu vertical nested">
+        <li><a href="#">Sailing Yachts</a></li>
+        <li><a href="#">Catamarans</a></li>
+        <li><a href="#">Crewed Yachts</a></li>
+        <li><a href="#">All Yachts</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Destinations</a></li>
+    <li aria-hidden="true"><hr></li>
+    <li><a href="#">Our Services</a></li>
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">News</a></li>
+    <li><a href="#">Contact</a></li>
+    <li aria-hidden="true"><hr></li>
+    <li class="oc-menu-social">
+      <a href="#">
+        <span class="show-for-sr">Facebook</span>
+        <i class="sc-icon-facebook" aria-hidden="true"></i>
+      </a>
+      <a href="#">
+        <span class="show-for-sr">Twitter</span>
+        <i class="sc-icon-twitter" aria-hidden="true"></i>
+      </a>
+      <a href="#">
+        <span class="show-for-sr">Instagram</span>
+        <i class="sc-icon-instagram" aria-hidden="true"></i>
+      </a>
+      <a href="#">
+        <span class="show-for-sr">Linkedin</span>
+        <i class="sc-icon-linkedin" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+
+</div>
+
+<!-- Off-canvas Content -->
+<div class="off-canvas-content" data-off-canvas-content>
+
+<header class="sc-header">
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <li class="menu-text">
+          <img class="logo" src="img/sc-logo.svg" alt="Sail Connections">
+        </li>
+        <li class="show-for-large">
+          <a href="#">Charter Yachts</a>
+          <ul class="menu vertical">
+            <li><a href="#">Sailing Yachts</a></li>
+            <li><a href="#">Catamarans</a></li>
+            <li><a href="#">Crewed Yachts</a></li>
+            <li><a href="#">All Yachts</a></li>
+          </ul>
+        </li>
+        <li class="show-for-large"><a href="#">Destinations</a></li>
+        <li class="show-for-large"><a href="#">Our Services</a></li>
+        <li class="show-for-large"><a href="#">About Us</a></li>
+        <li class="show-for-large"><a href="#">News</a></li>
+        <li class="show-for-large"><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="top-bar-right">
+      <ul class="menu">
+        <li>
+          <a class="button button-secondary-2 button-icon-left" href="#" data-open="exampleModal1">
+            <i class="sc-icon-mail" aria-hidden="true"></i>
+            <span class="button-text">Enquire</span>
+          </a>
+        </li>
+        <li class="hide-for-large">
+          <button type="button" class="button button-secondary-3 button-icon-left" data-toggle="offCanvas">
+            <i class="sc-icon-menu" aria-hidden="true"></i>
+            <span class="button-text">Menu</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<section class="hero hero-secondary">
+	<div class="grid-container">
+		<div class="grid-x">
+			<div class="cell">
+				<div class="content">
+					<div class="hero-title-wrap">
+						<h1 class="hero-title">Charter Yachts</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="search section-inverse section-bg-secondary-4">
+	<form action="#">
+		<div class="grid-container">
+			<div class="grid-x">
+				<!-- <div class="cell medium-auto">
+					<legend class="text-right middle">Yacht Search</legend>
+				</div> -->
+				<div class="cell medium-auto">
+					<label for="searchDestination">Destination</label>
+					<select id="searchDestination">
+						<option selected disabled>Destination</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+					</select>
+				</div>
+				<div class="cell medium-auto">
+					<label for="searchYachtType">Yacht Type</label>
+					<select id="searchYachtType">
+						<option selected disabled>Yacht Type</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+					</select>
+				</div>
+				<div class="cell medium-auto">
+					<label for="searchCharterType">Charter Type</label>
+					<select id="searchCharterType">
+						<option selected disabled>Charter Type</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+					</select>
+				</div>
+				<div class="cell medium-4 large-3">
+					<label for="searchKeyword">Keyword</label>
+					<div class="input-group">
+						<input class="input-group-field" type="text" id="searchKeyword" placeholder="Keyword...">
+						<div class="input-group-button">
+							<input type="submit" class="button secondary" value="Search">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</section>
+
+<div class="grid-container">
+	<div class="grid-x grid-padding-x">
+		<div class="large-12 cell">
+
+			<section class="search-results">
+
+				<div class="search-filter">
+					<div class="search-filter-header h5">
+						Crewed Catamarans for Charter in Tahiti
+					</div>
+					<div class="search-filter-nav">
+						<ul class="menu simple">
+							<li class="menu-text fw-normal">Sort by:</li>
+							<li class="is-active"><a href="#">Default</a></li>
+							<li><a href="#">Rate</a></li>
+							<li><a href="#">Length</a></li>
+							<li><a href="#">Guests</a></li>
+						</ul>
+					</div>
+					<div class="search-results-count">
+						Results 1-16 of 48
+					</div>
+				</div>
+
+				<ul class="results-list card-list card-list-md-4 list-unstyled">
+					<li class="result-item card">
+						<a href="#">
+							<div class="card-image">
+								<img src="img/articles/article-sm.jpg">
+							</div>
+							<div class="card-section">
+								<h3 class="card-title">Nautitech 46 Open</h3>
+								<ul class="result-item-details list-unstyled">
+									<li>Guests: 8</li>
+								</ul>
+							</div>
+						</a>
+					</li>
+					<li class="result-item card">
+						<a href="#">
+							<div class="card-image">
+								<img src="img/articles/article-sm.jpg">
+							</div>
+							<div class="card-section">
+								<h3 class="card-title">Nautitech 46 Open</h3>
+								<ul class="result-item-details list-unstyled">
+									<li>Guests: 8</li>
+								</ul>
+							</div>
+						</a>
+					</li>
+					<li class="result-item card">
+						<a href="#">
+							<div class="card-image">
+								<img src="img/articles/article-sm.jpg">
+							</div>
+							<div class="card-section">
+								<h3 class="card-title">Nautitech 46 Open</h3>
+								<ul class="result-item-details list-unstyled">
+									<li>Guests: 8</li>
+								</ul>
+							</div>
+						</a>
+					</li>
+					<li class="result-item card">
+						<a href="#">
+							<div class="card-image">
+								<img src="img/articles/article-sm.jpg">
+							</div>
+							<div class="card-section">
+								<h3 class="card-title">Nautitech 46 Open</h3>
+								<ul class="result-item-details list-unstyled">
+									<li>Guests: 8</li>
+								</ul>
+							</div>
+						</a>
+					</li>
+					<li class="result-item card">
+						<a href="#">
+							<div class="card-image">
+								<img src="img/articles/article-sm.jpg">
+							</div>
+							<div class="card-section">
+								<h3 class="card-title">Nautitech 46 Open</h3>
+								<ul class="result-item-details list-unstyled">
+									<li>Guests: 8</li>
+								</ul>
+							</div>
+						</a>
+					</li>
+					<li class="result-item card">
+						<a href="#">
+							<div class="card-image">
+								<img src="img/articles/article-sm.jpg">
+							</div>
+							<div class="card-section">
+								<h3 class="card-title">Nautitech 46 Open</h3>
+								<ul class="result-item-details list-unstyled">
+									<li>Guests: 8</li>
+								</ul>
+							</div>
+						</a>
+					</li>
+					<li class="result-item card">
+						<a href="#">
+							<div class="card-image">
+								<img src="img/articles/article-sm.jpg">
+							</div>
+							<div class="card-section">
+								<h3 class="card-title">Nautitech 46 Open</h3>
+								<ul class="result-item-details list-unstyled">
+									<li>Guests: 8</li>
+								</ul>
+							</div>
+						</a>
+					</li>
+					<li class="result-item card">
+						<a href="#">
+							<div class="card-image">
+								<img src="img/articles/article-sm.jpg">
+							</div>
+							<div class="card-section">
+								<h3 class="card-title">Nautitech 46 Open</h3>
+								<ul class="result-item-details list-unstyled">
+									<li>Guests: 8</li>
+								</ul>
+							</div>
+						</a>
+					</li>
+					<li class="result-item card">
+						<a href="#">
+							<div class="card-image">
+								<img src="img/articles/article-sm.jpg">
+							</div>
+							<div class="card-section">
+								<h3 class="card-title">Nautitech 46 Open</h3>
+								<ul class="result-item-details list-unstyled">
+									<li>Guests: 8</li>
+								</ul>
+							</div>
+						</a>
+					</li>
+					<li class="result-item card">
+						<a href="#">
+							<div class="card-image">
+								<img src="img/articles/article-sm.jpg">
+							</div>
+							<div class="card-section">
+								<h3 class="card-title">Nautitech 46 Open</h3>
+								<ul class="result-item-details list-unstyled">
+									<li>Guests: 8</li>
+								</ul>
+							</div>
+						</a>
+					</li>
+					<li class="result-item card">
+						<a href="#">
+							<div class="card-image">
+								<img src="img/articles/article-sm.jpg">
+							</div>
+							<div class="card-section">
+								<h3 class="card-title">Nautitech 46 Open</h3>
+								<ul class="result-item-details list-unstyled">
+									<li>Guests: 8</li>
+								</ul>
+							</div>
+						</a>
+					</li>
+					<li class="result-item card">
+						<a href="#">
+							<div class="card-image">
+								<img src="img/articles/article-sm.jpg">
+							</div>
+							<div class="card-section">
+								<h3 class="card-title">Nautitech 46 Open</h3>
+								<ul class="result-item-details list-unstyled">
+									<li>Guests: 8</li>
+								</ul>
+							</div>
+						</a>
+					</li>
+				</ul>
+
+				<nav aria-label="Pagination">
+					<ul class="search-pagination list-unstyled">
+						<li>
+							<a class="button button-icon-left" href="#" aria-label="Previous page">
+								<i class="sc-icon-arrow-left"></i> Previous</a>
+						</li>
+						<li>
+							<a class="button button-icon-right" href="#" aria-label="Next page">Next <i class="sc-icon-arrow-right"></i></a>
+						</li>
+					</ul>
+				</nav>
+
+			</section>
+
+    </div><!-- large-12 cell -->
+  </div><!-- grid-x grid-padding-x -->
+</div><!-- grid-container -->
+
+<section class="section-feature section-bg-grey">
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x">
+      <div class="large-12 cell">
+
+        <div class="content">
+          <div class="content-cta text-center">
+            <h3 class="content-cta-title">The Sail Connections Guarantee</h3>
+            <p>One contact - every option - advice you can trust.</p>
+					</div>
+					<hr>
+          <ul class="list-unstyled list-column list-column-2 list-column-features">
+            <li>Matching any competitive offer</li>
+            <li>Sourcing boats with discounts available</li>
+            <li>Personalising our proposal just for you</li>
+            <li>Qualifying the operator as well as the boat</li>
+            <li>Advising without bias based on 25+ years of experience</li>
+            <li>We do more than just book yachts!</li>
+					</ul>
+					<hr>
+					<div class="content-cta text-center">
+            <p>We will match any discount website offer on charter boat price, and still provide our customary high level of service.</p>
+            <a href="#" class="button button-icon-left secondary"><i class="sc-icon-mail" aria-hidden="true"></i> Get in Touch</a>
+          </div>
+        </div>
+
+      </div><!-- large-12 cell -->
+    </div><!-- grid-x grid-padding-x -->
+  </div><!-- grid-container -->
+</section>
+
+<section class="section-feature-guide section-feature section-feature-image section-inverse">
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x">
+      <div class="large-12 cell">
+
+        <div class="content content-overlay text-center">
+					<div class="content-cta">
+          	<h3 class="content-cta-title">The Essential Guide to Sailing Holiday Charters</h3>
+						<p>The Sail Connections Essential Guide to Bareboat and Crewed Sailing Holiday Charters is jam-packed full of useful tips for getting the most out of your next boat charter. And it is FREE to download.</p>
+						<a href="#" class="button">Download Guide</a>
+					</div>
+        </div>
+
+      </div><!-- large-12 cell -->
+    </div><!-- grid-x grid-padding-x -->
+  </div><!-- grid-container -->
+</section>
+
+<footer class="footer">
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x">
+      <div class="large-12 cell">
+
+        <div class="content text-center">
+          <nav>
+            <ul class="footer-nav list-unstyled list-inline padding-bottom-1 margin-bottom-2">
+							<li><a href="#">Yachts</a></li>
+							<li><a href="#">Destinations</a></li>
+							<li><a href="#">Our Services</a></li>
+							<li><a href="#">About Us</a></li>
+							<li><a href="#">News</a></li>
+							<li><a href="#">Contact</a></li>
+            </ul>
+            <ul class="footer-nav-social list-unstyled list-inline">
+              <li>
+                <a href="#">
+                  <span class="show-for-sr">Facebook</span>
+                  <i class="sc-icon-facebook" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="show-for-sr">Twitter</span>
+                  <i class="sc-icon-twitter" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="show-for-sr">Instagram</span>
+                  <i class="sc-icon-instagram" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="show-for-sr">Linkedin</span>
+                  <i class="sc-icon-linkedin" aria-hidden="true"></i>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+      </div><!-- large-12 cell -->
+    </div><!-- grid-x grid-padding-x -->
+  </div><!-- grid-container -->
+</footer>
+
+</div><!-- END Off-canvas Content -->
+
+<!-- Modal -->
+<div class="reveal large sc-modal" id="exampleModal1" data-reveal>
+	<p class="lead">Enquire about this yacht</p>
+	<p class="subheader">Receive a personalized proposal with boat, cost and extra options as applicable.</p>
+
+	<form>
+		<div class="grid-container full">
+			<div class="grid-x grid-margin-x">
+				<div class="medium-4 cell">
+					<label>First Name:
+						<input type="text" placeholder="First name">
+					</label>
+				</div>
+				<div class="medium-4 cell">
+					<label>Last Name:
+						<input type="text" placeholder="Last name">
+					</label>
+				</div>
+				<div class="medium-4 cell">
+					<label>Email Address:
+						<input type="text" placeholder="Email address">
+					</label>
+				</div>
+				<div class="medium-4 cell">
+					<label>Your Phone Number:
+						<input type="text" placeholder="Phone number">
+					</label>
+				</div>
+				<div class="medium-4 cell">
+					<label>Charter Destination:
+						<input type="text" placeholder="Charter destination">
+					</label>
+				</div>
+				<div class="medium-4 cell">
+					<label>Yacht Preference:
+						<select>
+							<option selected disabled>Please select...</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select>
+					</label>
+				</div>
+				<div class="medium-4 cell">
+					<label>When and for how long:
+						<input type="text" placeholder="When and for how long">
+					</label>
+				</div>
+				<div class="medium-4 cell">
+					<label>Your Budget:
+						<input type="text" placeholder="Your budget">
+					</label>
+				</div>
+				<div class="cell">
+					<label>
+						 Comments:
+						<textarea rows="4"></textarea>
+					</label>
+				</div>
+				<div class="cell">
+					<button class="button secondary form-button">Send Request</button>
+				</div>
+			</div>
+		</div>
+	</form>
+
+
+	<button class="close-button" data-close aria-label="Close modal" type="button">
+		<span aria-hidden="true">&times;</span>
+	</button>
+</div>
+<!-- END Modal -->
+
+<!-- Core Scripts -->
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script src="node_modules/what-input/dist/what-input.js"></script>
+<script src="node_modules/foundation-sites/dist/js/foundation.js"></script>
+<script src="js/min/app-min.js"></script>
+<!-- Vendor Scripts -->
+<script src="node_modules/flickity/dist/flickity.pkgd.min.js"></script>
+<script src="node_modules/flickity-fullscreen/fullscreen.js"></script>
+</body>
+</html>
