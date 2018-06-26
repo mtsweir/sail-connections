@@ -288,3 +288,33 @@ section {
 	padding-top: $spacing-xl;
 	border-top: 1px solid $color-border;
 }
+
+// Breadcrumbs
+
+.breadcrumbs-wrapper {
+	margin-bottom: $spacing-xl;
+}
+
+
+// Articles
+
+.meta {
+	margin-top: $spacing-md;
+	margin-bottom: $spacing-xl;
+	font-size: $text-small;
+
+	.meta-category {
+		display: block;
+	}
+}
+
+.article {
+
+	h2 {
+		margin-top: $spacing-2xl;
+	}
+
+	h3 {
+		margin-top: $spacing-lg;
+	}
+}
