@@ -51,6 +51,13 @@ input[type='text'], [type='password'], [type='email'], [type='number'], [type='s
 
 	.search {
 
+		.cell {
+			margin-bottom: $spacing-md;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
 		.input-group {
 			flex-wrap: wrap;
 		}
