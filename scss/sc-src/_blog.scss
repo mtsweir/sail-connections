@@ -1,5 +1,75 @@
 // Blog
 // ----
+//
+// Article
+// Article feed
+//
+
+
+// Articles
+
+.meta {
+	margin-top: $spacing-md;
+	margin-bottom: $spacing-xl;
+	font-size: $text-small;
+
+	.meta-category {
+		display: block;
+	}
+}
+
+.article {
+
+	h2 {
+		margin-top: $spacing-2xl;
+		font-size: 1.5rem;
+		font-weight: $font-weight-medium;
+	}
+
+	h3 {
+		margin-top: $spacing-lg;
+		font-size: 1.25rem;
+		font-weight: $font-weight-medium;
+	}
+
+	article {
+		ul, ol {
+			margin-top: $spacing-xl;
+			margin-bottom: $spacing-xl;
+		}
+		ul {
+			list-style-image: url("data:image/svg+xml,<svg width='8' height='8' xmlns='http://www.w3.org/2000/svg'><circle cx='3' cy='3' r='3' fill='#00a5a1'/></svg>");
+		}
+		li {
+			margin-bottom: $spacing-sm;
+			padding-left: $spacing-sm;
+		}
+	}
+
+	blockquote {
+		margin: $spacing-xl 0;
+		padding: $spacing-lg $spacing-xl;
+		background-color: $color-light-grey;
+		border-left: 4px solid $color-secondary-2;
+		color: $black;
+	}
+}
+
+.article-sidebar {
+	.card {
+		margin-bottom: $spacing-xl;
+	}
+}
+
+// Article feed
+
+.article-list-header {
+	margin-bottom: $spacing-2xl;
+	padding-bottom: $spacing-sm;
+	font-size: 1.5rem;
+	font-weight: $font-weight-medium;
+	border-bottom: 1px solid $color-border;
+}
 
 .article-list-item {
 	//display: flex;
@@ -47,6 +117,17 @@
 	// }
 }
 
+@media screen and (max-width: $breakpoint-xl-down) {
+
+	.article-sidebar {
+		.card {
+			margin-top: $spacing-2xl;
+		}
+	}
+
+}
+
+
 @media screen and (min-width: $breakpoint-sm) {
 
 	.article-list-item {
@@ -68,6 +149,16 @@
 
 	.article-list-image {
 		flex: 1 0 25%;
+	}
+
+}
+
+@media screen and (min-width: $breakpoint-xl) {
+
+	.article{
+		article.cell {
+			padding-right: $spacing-3xl;
+		}
 	}
 
 }
