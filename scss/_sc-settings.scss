@@ -28,10 +28,11 @@ $color-grey-medium: #727272;
 $color-light-grey: #f4f4f4;
 
 // Link Colours
-$color-link: $color-secondary-2;
+$color-link: $color-primary;
 
 // Typography
 $font-weight-bold: 700;
+$font-weight-medium: 600;
 $font-weight-normal: 400;
 $text-uppercase: uppercase;
 $text-small: 0.875rem;
@@ -65,6 +66,8 @@ $breakpoint-3xl: 87.5em; // 1400px
 $breakpoint-xs-down: 29.9375em; // 479px
 $breakpoint-sm-down: 39.938em;  // 630px
 $breakpoint-md-down: 47.938em;  // 767px
+$breakpoint-lg-down: 59.938em;  // 959px
+$breakpoint-xl-down: 63.938em;  // 1023px
 
 // Banners - Heights set at responsive breakpoints
 $hero-image-sm: 250px; // Default
