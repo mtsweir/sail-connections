@@ -81,13 +81,13 @@
     .hero {
       background-image: url(<?php echo htmlencode($hero_sm) ?>);
     }
-    @media screen and (min-width: 480px) {
+    @media screen and (min-width: 640px) { /* was 480 */
       .hero { background-image: url(<?php echo htmlencode($hero_md) ?>); }
     }
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 960px) { /* was 768 */
       .hero { background-image: url(<?php echo htmlencode($hero_lg) ?>); }
     }
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1400px) { /* was 1200 */
       .hero { background-image: url(<?php echo htmlencode($hero_xl) ?>); }
     }
     .section-feature-guide  {
@@ -100,7 +100,7 @@
 
 <?php include("includes/header.php"); ?>
 
-<section class="hero">
+<section class="hero<?php if (!$yachtsRecord['banner_image']): ?> no-hero<?php endif ?>">
   <div class="grid-container">
     <div class="grid-x">
       <div class="cell">

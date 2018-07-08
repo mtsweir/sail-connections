@@ -27,6 +27,10 @@
 	}
 }
 
+.no-hero {
+  height: $no-hero-image-sm;
+}
+
 // Banner Content
 
 .hero-title {
@@ -59,6 +63,10 @@
     height: $hero-image-sm;
   }
 
+  .no-hero {
+    height: $no-hero-image-sm;
+  }
+
   .hero-title {
     font-size: 2rem;
   }
@@ -71,6 +79,10 @@
 		height: $hero-image-md;
 	}
 
+  .no-hero {
+    height: $no-hero-image-md;
+  }
+
 	.hero-title {
 		font-size: 2.5rem;
 	}
@@ -81,6 +93,10 @@
 
   .hero {
 		height: $hero-image-lg;
+  }
+
+  .no-hero {
+    height: $no-hero-image-lg;
   }
 
 	.hero-title {
@@ -104,6 +120,11 @@
   .hero {
 		height: $hero-image-xl;
   }
+
+  .no-hero {
+    height: $no-hero-image-xl;
+  }
+
 }
 
 @media screen and (min-width: $breakpoint-3xl) {
