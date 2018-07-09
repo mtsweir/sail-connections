@@ -46,6 +46,8 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?php echo htmlencode($yachtsRecord['yacht_name']) ?>, <?php echo $yachtsRecord['charter_type:label'] ?> <?php echo $yachtsRecord['yacht_type:label'] ?> Charter - <?php echo htmlencode($settingsRecord['company_name']) ?></title>
+  <meta name="description" content="<?php echo htmlencode($yachtsRecord['meta_description']) ?>">
+  <link rel="canonical" href="<?php echo $settingsRecord['website_address'] ?><?php echo $yachtsRecord['_link'] ?>">
 <?php include("includes/head.php"); ?>
   
   <?php 

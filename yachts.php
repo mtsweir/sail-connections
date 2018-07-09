@@ -8,13 +8,52 @@
   foreach ($dirsToCheck as $dir) { if (@include_once("$dir$libraryPath")) { break; }}
   if (!function_exists('getRecords')) { die("Couldn't load viewer library, check filepath in sourcecode."); }
 
+  // determine sort order (defined in the URL)
+  $customOrderBy = getCustomOrderBy(@$_REQUEST['sort']);
+
   // load records from 'yachts'
   list($yachtsRecords, $yachtsMetaData) = getRecords(array(
     'tableName'   => 'yachts',
     'perPage'     => '20',
     'loadUploads' => true,
     'allowSearch' => true,
+    //'useSeoUrls'    => true,
+    'orderBy'     => $customOrderBy,
   ));
+
+  if(!@$_REQUEST['destinations']){
+       $_REQUEST['destinations']=-1;
+    }
+   if(!@$_REQUEST['yacht_type']){
+       $_REQUEST['yacht_type']=-1;
+    }
+   if(!@$_REQUEST['charter_type']){
+       $_REQUEST['charter_type']=-1;
+    }
+
+  list($destinationsRecords, $destinationsMetaData) = getRecords(array(
+    'tableName'   => 'destination_list',
+    'where'       => "num=".intval(mysql_escape(@$_REQUEST['destinations'])),
+    'limit'       => '1',
+    'allowSearch' => false,
+  ));
+  $destinationsRecord = @$destinationsRecords[0]; // get first record
+  
+  list($yacht_typeRecords, $yacht_typeMetaData) = getRecords(array(
+    'tableName'   => 'yacht_type_list',
+    'where'       => "num ='".mysql_escape(@$_REQUEST['yacht_type'])."'",
+    'limit'       => '1',
+    'allowSearch' => false,
+  ));
+  $yacht_typeRecord = @$yacht_typeRecords[0]; // get first record
+
+  list($charter_typeRecords, $charter_typeMetaData) = getRecords(array(
+    'tableName'   => 'charter_type_list',
+    'where'       => "num ='".mysql_escape(@$_REQUEST['charter_type'])."'",
+    'limit'       => '1',
+    'allowSearch' => false,
+  ));
+  $charter_typeRecord = @$charter_typeRecords[0]; // get first record
 
   // load record from 'settings'
   list($settingsRecords, $settingsMetaData) = getRecords(array(
@@ -26,6 +65,102 @@
   ));
   $settingsRecord = @$settingsRecords[0]; // get first record
 
+  $resultsText="";
+
+  if ($destinationsRecord && $yacht_typeRecord && $charter_typeRecord) {
+    $resultsText.=$charter_typeRecord['charter_type'] . " " . $yacht_typeRecord['yacht_type'] . " for charter in " . $destinationsRecord['destination'];
+  }
+  elseif ($destinationsRecord && $yacht_typeRecord) {
+    $resultsText.=$yacht_typeRecord['yacht_type'] . " for charter in " . $destinationsRecord['destination'];
+  }
+  elseif ($destinationsRecord && $charter_typeRecord) {
+    $resultsText.=$charter_typeRecord['charter_type'] . " charters in " . $destinationsRecord['destination'];
+  }
+  elseif ($yacht_typeRecord && $charter_typeRecord) {
+    $resultsText.=$charter_typeRecord['charter_type'] . " " . $yacht_typeRecord['yacht_type'] . " for charter";
+  }
+  elseif ($destinationsRecord) {
+    $resultsText.="Yachts for charter in " . $destinationsRecord['destination'];
+  }
+  elseif ($yacht_typeRecord) {
+    $resultsText.=$yacht_typeRecord['yacht_type'] . " for charter";
+  }
+  elseif ($charter_typeRecord) {
+    $resultsText.=$charter_typeRecord['charter_type'] . " yachts for charter";
+  }
+  elseif(@$_REQUEST['yacht_name_query,meta_description_query,intro_query,description_query']){
+   $resultsText.="Search results for: " . $_REQUEST['yacht_name_query,meta_description_query,intro_query,description_query'];
+  }
+
+ ####
+ // this function will determine what the URL is for each of the sorting links on the page
+ // first click will give the order ASC
+ // second click will give the order DESC
+ // $sortingField options: rate, length, guests
+ // usage: getSortingURL("rate");
+ function getSortingURL($sortingField) {
+      
+      // sorting for "rate"
+      if ($sortingField == "rate") {
+            // first click -> set order to ASC
+            if ( @$_REQUEST['sort'] == "rateASC" )                   { return array('param' => "sort=rateDESC", 'class' => "is-active sortdesc"); }
+            // second click -> set order to DESC
+            if ( @$_REQUEST['sort'] == "rateDESC" )                  { return array('param' => "sort=rateASC", 'class' => "is-active sortasc"); }
+
+            if ( !@$_REQUEST['sort'] || @$_REQUEST['sort'] )         { return array('param' => "sort=rateASC", 'class' => ""); }
+      }
+      
+      // sorting for "length"
+      if ($sortingField == "length") {
+            // first click -> set order to ASC
+            if ( @$_REQUEST['sort'] == "lengthASC" )                 { return array('param' => "sort=lengthDESC", 'class' => "is-active sortdesc"); }
+            // second click -> set order to DESC
+            if ( @$_REQUEST['sort'] == "lengthDESC" )                { return array('param' => "sort=lengthASC", 'class' => "is-active sortasc"); }
+
+            if ( !@$_REQUEST['sort'] || @$_REQUEST['sort'] )         { return array('param' => "sort=lengthASC", 'class' => ""); }
+      }
+      
+      // sorting for "guests"
+      if ($sortingField == "guests") {
+            // first click -> set order to ASC
+            if ( @$_REQUEST['sort'] == "guestsASC" )                 { return array('param' => "sort=guestsDESC", 'class' => "is-active sortdesc"); }
+            // second click -> set order to DESC
+            if ( @$_REQUEST['sort'] == "guestsDESC" )                { return array('param' => "sort=guestsASC", 'class' => "is-active sortasc"); }
+
+            if ( !@$_REQUEST['sort'] || @$_REQUEST['sort'] )         { return array('param' => "sort=guestsASC", 'class' => ""); }
+      }
+      
+      return "?";
+ }
+
+  function getCustomOrderBy($sort) {
+      
+      if (!@$sort)  { return ""; }
+      
+      switch ($sort) {
+            case "rateASC":
+                return "CAST(rate_high_season AS UNSIGNED) ASC";   
+                break;
+            case "rateDESC":
+                return "CAST(rate_high_season AS UNSIGNED) DESC";
+                break;
+            case "lengthASC":
+                return "yacht_length ASC";
+                break;
+            case "lengthDESC":
+                return "yacht_length DESC";
+                break;
+            case "guestsASC":
+                return "guests_max ASC";
+                break;
+            case "guestsDESC":
+                return "guests_max DESC";
+                break;
+      }
+      
+      return "";
+ }
+
 ?><!doctype html>
 <html class="no-js" lang="en" dir="ltr">
 
@@ -33,7 +168,43 @@
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yacht Search - Sail Connections</title>
+  <title><?php if ($resultsText): ?><?php echo $resultsText;?><?php else: ?>List of <?php echo $yachtsMetaData['totalRecords']; ?> Charter Yachts (Page <?php echo $yachtsMetaData['page'] ?>)<?php endif ?> - <?php echo $settingsRecord['company_name'] ?></title>
+  <meta name="description" content="<?php echo $resultsText;?>">
+<?php
+  $canonical="";
+  if ($destinationsRecord && $yacht_typeRecord && $charter_typeRecord) {
+    $canonical.="?destinations=" . $destinationsRecord['num'] . "&amp;yacht_type=" . $yacht_typeRecord['num'] . "&amp;charter_type=" . $charter_typeRecord['num'];
+  }
+  elseif ($destinationsRecord && $yacht_typeRecord) {
+    $canonical.="?destinations=" . $destinationsRecord['num'] . "&amp;yacht_type=". $yacht_typeRecord['num'];
+  }
+  elseif ($destinationsRecord && $charter_typeRecord) {
+    $canonical.="?destinations=" . $destinationsRecord['num'] . "&amp;charter_type=" . $charter_typeRecord['num'];
+  }
+  elseif ($yacht_typeRecord && $charter_typeRecord) {
+    $canonical.="?yacht_type=" . $yacht_typeRecord['num'] . "&amp;charter_type=" . $charter_typeRecord['num'];
+  }
+  elseif ($destinationsRecord) {
+    $canonical.="?destinations=" . $destinationsRecord['num'];
+  }
+  elseif ($yacht_typeRecord) {
+    $canonical.="?yacht_type=" . $yacht_typeRecord['num'];
+  }
+  elseif ($charter_typeRecord) {
+    $canonical.="?charter_type=" . $charter_typeRecord['num'];
+  }
+  else {
+   $canonical.="yachts.php";
+  }
+?>
+<link rel="canonical" href="<?php echo $settingsRecord['website_address'] ?>/<?php echo $canonical ?>">
+<?php if ($yachtsMetaData['prevPage']): ?>
+  <link rel="prev" href="<?php echo $yachtsMetaData['prevPageLink'] ?>">
+  <?php endif ?>
+  <?php if ($yachtsMetaData['nextPage']): ?>
+  <link rel="next" href="<?php echo $yachtsMetaData['nextPageLink'] ?>">
+<?php endif ?>
+
 <?php include("includes/head.php"); ?>
   
   <?php 
@@ -71,6 +242,7 @@
       background-image: url(<?php foreach ($settingsRecord['promo_background_image'] as $index => $upload): ?><?php echo htmlencode($upload['thumbUrlPath']) ?><?php break ?><?php endforeach ?>);
     }
   </style>
+
 </head>
 
 <body>
@@ -83,7 +255,7 @@
       <div class="cell">
         <div class="content">
           <div class="hero-title-wrap">
-            <h1 class="hero-title">Charter Yachts (currently working on this)</h1>
+            <h1 class="hero-title"><?php if ($resultsText): ?><?php echo $resultsText;?><?php else: ?>Yachts for Charter<?php endif ?></h1>
           </div>
         </div>
       </div>
@@ -91,74 +263,7 @@
   </div>
 </section>
 
-<section class="search section-inverse section-bg-secondary-4">
-  <form action="/yachts.php" method="get">
-    <div class="grid-container">
-      <div class="grid-x">
-        <!-- <div class="cell medium-auto">
-          <legend class="text-right middle">Yacht Search</legend>
-        </div> -->
-        <div class="cell medium-auto">
-          <label for="searchDestination">Destination</label>
-          <?php
-            list($search_destination_listRecords, $destination_listMetaData) = getRecords(array(
-              'tableName'   => 'destination_list',
-              'loadUploads' => false,
-              'allowSearch' => false,
-            ));
-          ?>
-          <select id="searchDestination" name="destinations">
-            <option selected disabled>Destination</option>
-            <?php foreach ($search_destination_listRecords as $record): ?>
-            <option value="<?php echo $record['num'] ?>" <?php selectedIf( $record['num'],  @$_REQUEST['destinations']) ?> >- <?php echo htmlspecialchars($record['destination']) ?></option>
-            <?php endforeach ?>
-          </select>
-        </div>
-        <div class="cell medium-auto">
-          <label for="searchYachtType">Yacht Type</label>
-          <?php
-            list($search_yacht_type_listRecords, $yacht_typeMetaData) = getRecords(array(
-            'tableName'   => 'yacht_type_list',
-            'loadUploads' => false,
-            'allowSearch' => false,
-            ));
-          ?>
-          <select id="searchYachtType" name="yacht_type">
-            <option selected disabled>Yacht Type</option>
-            <?php foreach ($search_yacht_type_listRecords as $record): ?>
-            <option value="<?php echo $record['num'] ?>" <?php selectedIf( $record['num'],  @$_REQUEST['yacht_type']) ?> >- <?php echo htmlspecialchars($record['yacht_type']) ?></option>
-            <?php endforeach ?>
-          </select>
-        </div>
-        <div class="cell medium-auto">
-          <label for="searchCharterType">Charter Type</label>
-          <?php
-            list($search_charter_type_listRecords, $yacht_typeMetaData) = getRecords(array(
-            'tableName'   => 'charter_type_list',
-            'loadUploads' => false,
-            'allowSearch' => false,
-            ));
-          ?>
-          <select id="searchCharterType" name="charter_type">
-            <option selected disabled>Charter Type</option>
-            <?php foreach ($search_charter_type_listRecords as $record): ?>
-            <option value="<?php echo $record['num'] ?>" <?php selectedIf( $record['num'],  @$_REQUEST['charter_type']) ?> >- <?php echo htmlspecialchars($record['charter_type']) ?></option>
-            <?php endforeach ?>
-          </select>
-        </div>
-        <div class="cell medium-4 large-3">
-          <label for="searchKeyword">Keyword</label>
-          <div class="input-group">
-            <input class="input-group-field" type="text" id="searchKeyword" placeholder="Keyword...">
-            <div class="input-group-button">
-              <input type="submit" class="button secondary" value="Search">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </form>
-</section>
+<?php include("includes/search.php"); ?>
 
 <div class="grid-container">
   <div class="grid-x grid-padding-x">
@@ -168,19 +273,24 @@
 
         <div class="search-filter">
           <div class="search-filter-header h5">
-            [Yacht Type] for Charter in [Destination]
+            <?php if ($resultsText): ?><p><?php echo $resultsText;?></p>
+            <?php else: ?>
+            <p>Use the search options above &uarr; to filter results and the sort options below &darr; to sort the list of yachts.</p>
+            <?php endif ?>
           </div>
+
           <div class="search-filter-nav">
             <ul class="menu simple">
               <li class="menu-text fw-normal">Sort by:</li>
-              <li class="is-active"><a href="#">Default</a></li>
-              <li><a href="#">Rate</a></li>
-              <li><a href="#">Length</a></li>
-              <li><a href="#">Guests</a></li>
+              <li<?php if ( !@$_REQUEST['sort'] ): ?> class="is-active"<?php endif ?>><a href="?">Default</a></li>
+              <li class="<?php echo getSortingURL('rate')['class']; ?>"><a href="?<?php echo preg_replace("/&sort=.*?(ASC|DESC)/", "", @$_SERVER['QUERY_STRING']); ?>&<?php echo getSortingURL('rate')['param']; ?>">Rate</a></li>
+              <li class="<?php echo getSortingURL('length')['class']; ?>"><a href="?<?php echo preg_replace("/&sort=.*?(ASC|DESC)/", "", @$_SERVER['QUERY_STRING']); ?>&<?php echo getSortingURL('length')['param']; ?>">Length</a></li>
+              <li class="hide-for-small-only <?php echo getSortingURL('guests')['class']; ?>">  <a href="?<?php echo preg_replace("/&sort=.*?(ASC|DESC)/", "", @$_SERVER['QUERY_STRING']); ?>&<?php echo getSortingURL('guests')['param']; ?>">Guests</a></li>
             </ul>
           </div>
+
           <div class="search-results-count">
-            Page <?php echo $yachtsMetaData['page'] ?> of <?php echo $yachtsMetaData['totalPages'] ?>
+            <?php echo $yachtsMetaData['totalRecords']; ?> results ( Page <?php echo $yachtsMetaData['page'] ?> of <?php echo $yachtsMetaData['totalPages'] ?> )
           </div>
         </div>
 

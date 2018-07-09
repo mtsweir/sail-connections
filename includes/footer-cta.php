@@ -15,7 +15,7 @@
           <hr>
           <div class="content-cta text-center">
             <p><?php echo htmlencode($settingsRecord['cta_closing']) ?></p>
-            <a href="#" class="button button-icon-left secondary"><i class="sc-icon-mail" aria-hidden="true"></i> Get in Touch</a>
+            <a href="#" class="button button-icon-left secondary" data-open="exampleModal1"><i class="sc-icon-mail" aria-hidden="true"></i> Get in Touch</a>
           </div>
         </div>
 

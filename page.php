@@ -67,6 +67,8 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?php echo htmlencode($pagesRecord['title']) ?> - <?php echo htmlencode($settingsRecord['company_name']) ?></title>
+  <meta name="description" content="<?php echo htmlencode($pagesRecord['meta_desc']) ?>">
+  <link rel="canonical" href="<?php echo $settingsRecord['website_address'] ?><?php echo $pagesRecord['_link'] ?>">
 <?php include("includes/head.php"); ?>
   
   <?php 
@@ -115,6 +117,7 @@
       background-image: url(<?php foreach ($settingsRecord['promo_background_image'] as $index => $upload): ?><?php echo htmlencode($upload['thumbUrlPath']) ?><?php break ?><?php endforeach ?>);
     }
   </style>
+
 </head>
 
 <body>
@@ -141,7 +144,7 @@
 
       <section class="section-page-tabs page-tabs<?php if (!$pagesRecord['tab_1'] && $hide_reviews ==1): ?> page-tabs-none<?php endif ?> padding-bottom-1">
 
-        <ul class="tabs" data-active-collapse="true" data-allow-all-closed="true"data-responsive-accordion-tabs="tabs small-accordion medium-accordion large-tabs" id="page-tabs">
+        <ul class="tabs" data-active-collapse="true" data-allow-all-closed="true" data-responsive-accordion-tabs="tabs small-accordion medium-accordion large-tabs" id="page-tabs">
           <?php if ($pagesRecord['tab_1'] || $hide_reviews != 1): ?><li class="tabs-title is-active"><a href="#tab_1" aria-selected="true"><?php if ($pagesRecord['tab_1']): ?><?php echo htmlencode($pagesRecord['tab_1']) ?><?php else: ?>Overview<?php endif ?></a></li><?php endif ?>
           <?php if ($pagesRecord['tab_2']): ?><li class="tabs-title"><a href="#tab_2"><?php echo htmlencode($pagesRecord['tab_2']) ?></a></li><?php endif ?>
           <?php if ($pagesRecord['tab_3']): ?><li class="tabs-title"><a href="#tab_3"><?php echo htmlencode($pagesRecord['tab_3']) ?></a></li><?php endif ?>
@@ -162,9 +165,8 @@
         <div class="tabs-content" data-tabs-content="page-tabs">
 
           <div class="tabs-panel is-active" id="tab_1">
-            <h2 class="tabs-panel-title"><?php echo htmlencode($pagesRecord['tab_1']) ?></h2>
             <?php echo $pagesRecord['content_1']; ?>
-            <?php if ($pagesRecord['attachments_1']): ?> 
+            <?php if ($pagesRecord['attachments_1']): ?>
             <div class="sc-carousel carousel" data-flickity='{"fullscreen": true, "lazyLoad": 1, "pageDots": true, "cellAlign": "left", "wrapAround": true, "adaptiveHeight": true, "setGallerySize": false}'>
               <?php foreach ($pagesRecord['attachments_1'] as $index => $upload): ?>
               <div class="carousel-cell">
@@ -175,84 +177,41 @@
               <?php endforeach ?>
             </div>
             <?php endif ?>
+            <?php echo $pagesRecord['embed_1']; ?>
           </div>
 
           <?php if ($pagesRecord['tab_2']): ?>
           <div class="tabs-panel" id="tab_2">
-            <h2 class="tabs-panel-title"><?php echo htmlencode($pagesRecord['tab_2']) ?></h2>
             <?php echo $pagesRecord['content_2']; ?>
-            <?php if ($pagesRecord['attachments_2']): ?> 
-            <div class="sc-carousel carousel" data-flickity='{"fullscreen": true, "lazyLoad": 1, "pageDots": true, "cellAlign": "left", "wrapAround": true, "adaptiveHeight": true, "setGallerySize": false}'>
-              <?php foreach ($pagesRecord['attachments_2'] as $index => $upload): ?>
-              <div class="carousel-cell">
-                <img 
-                src="<?php echo htmlencode($upload['thumbUrlPath3']) ?>" 
-                srcset="<?php echo htmlencode($upload['thumbUrlPath2']) ?> 1000w, <?php echo htmlencode($upload['thumbUrlPath']) ?> 2000w" data-flickity-lazyload="<?php echo htmlencode($upload['thumbUrlPath']) ?>"
-                alt="<?php echo htmlencode($upload['info1']) ?>" /></div>
-              <?php endforeach ?>
-            </div>
-            <?php endif ?>
+            <?php echo $pagesRecord['embed_2']; ?>
           </div>
           <?php endif ?>
 
           <?php if ($pagesRecord['tab_3']): ?>
             <div class="tabs-panel" id="tab_3">
-              <h2 class="tabs-panel-title"><?php echo htmlencode($pagesRecord['tab_3']) ?></h2>
               <?php echo $pagesRecord['content_3']; ?>
-              <?php if ($pagesRecord['attachments_3']): ?> 
-              <div class="sc-carousel carousel" data-flickity='{"fullscreen": true, "lazyLoad": 1, "pageDots": true, "cellAlign": "left", "wrapAround": true, "adaptiveHeight": true, "setGallerySize": false}'>
-                <?php foreach ($pagesRecord['attachments_3'] as $index => $upload): ?>
-                <div class="carousel-cell">
-                  <img 
-                  src="<?php echo htmlencode($upload['thumbUrlPath3']) ?>" 
-                  srcset="<?php echo htmlencode($upload['thumbUrlPath2']) ?> 1000w, <?php echo htmlencode($upload['thumbUrlPath']) ?> 2000w" data-flickity-lazyload="<?php echo htmlencode($upload['thumbUrlPath']) ?>"
-                  alt="<?php echo htmlencode($upload['info1']) ?>" /></div>
-                <?php endforeach ?>
-              </div>
-              <?php endif ?>
+              <?php echo $pagesRecord['embed_3']; ?>
             </div>
           <?php endif ?>
 
           <?php if ($pagesRecord['tab_4']): ?>
             <div class="tabs-panel" id="tab_4">
-              <h2 class="tabs-panel-title"><?php echo htmlencode($pagesRecord['tab_4']) ?></h2>
               <?php echo $pagesRecord['content_4']; ?>
-              <?php if ($pagesRecord['attachments_4']): ?> 
-              <div class="sc-carousel carousel" data-flickity='{"fullscreen": true, "lazyLoad": 1, "pageDots": true, "cellAlign": "left", "wrapAround": true, "adaptiveHeight": true, "setGallerySize": false}'>
-                <?php foreach ($pagesRecord['attachments_4'] as $index => $upload): ?>
-                <div class="carousel-cell">
-                  <img 
-                  src="<?php echo htmlencode($upload['thumbUrlPath3']) ?>" 
-                  srcset="<?php echo htmlencode($upload['thumbUrlPath2']) ?> 1000w, <?php echo htmlencode($upload['thumbUrlPath']) ?> 2000w" data-flickity-lazyload="<?php echo htmlencode($upload['thumbUrlPath']) ?>"
-                  alt="<?php echo htmlencode($upload['info1']) ?>" /></div>
-                <?php endforeach ?>
-              </div>
-              <?php endif ?>
+              <?php echo $pagesRecord['embed_4']; ?>
             </div>
           <?php endif ?>
 
           <?php if ($pagesRecord['tab_5']): ?>
             <div class="tabs-panel" id="tab_5">
-              <h2 class="tabs-panel-title"><?php echo htmlencode($pagesRecord['tab_5']) ?></h2>
               <?php echo $pagesRecord['content_5']; ?>
-              <?php if ($pagesRecord['attachments_5']): ?> 
-              <div class="sc-carousel carousel" data-flickity='{"fullscreen": true, "lazyLoad": 1, "pageDots": true, "cellAlign": "left", "wrapAround": true, "adaptiveHeight": true, "setGallerySize": false}'>
-                <?php foreach ($pagesRecord['attachments_5'] as $index => $upload): ?>
-                <div class="carousel-cell">
-                  <img 
-                  src="<?php echo htmlencode($upload['thumbUrlPath3']) ?>" 
-                  srcset="<?php echo htmlencode($upload['thumbUrlPath2']) ?> 1000w, <?php echo htmlencode($upload['thumbUrlPath']) ?> 2000w" data-flickity-lazyload="<?php echo htmlencode($upload['thumbUrlPath']) ?>"
-                  alt="<?php echo htmlencode($upload['info1']) ?>" /></div>
-                <?php endforeach ?>
-              </div>
-              <?php endif ?>
+              <?php echo $pagesRecord['embed_5']; ?>
             </div>
           <?php endif ?>
 
           <?php if ($hide_reviews != 1): ?>
             <?php if ($reviewsRecords): ?>
             <div class="tabs-panel" id="paneReviews">
-              <h2 class="tabs-panel-title text-center">Reviews</h2>
+              <h3 class="tabs-panel-title">Reviews of <?php echo $pagesRecord['destination:label'] ?> from our clients</h3>
               <div class="grid-x grid-padding-y grid-margin-x">
                 <?php foreach ($reviewsRecords as $record): ?>
                 <blockquote class="large-6 cell">
@@ -276,17 +235,28 @@
        'categoryFormat'      => 'showall', // showall, onelevel, twolevel, breadcrumb
        'loadUploads' => '1',
       ));
-
       $selectedCat = $pagesRecord['num'];
       $pagedepth = $pagesRecord['depth'];
       $pagedepthplusone = ++$pagedepth;
-
+      $subnavcount = 0;
+      foreach ($subcatRecords as $subcat) {
+        if ($subcat['parentNum']==$selectedCat && $subcat['depth'] == $pagedepthplusone) {
+          $subnavcount = ++$subnavcount;
+        }
+      }
       ?>
-
+      <?php if ($subnavcount !=0): ?>
       <section>
         <div class="content">
           <div class="content-cta text-center">
-            <h3 class="content-cta-title">Explore more about sailing in <?php echo htmlencode($pagesRecord['name']) ?></h3>
+            <?php if ($pagesRecord['subpage_title']) {
+              $subpage_title = $pagesRecord['subpage_title'];
+              } 
+            else {
+              $subpage_title = "Explore More...";
+              }
+            ?>
+            <h3 class="content-cta-title"><?php echo htmlencode($subpage_title) ?></h3>
           </div>
           <div class="card-list list-image-grid">
 
@@ -317,6 +287,87 @@
           </div>
         </div>
       </section>
+      <?php endif ?>
+
+      <?php if ($pagesRecord['destination']): ?>
+      <section>
+        <div class="content">
+          <div class="content-cta text-center">
+            <h3 class="content-cta-title">Browse our yachts for charter in <?php echo $pagesRecord['destination:label'] ?></h3>
+          </div>
+          <div class="card-list list-image-grid">
+
+          <?php 
+          // load records from 'yacht_type_list'
+          list($yacht_type_listRecords, $yacht_type_listMetaData) = getRecords(array(
+            'tableName'   => 'yacht_type_list',
+            'loadUploads' => true,
+            'allowSearch' => false,
+          ));
+          ?>
+          <?php foreach ($yacht_type_listRecords as $record): ?>
+            <?php if ($record['show_in_pages'] ==1): ?>
+            <div class="card">
+              <a href="/yachts.php?destinations=<?php echo $pagesRecord['destination'] ?>&yacht_type=<?php echo $record['num'] ?>">
+                <div class="card-image">
+                  <?php if ($record['image']) {
+                      foreach ($record['image'] as $index => $upload) {
+                        $yacht_type_image = $upload['thumbUrlPath3'];
+                        break;
+                      }
+                    } else {
+                      $yacht_type_image = "/img/no-image.png";
+                    }
+                  ?>
+                  <img src="<?php echo $yacht_type_image ?>" alt="<?php echo htmlencode($record['yacht_type']) ?>">
+                </div>
+                <div class="card-section">
+                  <h3 class="card-title"><?php echo htmlencode($record['yacht_type']) ?></h3>
+                </div>
+              </a>
+            </div>
+            <?php endif ?>
+          <?php endforeach ?>
+
+          <?php 
+          // load records from 'charter_type_list'
+          list($charter_type_listRecords, $charter_type_listMetaData) = getRecords(array(
+            'tableName'   => 'charter_type_list',
+            'loadUploads' => true,
+            'allowSearch' => false,
+          ));
+          ?>
+          <?php foreach ($charter_type_listRecords as $record): ?>
+            <?php if ($record['show_in_pages'] ==1): ?>
+            <div class="card">
+              <a href="/yachts.php?destinations=<?php echo $pagesRecord['destination'] ?>&charter_type=<?php echo $record['num'] ?>">
+                <div class="card-image">
+                  <?php if ($record['image']) {
+                      foreach ($record['image'] as $index => $upload) {
+                        $yacht_type_image = $upload['thumbUrlPath3'];
+                        break;
+                      }
+                    } else {
+                      $yacht_type_image = "/img/no-image.png";
+                    }
+                  ?>
+                  <img src="<?php echo $yacht_type_image ?>" alt="<?php echo htmlencode($record['charter_type']) ?>">
+                </div>
+                <div class="card-section">
+                  <h3 class="card-title"><?php echo htmlencode($record['charter_type']) ?></h3>
+                </div>
+              </a>
+            </div>
+            <?php endif ?>
+          <?php endforeach ?>
+
+          </div>
+        </div>
+        <div class="content-cta text-center">
+          <a href="/yachts.php?destinations=<?php echo $pagesRecord['destination'] ?>" class="button">View all Yachts in <?php echo $pagesRecord['destination:label'] ?></a>
+        </div>
+      </section>
+      <?php endif ?>
 
       <section class="section-cta-inline padding-bottom-3">
         <div class="grid-x content feature-box">
