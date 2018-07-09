@@ -62,10 +62,6 @@ section {
     background-color: rgba($black, 0.4); 
 	}
 	
-	// just commenting out for now
-	// .content-cta {
-	// 	margin-bottom: 0;
-	// }
 }
 
 .section-feature-image {
@@ -85,11 +81,16 @@ section {
 .content-cta {
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: $spacing-xl;
-	max-width: 50em;
+  margin-bottom: $spacing-lg;
+	max-width: 60em;
+
+  hr {
+    margin-top: $spacing-lg;
+    margin-bottom: $spacing-lg;
+  }
 
 	.button {
-		margin-top: $spacing-xl;
+		margin-top: $spacing-lg;
 	}
 }
 
@@ -179,9 +180,11 @@ section {
 
 .list-column-features {
 
+  margin-bottom: 0rem;
+
   li {
     position: relative;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
     padding-left: 2rem;
   }
 
@@ -287,6 +290,14 @@ section {
 	margin-top: $spacing-lg;
 	padding-top: $spacing-xl;
 	border-top: 1px solid $color-border;
+}
+
+.sortdesc a:after {
+  content: " ↓";
+}
+
+.sortasc a:after {
+  content: " ↑";
 }
 
 // Breadcrumbs
