@@ -8,27 +8,20 @@
 
 // Articles
 
-.meta {
-	margin-top: $spacing-md;
-	margin-bottom: $spacing-xl;
-	font-size: $text-small;
-
-	.meta-category {
-		display: block;
-	}
-}
-
 .article {
+
+	h1 {
+		font-size: 2rem;
+	}
 
 	h2 {
 		margin-top: $spacing-2xl;
 		font-size: 1.5rem;
-		font-weight: $font-weight-medium;
 	}
 
 	h3 {
-		margin-top: $spacing-lg;
-		font-size: 1.25rem;
+		margin-top: $spacing-xl;
+		font-size: 1.375rem;
 		font-weight: $font-weight-medium;
 	}
 
@@ -53,22 +46,60 @@
 		border-left: 4px solid $color-secondary-2;
 		color: $black;
 	}
+
+	.meta {
+		margin-top: $spacing-md;
+		margin-bottom: $spacing-xl;
+		color: $color-grey-medium;
+	}
+
 }
 
-.article-sidebar {
-	.card {
-		margin-bottom: $spacing-xl;
+// Article Meta
+
+.meta-category {
+	display: block;
+
+	a {
+		color: $color-grey-medium;
+		text-decoration: underline;
 	}
+}
+
+// Article Media
+
+article {
+	figure {
+		margin-top: $spacing-2xl;
+	}
+	figcaption {
+		margin-top: $spacing-xs;
+		color: $color-grey-medium;
+		font-size: $text-small;
+		text-align: center;
+		a {
+			color: $color-grey-medium;
+			text-decoration: underline;
+			&:hover {
+				color: $color-grey-medium;
+			}
+		}
+	}
+}
+
+// Aside
+
+aside {
+	margin-top: $spacing-2xl;
 }
 
 // Article feed
 
 .article-list-header {
-	margin-bottom: $spacing-2xl;
-	padding-bottom: $spacing-sm;
+	margin-bottom: $spacing-4xl;
+	padding-top: $spacing-2xl;
 	font-size: 1.5rem;
-	font-weight: $font-weight-medium;
-	border-bottom: 1px solid $color-border;
+	border-top: 1px solid $color-border;
 }
 
 .article-list-item {
@@ -117,18 +148,35 @@
 	// }
 }
 
-@media screen and (max-width: $breakpoint-xl-down) {
+@media screen and (max-width: $breakpoint-md-down) {
 
-	.article-sidebar {
-		.card {
-			margin-top: $spacing-2xl;
+	.article {
+		h1 {
+			line-height: 1.2;
+		}
+
+		h2 {
+			line-height: 1.25;
 		}
 	}
 
 }
 
-
 @media screen and (min-width: $breakpoint-sm) {
+
+	.article {
+		h1 {
+			font-size: 2.5rem;
+		}
+
+		h2 {
+			font-size: 1.5rem;
+		}
+
+		h3 {
+			font-size: 1.25rem;
+		}
+	}
 
 	.article-list-item {
 		display: flex;
