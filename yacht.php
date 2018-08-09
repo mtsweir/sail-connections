@@ -146,6 +146,30 @@
 
             <p class="text-lead"><?php echo htmlencode($yachtsRecord['intro']) ?></p>
 
+            <?php if ($yachtsRecord['banner_image']): // Show smaller banner instead with specs to right ?>
+            <?php foreach ($yachtsRecord['banner_image'] as $index => $upload): ?>
+              <?php if ($upload['width'] == "559"): ?>
+              <div class="grid-container">
+                <div class="grid-x grid-margin-x">
+                  <div class="cell small-12 large-8"><img src="<?php echo htmlencode($upload['urlPath']) ?>" width="<?php echo $upload['width'] ?>" height="<?php echo $upload['height'] ?>" alt="" /></div>
+                  <div class="cell small-12 large-4 content feature-box">
+                      <dl class="overview-list">
+                        <dt>Length:</dt>
+                        <dd><?php echo htmlencode($yachtsRecord['yacht_length']) ?>' (<?php echo round($yachtsRecord['yacht_length'] * 0.3048, 1) ?>m)</dd>
+                        <dt>Charter Type:</dt>
+                        <dd><?php echo $yachtsRecord['charter_type:label'] ?></dd>
+                        <dt>Guest Max:</dt>
+                        <dd><?php echo htmlencode($yachtsRecord['guests_max']) ?></dd>
+                        <dt>Cabins:</dt>
+                        <dd><?php echo htmlencode($yachtsRecord['cabins']) ?></dd>
+                      </dl>
+                  </div>
+                </div>
+              </div>
+            <?php endif ?>
+            <?php endforeach ?>
+            <?php endif ?>
+
             <div class="content feature-box">
               <dl class="overview-list">
                 <dt>Length:</dt>
@@ -223,13 +247,22 @@
               <?php if ($yachtsRecord['water_capacity']): ?><li><span>Water Capacity:</span> <?php echo htmlencode($yachtsRecord['water_capacity']) ?></li><?php endif ?>
             </ul>
 
+            <?php if ($yachtsRecord['equipment']): ?><p class="margin-bottom-2"><strong>Equipment Includes:</strong> <?php echo htmlencode($yachtsRecord['equipment']) ?></p><?php endif ?>
+
             <h3 class="text-center">Yacht Layout</h3>
 
             <?php if ($yachtsRecord['spec_images']): ?>
             <?php foreach ($yachtsRecord['spec_images'] as $index => $upload): ?>
               <div class="text-center"><img src="<?php echo htmlencode($upload['thumbUrlPath']) ?>" alt="<?php echo htmlencode($upload['info1']) ?>" /></div>
             <?php endforeach ?>
+
+            <?php if ($yachtsRecord['charter_type'] == "1"): ?>
+            <?php if ($settingsRecord['bareboat_layout_statement']): ?><p class="margin-1 text-center"><?php echo htmlencode($settingsRecord['bareboat_layout_statement']) ?></p><?php endif ?>
             <?php endif ?>
+
+            <?php endif ?>
+
+
 
           </div>
 

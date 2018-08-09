@@ -17,6 +17,10 @@
 h1 {
   color: $primary-color;
 }
+h2 {
+  text-align: center;
+  margin-bottom: $spacing-md;
+}
 
 // Paragraphs
 
@@ -55,4 +59,41 @@ hr {
 		margin: $spacing-xl 0;
 	}
 
+}
+
+.image-left, .image-right {
+		margin: 1rem 0;
+		width: 100%;
+}
+.image-left img, .image-right img {
+		width: 100%;
+}
+.image-left p, .image-right p {
+		font-size: 0.8rem;
+}
+
+@media screen and (min-width: $breakpoint-sm) {
+	.image-left {
+		float: left;
+		margin: 0 1rem 1rem 0;
+		width: 50%;
+	}
+	.image-right {
+		float: right;
+		margin: 0 0 1rem 1rem;
+		width: 50%;
+	}
+}
+
+@media screen and (min-width: $breakpoint-md) {
+	.image-left {
+		float: left;
+		margin: 0 1rem 1rem 0;
+		width: 33%;
+	}
+	.image-right {
+		float: right;
+		margin: 0 0 1rem 1rem;
+		width: 33%;
+	}
 }
