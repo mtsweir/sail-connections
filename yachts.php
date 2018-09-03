@@ -135,7 +135,7 @@
 
   function getCustomOrderBy($sort) {
       
-      if (!@$sort)  { return ""; }
+      if (!@$sort)  { return "yacht_name ASC"; }
       
       switch ($sort) {
             case "rateASC":
@@ -283,7 +283,7 @@
             <ul class="menu simple">
               <li class="menu-text fw-normal">Sort by:</li>
               <li<?php if ( !@$_REQUEST['sort'] ): ?> class="is-active"<?php endif ?>><a href="?">Default</a></li>
-              <li class="<?php echo getSortingURL('rate')['class']; ?>"><a href="?<?php echo preg_replace("/&sort=.*?(ASC|DESC)/", "", @$_SERVER['QUERY_STRING']); ?>&<?php echo getSortingURL('rate')['param']; ?>">Rate</a></li>
+              <!--<li class="<?php echo getSortingURL('rate')['class']; ?>"><a href="?<?php echo preg_replace("/&sort=.*?(ASC|DESC)/", "", @$_SERVER['QUERY_STRING']); ?>&<?php echo getSortingURL('rate')['param']; ?>">Rate</a></li>-->
               <li class="<?php echo getSortingURL('length')['class']; ?>"><a href="?<?php echo preg_replace("/&sort=.*?(ASC|DESC)/", "", @$_SERVER['QUERY_STRING']); ?>&<?php echo getSortingURL('length')['param']; ?>">Length</a></li>
               <li class="hide-for-small-only <?php echo getSortingURL('guests')['class']; ?>">  <a href="?<?php echo preg_replace("/&sort=.*?(ASC|DESC)/", "", @$_SERVER['QUERY_STRING']); ?>&<?php echo getSortingURL('guests')['param']; ?>">Guests</a></li>
             </ul>

@@ -211,7 +211,7 @@
           <?php if ($hide_reviews != 1): ?>
             <?php if ($reviewsRecords): ?>
             <div class="tabs-panel" id="paneReviews">
-              <h3 class="tabs-panel-title">Reviews of <?php echo $pagesRecord['destination:label'] ?> from our clients</h3>
+              <h3 class="tabs-panel-title">Our client reviews about charter sailing in <?php echo $pagesRecord['destination:label'] ?></h3>
               <div class="grid-x grid-padding-y grid-margin-x">
                 <?php foreach ($reviewsRecords as $record): ?>
                 <blockquote class="large-6 cell">
