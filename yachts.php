@@ -4,7 +4,7 @@
   
   // load viewer library
   $libraryPath = 'cms/lib/viewer_functions.php';
-  $dirsToCheck = array('/home/sailconnections/dev.sailconnections.com/','','../','../../','../../../');
+  $dirsToCheck = array('/home/sailconnections/sailconnections.com/','','../','../../','../../../');
   foreach ($dirsToCheck as $dir) { if (@include_once("$dir$libraryPath")) { break; }}
   if (!function_exists('getRecords')) { die("Couldn't load viewer library, check filepath in sourcecode."); }
 
@@ -68,28 +68,28 @@
   $resultsText="";
 
   if ($destinationsRecord && $yacht_typeRecord && $charter_typeRecord) {
-    $resultsText.=$charter_typeRecord['charter_type'] . " " . $yacht_typeRecord['yacht_type'] . " for charter in " . $destinationsRecord['destination'];
+    $resultsText.=$charter_typeRecord['charter_type'] . " " . $yacht_typeRecord['yacht_type'] . " for Charter in " . $destinationsRecord['destination'];
   }
   elseif ($destinationsRecord && $yacht_typeRecord) {
-    $resultsText.=$yacht_typeRecord['yacht_type'] . " for charter in " . $destinationsRecord['destination'];
+    $resultsText.=$yacht_typeRecord['yacht_type'] . " for Charter in " . $destinationsRecord['destination'];
   }
   elseif ($destinationsRecord && $charter_typeRecord) {
-    $resultsText.=$charter_typeRecord['charter_type'] . " charters in " . $destinationsRecord['destination'];
+    $resultsText.=$charter_typeRecord['charter_type'] . " Charters in " . $destinationsRecord['destination'];
   }
   elseif ($yacht_typeRecord && $charter_typeRecord) {
-    $resultsText.=$charter_typeRecord['charter_type'] . " " . $yacht_typeRecord['yacht_type'] . " for charter";
+    $resultsText.=$charter_typeRecord['charter_type'] . " " . $yacht_typeRecord['yacht_type'] . " for Charter";
   }
   elseif ($destinationsRecord) {
-    $resultsText.="Yachts for charter in " . $destinationsRecord['destination'];
+    $resultsText.="Yachts for Charter in " . $destinationsRecord['destination'];
   }
   elseif ($yacht_typeRecord) {
-    $resultsText.=$yacht_typeRecord['yacht_type'] . " for charter";
+    $resultsText.=$yacht_typeRecord['yacht_type'] . " for Charter";
   }
   elseif ($charter_typeRecord) {
-    $resultsText.=$charter_typeRecord['charter_type'] . " yachts for charter";
+    $resultsText.=$charter_typeRecord['charter_type'] . " Yachts for Charter";
   }
   elseif(@$_REQUEST['yacht_name_query,meta_description_query,intro_query,description_query']){
-   $resultsText.="Search results for: " . $_REQUEST['yacht_name_query,meta_description_query,intro_query,description_query'];
+   $resultsText.="Search Results for: " . $_REQUEST['yacht_name_query,meta_description_query,intro_query,description_query'];
   }
 
  ####
@@ -161,6 +161,8 @@
       return "";
  }
 
+  include("includes/headers.php");
+  
 ?><!doctype html>
 <html class="no-js" lang="en" dir="ltr">
 
@@ -207,14 +209,26 @@
 
 <?php include("includes/head.php"); ?>
   
-  <?php 
-    if ($settingsRecord['default_banner']) {
-      foreach ($settingsRecord['default_banner'] as $index => $upload) {
+
+  <?php // Get banners based on search query
+
+  if ($destinationsRecord) { // show destination banner first
+
+    if ($destinationsRecord['banner_image']) {
+      foreach ($destinationsRecord['banner_image'] as $index => $upload) {
         $hero_xl = ($upload['thumbUrlPath']);
         $hero_lg = ($upload['thumbUrlPath2']);
         $hero_md = ($upload['thumbUrlPath3']);
-        $hero_sm = ($upload['thumbUrlPath4']);
-        break;
+        $hero_sm = ($upload['thumbUrlPath3']);
+        break; 
+      } 
+    } elseif ($settingsRecord['default_search_banner']) {
+      foreach ($settingsRecord['default_search_banner'] as $index => $upload) {
+        $hero_xl = ($upload['thumbUrlPath']);
+        $hero_lg = ($upload['thumbUrlPath2']);
+        $hero_md = ($upload['thumbUrlPath3']);
+        $hero_sm = ($upload['thumbUrlPath3']);
+        break; 
       }
     } else {
         $hero_xl = "/img/default-banner.jpg";
@@ -222,6 +236,75 @@
         $hero_md = "/img/default-banner.jpg";
         $hero_sm = "/img/default-banner.jpg";
     }
+
+  } elseif ($yacht_typeRecord) { // Otherwise show yacht type banner
+
+    if ($yacht_typeRecord['banner_image']) {
+      foreach ($yacht_typeRecord['banner_image'] as $index => $upload) {
+        $hero_xl = ($upload['thumbUrlPath']);
+        $hero_lg = ($upload['thumbUrlPath2']);
+        $hero_md = ($upload['thumbUrlPath3']);
+        $hero_sm = ($upload['thumbUrlPath3']);
+        break; 
+      } 
+    } elseif ($settingsRecord['default_search_banner']) {
+      foreach ($settingsRecord['default_search_banner'] as $index => $upload) {
+        $hero_xl = ($upload['thumbUrlPath']);
+        $hero_lg = ($upload['thumbUrlPath2']);
+        $hero_md = ($upload['thumbUrlPath3']);
+        $hero_sm = ($upload['thumbUrlPath3']);
+        break; 
+      }
+    } else {
+        $hero_xl = "/img/default-banner.jpg";
+        $hero_lg = "/img/default-banner.jpg";
+        $hero_md = "/img/default-banner.jpg";
+        $hero_sm = "/img/default-banner.jpg";
+    }
+
+  } elseif ($charter_typeRecord) { // or show charter type banner
+
+    if ($charter_typeRecord['banner_image']) {
+      foreach ($charter_typeRecord['banner_image'] as $index => $upload) {
+        $hero_xl = ($upload['thumbUrlPath']);
+        $hero_lg = ($upload['thumbUrlPath2']);
+        $hero_md = ($upload['thumbUrlPath3']);
+        $hero_sm = ($upload['thumbUrlPath3']);
+        break; 
+      } 
+    } elseif ($settingsRecord['default_search_banner']) {
+      foreach ($settingsRecord['default_search_banner'] as $index => $upload) {
+        $hero_xl = ($upload['thumbUrlPath']);
+        $hero_lg = ($upload['thumbUrlPath2']);
+        $hero_md = ($upload['thumbUrlPath3']);
+        $hero_sm = ($upload['thumbUrlPath3']);
+        break; 
+      }
+    } else {
+        $hero_xl = "/img/default-banner.jpg";
+        $hero_lg = "/img/default-banner.jpg";
+        $hero_md = "/img/default-banner.jpg";
+        $hero_sm = "/img/default-banner.jpg";
+    }
+
+  } else {
+
+    if ($settingsRecord['default_search_banner']) {
+      foreach ($settingsRecord['default_search_banner'] as $index => $upload) {
+        $hero_xl = ($upload['thumbUrlPath']);
+        $hero_lg = ($upload['thumbUrlPath2']);
+        $hero_md = ($upload['thumbUrlPath3']);
+        $hero_sm = ($upload['thumbUrlPath3']);
+        break; 
+      }
+    } else {
+        $hero_xl = "/img/default-banner.jpg";
+        $hero_lg = "/img/default-banner.jpg";
+        $hero_md = "/img/default-banner.jpg";
+        $hero_sm = "/img/default-banner.jpg";
+    }
+  }
+
   ?>
 
   <!-- Hero images -->
@@ -249,7 +332,7 @@
 
 <?php include("includes/header.php"); ?>
 
-<section class="hero hero-secondary">
+<section class="hero">
   <div class="grid-container">
     <div class="grid-x">
       <div class="cell">
@@ -272,11 +355,12 @@
       <section class="search-results">
 
         <div class="search-filter">
-          <div class="search-filter-header h5">
-            <?php if ($resultsText): ?><p><?php echo $resultsText;?></p>
+          <div class="search-filter-header">
+            <?php if ($resultsText): ?><h5><?php echo $resultsText;?></h5>
             <?php else: ?>
-            <p>Use the search options above &uarr; to filter results and the sort options below &darr; to sort the list of yachts.</p>
+            <h5>Use the search options above &uarr; to filter results and the sort options below &darr; to sort the list of yachts.</h5>
             <?php endif ?>
+            <?php if ($settingsRecord['yacht_search_message']): ?><p><?php echo $settingsRecord['yacht_search_message'] ?></p><?php endif ?>
           </div>
 
           <div class="search-filter-nav">
@@ -340,8 +424,6 @@
           </ul>
         </nav>
 
-
-
       </section>
 
     </div><!-- large-12 cell -->
@@ -351,6 +433,11 @@
 <?php include("includes/footer-cta.php"); ?>
 <?php include("includes/footer-promo.php"); ?>
 <?php include("includes/footer.php"); ?>
+
+</div><!-- END Off-canvas Content -->
+
+<?php include("includes/form-modal.php"); ?>
+<?php include("includes/footer-scripts.php"); ?>
 
 </body>
 </html>

@@ -117,6 +117,12 @@ aside {
 	}
 }
 
+@media screen and (max-width: $breakpoint-sm) {
+	.article-list-title {
+		margin-top: $spacing-md;
+	}
+}
+
 .category-tag {
 	display: block;
 	margin-top: $spacing-md;

@@ -32,6 +32,12 @@ h2 {
 	font-size: 0.875rem;
 }
 
+// Lists
+
+ol, ul {
+	margin-left: 2rem;
+}
+
 // Blockquotes
 
 blockquote {
@@ -83,6 +89,9 @@ hr {
 		margin: 0 0 1rem 1rem;
 		width: 50%;
 	}
+	.image-small {
+		width: 33%;
+	}
 }
 
 @media screen and (min-width: $breakpoint-md) {
@@ -96,4 +105,18 @@ hr {
 		margin: 0 0 1rem 1rem;
 		width: 33%;
 	}
+	.image-small {
+		width: 25%;
+	}
+}
+
+@media only screen and (min-width: $breakpoint-md){
+	.three-col {
+       column-count: 3;
+       column-gap : 50px;
+	}
+	.two-col {
+       column-count: 2;
+       column-gap : 50px;
+	} 
 }

@@ -1,0 +1,67 @@
+<?php header('Content-type: text/html; charset=utf-8'); ?>
+<?php
+  /* STEP 1: LOAD RECORDS - Copy this PHP code block near the TOP of your page */
+  
+  // load viewer library
+  $libraryPath = 'cms/lib/viewer_functions.php';
+  $dirsToCheck = array('/home/sailconnections/sailconnections.com/','','../','../../','../../../');
+  foreach ($dirsToCheck as $dir) { if (@include_once("$dir$libraryPath")) { break; }}
+  if (!function_exists('getRecords')) { die("Couldn't load viewer library, check filepath in sourcecode."); }
+
+  // load records from 'pages'
+  list($pagesRecords, $pagesMetaData) = getRecords(array(
+    'tableName'   => 'pages',
+    'loadUploads' => false,
+    'allowSearch' => false,
+  ));
+
+  // load records from 'blog'
+  list($blogRecords, $blogMetaData) = getRecords(array(
+    'tableName'   => 'blog',
+    'loadUploads' => false,
+    'allowSearch' => false,
+  ));
+
+  // load records from 'faqs'
+  list($yachtsRecords, $yachtsMetaData) = getRecords(array(
+    'tableName'   => 'yachts',
+    'loadUploads' => false,
+    'allowSearch' => false,
+  ));
+
+  // load record from 'settings'
+  list($settingsRecords, $settingsMetaData) = getRecords(array(
+    'tableName'   => 'settings',
+    'where'       => '', // load first record
+    'loadUploads' => true,
+    'allowSearch' => false,
+    'limit'       => '1',
+  ));
+  $settingsRecord = @$settingsRecords[0]; // get first record
+
+?>
+<?php echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" ?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<?php foreach ($pagesRecords as $record): ?>
+   <url>
+      <loc><?php echo htmlencode($settingsRecord['website_address']) ?><?php echo $record['_link'] ?></loc>
+      <lastmod><?php echo date("Y-m-d", strtotime($record['updatedDate'])) ?></lastmod>
+   </url>
+<?php endforeach ?>
+
+<?php foreach ($blogRecords as $record): ?>
+   <url>
+      <loc><?php echo htmlencode($settingsRecord['website_address']) ?><?php echo $record['_link'] ?></loc>
+      <lastmod><?php echo date("Y-m-d", strtotime($record['updatedDate'])) ?></lastmod>
+   </url>
+<?php endforeach ?>
+
+<?php foreach ($yachtsRecords as $record): ?>
+   <url>
+      <loc><?php echo htmlencode($settingsRecord['website_address']) ?><?php echo $record['_link'] ?></loc>
+      <lastmod><?php echo date("Y-m-d", strtotime($record['updatedDate'])) ?></lastmod>
+   </url>
+<?php endforeach ?>
+
+</urlset> 

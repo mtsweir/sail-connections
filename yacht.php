@@ -4,7 +4,7 @@
   
   // load viewer library
   $libraryPath = 'cms/lib/viewer_functions.php';
-  $dirsToCheck = array('/home/sailconnections/dev.sailconnections.com/','','../','../../','../../../');
+  $dirsToCheck = array('/home/sailconnections/sailconnections.com/','','../','../../','../../../');
   foreach ($dirsToCheck as $dir) { if (@include_once("$dir$libraryPath")) { break; }}
   if (!function_exists('getRecords')) { die("Couldn't load viewer library, check filepath in sourcecode."); }
 
@@ -38,6 +38,8 @@
   ));
   $settingsRecord = @$settingsRecords[0]; // get first record
 
+  include("includes/headers.php");
+  
 ?><!doctype html>
 <html class="no-js" lang="en" dir="ltr">
 
@@ -206,12 +208,65 @@
             </ul>
             <?php endif ?>
 
+
+            <?php if ($yachtsRecord['media_embed']): ?>
+            <div class="grid-container">
+            <div class="grid-x grid-padding-x small-margin-collapse">
+            <div class="large-6 cell">
+            <?php endif ?>
+
             <?php if ($yachtsRecord['regions']||$yachtsRecord['destinations']): ?>
             <h3>Charter Locations</h3>
             <ul>
-            <?php if ($yachtsRecord['regions']): ?><li>Regions: <?php echo join(', ', $yachtsRecord['regions:labels']); ?></li><?php endif ?>
-            <?php if ($yachtsRecord['destinations']): ?><li>Destinations: <?php echo join(', ', $yachtsRecord['destinations:labels']); ?></li><?php endif ?>
+
+              <?php if ($yachtsRecord['regions']): ?>
+                  <?php  // load records from 'regions'
+                  $regionID = " " . $yachtsRecord['regions'] . " ";
+                  list($region_listRecords, $region_listMetaData) = getRecords(array(
+                  'tableName'   => 'region_list',
+                  'loadUploads' => false,
+                  'allowSearch' => false,
+                  'where'       => "'". mysql_escape($regionID) ."' LIKE CONCAT('%\t', num ,'\t%') " . ' AND hidden ="0"', 
+                  ));
+                  ?>
+                  <?php $countD=0; ?>
+                  <li>Regions:
+                      <?php foreach ($region_listRecords as $record): ?>
+                        <?php echo ($countD==0)? "" : ", " ?>
+                        <?php if ($record['region_link']): ?>
+                          <a href="/<?php echo $record['region_link'] ?>/">
+                          <?php echo htmlencode($record['region']) ?>
+                          </a>
+                        <?php else: ?>
+                          <?php echo htmlencode($record['region']) ?>
+                        <?php endif ?>
+                        <?php $countD++;?>
+                    <?php endforeach ?>
+                  </li>
+              <?php endif ?>
+
+              <?php if ($yachtsRecord['destinations']): ?>
+                  <?php  // load records from 'destinations'
+                  $destID = " " . $yachtsRecord['destinations'] . " ";
+                  list($destination_listRecords, $destination_listMetaData) = getRecords(array(
+                  'tableName'   => 'destination_list',
+                  'loadUploads' => false,
+                  'allowSearch' => false,
+                  'where'       => "'". mysql_escape($destID) ."' LIKE CONCAT('%\t', num ,'\t%') " . ' AND hidden ="0"', 
+                  ));
+                  ?>
+                  <?php $countD=0; ?>
+                  <li>Destinations:
+                      <?php foreach ($destination_listRecords as $record): ?><?php echo ($countD==0)? "" : ", " ?><?php if ($record['destination_link']): ?><a href="/<?php echo $record['destination_link'] ?>/"><?php echo htmlencode($record['destination']) ?></a><?php else: ?><?php echo htmlencode($record['destination']) ?><?php endif ?><?php $countD++;?><?php endforeach ?>
+                  </li>
+              <?php endif ?>
+
             </ul>
+            <?php endif ?>
+
+            <?php if ($yachtsRecord['media_embed']): ?>
+            </div>
+            <div class="large-6 cell">
             <?php endif ?>
 
             <?php if ($yachtsRecord['media_embed']): ?>
@@ -224,6 +279,10 @@
                 <iframe width="560" height="315" src="<?php echo htmlencode($yachtsRecord['media_embed']) ?>" frameborder="0" allowfullscreen></iframe>
               </div>
               <?php endif ?>
+            <?php endif ?>
+
+            <?php if ($yachtsRecord['media_embed']): ?>
+            </div></div></div>
             <?php endif ?>
 
           </div>
@@ -325,6 +384,11 @@
 <?php include("includes/footer-cta.php"); ?>
 <?php include("includes/footer-promo.php"); ?>
 <?php include("includes/footer.php"); ?>
+
+</div><!-- END Off-canvas Content -->
+
+<?php include("includes/form-modal.php"); ?>
+<?php include("includes/footer-scripts.php"); ?>
 
 </body>
 </html>

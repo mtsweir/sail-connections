@@ -4,7 +4,7 @@
   
   // load viewer library
   $libraryPath = 'cms/lib/viewer_functions.php';
-  $dirsToCheck = array('/home/sailconnections/dev.sailconnections.com/','','../','../../','../../../');
+  $dirsToCheck = array('/home/sailconnections/sailconnections.com/','','../','../../','../../../');
   foreach ($dirsToCheck as $dir) { if (@include_once("$dir$libraryPath")) { break; }}
   if (!function_exists('getRecords')) { die("Couldn't load viewer library, check filepath in sourcecode."); }
 
@@ -28,6 +28,8 @@
   ));
   $settingsRecord = @$settingsRecords[0]; // get first record
 
+  include("includes/headers.php");
+  
 ?><!doctype html>
 <html class="no-js" lang="en" dir="ltr">
 
@@ -45,12 +47,12 @@
 
 <?php include("includes/header.php"); ?>
 
-<div class="hero-carousel section-inverse" data-flickity='{"wrapAround": true, "autoPlay": 3500}'>
+<div class="hero-carousel section-inverse" data-flickity='{"wrapAround": true, "autoPlay": 3500, "imagesLoaded": true}'>
   <?php foreach ($homepageRecord['slider_images'] as $index => $upload): ?>
   <div class="hero-carousel-cell">
     <div class="hero-carousel-cell-content">
-      <h3 class="hero-carousel-title"><?php echo htmlencode($upload['info1']) ?></h3>
-      <p><?php echo htmlencode($upload['info2']) ?></p>
+      <h2 class="hero-carousel-title"><?php echo htmlencode($upload['info1']) ?></h2>
+      <p class="hero-carousel-tagline"><?php echo htmlencode($upload['info2']) ?></p>
       <a href="<?php echo htmlencode($upload['info4']) ?>" class="button secondary"><?php echo htmlencode($upload['info3']) ?></a>
     </div>
     <img src="<?php echo htmlencode($upload['thumbUrlPath']) ?>" alt="<?php echo htmlencode($upload['info1']) ?>">
@@ -177,61 +179,44 @@
   </div><!-- grid-container -->
 </section>
 
-<section class="section-articles section-feature">
+<?php 
+  // load records from 'blog'
+    list($blogRecords, $blogMetaData) = getRecords(array(
+      'tableName'   => 'blog',
+      'limit'       => '5',
+      'loadUploads' => true,
+      'allowSearch' => false,
+    ));
+?>
+
+<?php if ($blogRecords): ?>
+<section class="section-articles">
   <div class="grid-container">
     <div class="grid-x grid-padding-x">
       <div class="cell">
 
         <div class="content">
           <div class="content-cta text-center">
-            <h3 class="content-cta-title">Related Blog Posts</h3>
+            <h3 class="content-cta-title">Latest Blog Posts</h3>
           </div>
           <ul class="article-list list-unstyled">
-            <li class="article-list-item">
+            
+            <?php foreach ($blogRecords as $record): ?>
+              <li class="article-list-item">
               <div class="article-list-image">
-                <a href="#">
-                  <img src="img/articles/article-sm.jpg">
-                </a>
+                <a href="<?php echo $record['_link'] ?>">
+                  <?php foreach ($record['list_image'] as $index => $upload): ?><img src="<?php echo htmlencode($upload['thumbUrlPath']) ?>" alt="<?php echo htmlencode($record['title']) ?>"></a><?php endforeach ?>
               </div>
               <div class="article-list-content">
-                <a href="#" class="category-tag">Category</a>
-                <h4 class="article-list-title">
-                  <a href="#">A Sailing Holiday in Croatia</a>
-                </h4>
-                <p>Sail Connections’ Robert Cross recently took time out of the office for a two-week sailboat charter in Croatia. Here Robert reports on his sailing holiday adventure aboard a Dufour 350 travelling from Dubrovnik to Split return.</p>
+                <h4 class="article-list-title"><a href="<?php echo $record['_link'] ?>"><?php echo htmlencode($record['title']) ?></a></h4>
+                <p><?php if ($record['meta_description']): ?><?php echo htmlencode($record['meta_description']) ?><?php else: ?><?php echo htmlencode($record['intro']) ?><?php endif ?></p>
               </div>
             </li>
-            <li class="article-list-item">
-              <div class="article-list-image">
-                <a href="#">
-                  <img src="img/articles/article-sm.jpg">
-                </a>
-              </div>
-              <div class="article-list-content">
-                <a href="#" class="category-tag">Category</a>
-                <h4 class="article-list-title">
-                  <a href="#">Chartering a sailboat with crew supplied</a>
-                </h4>
-                <p>A sailboat charter that includes a paid crew means one of two things: crewed bareboat with your party joined by freelance skipper and sometimes cook; or full-service charter on a boat with permanent, professional crew attached.</p>
-              </div>
-            </li>
-            <li class="article-list-item">
-              <div class="article-list-image">
-                <a href="#">
-                  <img src="img/articles/article-sm.jpg">
-                </a>
-              </div>
-              <div class="article-list-content">
-                <a href="#" class="category-tag">Category</a>
-                <h4 class="article-list-title">
-                  <a href="#">Your bareboat charter holiday in Croatia: what will it cost to stay in a marina?</a>
-                </h4>
-                <p>An ideal Croatian boat charter may mean overnighting in a quiet bay.Or perhaps hopping from town to town for fun and excitement. While the bay stopover may be free of charge, marina charges in Croatia can add up.</p>
-              </div>
-            </li>
+            <?php endforeach ?>
+
           </ul>
           <div class="content-cta text-center">
-            <a href="#" class="button secondary">View more blog posts</a>
+            <a href="<?php echo $settingsRecord['blog_link'] ?>" class="button secondary">View more blog posts...</a>
           </div>
         </div>
 
@@ -242,9 +227,15 @@
   </div>
   <!-- grid-container -->
 </section>
+<?php endif ?>
 
 <?php include("includes/footer-promo.php"); ?>
 <?php include("includes/footer.php"); ?>
+
+</div><!-- END Off-canvas Content -->
+
+<?php include("includes/form-modal.php"); ?>
+<?php include("includes/footer-scripts.php"); ?>
 
 </body>
 </html>

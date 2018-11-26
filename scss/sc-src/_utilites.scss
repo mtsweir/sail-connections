@@ -27,3 +27,8 @@
 .mx-auto {
   margin: 0 auto;
 }
+
+.search_message {
+	border: 1px solid $panel-bg;
+	padding: $global-padding;
+}

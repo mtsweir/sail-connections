@@ -15,7 +15,7 @@
             ));
           ?>
           <select id="searchDestination" name="destinations">
-            <option selected disabled>Destination</option>
+            <option value="">Destination</option>
             <?php foreach ($search_destination_listRecords as $record): ?>
             <option value="<?php echo $record['num'] ?>" <?php selectedIf( $record['num'],  @$_REQUEST['destinations']) ?> >- <?php echo htmlspecialchars($record['destination']) ?></option>
             <?php endforeach ?>
@@ -31,7 +31,7 @@
             ));
           ?>
           <select id="searchYachtType" name="yacht_type">
-            <option selected disabled>Yacht Type</option>
+            <option value="">Yacht Type</option>
             <?php foreach ($search_yacht_type_listRecords as $record): ?>
             <option value="<?php echo $record['num'] ?>" <?php selectedIf( $record['num'],  @$_REQUEST['yacht_type']) ?> >- <?php echo htmlspecialchars($record['yacht_type']) ?></option>
             <?php endforeach ?>
@@ -47,7 +47,7 @@
             ));
           ?>
           <select id="searchCharterType" name="charter_type">
-            <option selected disabled>Charter Type</option>
+            <option value="">Charter Type</option>
             <?php foreach ($search_charter_type_listRecords as $record): ?>
             <option value="<?php echo $record['num'] ?>" <?php selectedIf( $record['num'],  @$_REQUEST['charter_type']) ?> >- <?php echo htmlspecialchars($record['charter_type']) ?></option>
             <?php endforeach ?>

@@ -4,7 +4,7 @@
   
   // load viewer library
   $libraryPath = 'cms/lib/viewer_functions.php';
-  $dirsToCheck = array('/home/sailconnections/dev.sailconnections.com/','','../','../../','../../../');
+  $dirsToCheck = array('/home/sailconnections/sailconnections.com/','','../','../../','../../../');
   foreach ($dirsToCheck as $dir) { if (@include_once("$dir$libraryPath")) { break; }}
   if (!function_exists('getRecords')) { die("Couldn't load viewer library, check filepath in sourcecode."); }
 
@@ -17,7 +17,16 @@
     'limit'       => '1',
   ));
   $pagesRecord = @$pagesRecords[0]; // get first record
-  if (!$pagesRecord) { dieWith404("Record not found!"); } // show error message if no record found
+  if (!$pagesRecord) {  // show error message if no record found
+    header("HTTP/1.0 404 Not Found");
+    include("404.php");
+    exit;
+  }
+  if ($pagesRecord['redirect']) { // Permanent 301 redirection
+    header("HTTP/1.1 301 Moved Permanently");
+    header("Location: {$pagesRecord['redirect']}");
+    exit();
+  }
 
   // load pages for breadcrumbs
   list($breadcrumbRecords, $selectedCategory) = getCategories(array(
@@ -59,6 +68,8 @@
   ));
   $settingsRecord = @$settingsRecords[0]; // get first record
 
+  include("includes/headers.php");
+  
 ?><!doctype html>
 <html class="no-js" lang="en" dir="ltr">
 
@@ -77,6 +88,7 @@
         $hero_xl = ($upload['thumbUrlPath']);
         $hero_lg = ($upload['thumbUrlPath2']);
         $hero_md = ($upload['thumbUrlPath3']);
+        $hero_sm = ($upload['thumbUrlPath4']);
         break;
       }
       foreach ($pagesRecord['list_image'] as $index => $upload) {
@@ -140,11 +152,11 @@
 
 <div class="grid-container">
   <div class="grid-x grid-padding-x">
-    <div class="large-12 cell">
+    <div class="large-12 cell padding-bottom-2">
 
       <section class="section-page-tabs page-tabs<?php if (!$pagesRecord['tab_1'] && $hide_reviews ==1): ?> page-tabs-none<?php endif ?> padding-bottom-1">
 
-        <ul class="tabs" data-active-collapse="true" data-allow-all-closed="true" data-responsive-accordion-tabs="tabs small-accordion medium-accordion large-tabs" id="page-tabs">
+        <ul class="tabs" data-active-collapse="false" data-allow-all-closed="false" data-responsive-accordion-tabs="tabs small-accordion medium-accordion large-tabs" id="page-tabs">
           <?php if ($pagesRecord['tab_1'] || $hide_reviews != 1): ?><li class="tabs-title is-active"><a href="#tab_1" aria-selected="true"><?php if ($pagesRecord['tab_1']): ?><?php echo htmlencode($pagesRecord['tab_1']) ?><?php else: ?>Overview<?php endif ?></a></li><?php endif ?>
           <?php if ($pagesRecord['tab_2']): ?><li class="tabs-title"><a href="#tab_2"><?php echo htmlencode($pagesRecord['tab_2']) ?></a></li><?php endif ?>
           <?php if ($pagesRecord['tab_3']): ?><li class="tabs-title"><a href="#tab_3"><?php echo htmlencode($pagesRecord['tab_3']) ?></a></li><?php endif ?>
@@ -164,7 +176,8 @@
 
         <div class="tabs-content" data-tabs-content="page-tabs">
 
-          <div class="tabs-panel is-active" id="tab_1">
+          <div<?php if ($pagesRecord['tab_1']): ?> class="tabs-panel is-active" id="tab_1"<?php endif ?>>
+
             <?php echo $pagesRecord['content_1']; ?>
             <?php if ($pagesRecord['attachments_1']): ?>
             <div class="sc-carousel carousel" data-flickity='{"fullscreen": true, "lazyLoad": 1, "pageDots": true, "cellAlign": "left", "wrapAround": true, "adaptiveHeight": true, "setGallerySize": false}'>
@@ -177,34 +190,92 @@
               <?php endforeach ?>
             </div>
             <?php endif ?>
-            <?php echo $pagesRecord['embed_1']; ?>
+
+            <?php if ($pagesRecord['embed_1']): ?>
+              <div class="grid-x grid-padding-x">
+                <div class="large-10 large-offset-1 cell">
+                  <?php echo $pagesRecord['embed_1']; ?>
+                </div><!-- large-12 cell -->
+              </div>
+            <?php endif ?>
+
+            <?php if ($pagesRecord['contact_details'] ==1): ?>
+            <div class="content feature-box">
+              <dl class="overview-list">
+                <?php if ($settingsRecord['phone_number_nz']): ?><dt>NZ / Intl:</dt>
+                <dd><?php echo $settingsRecord['phone_number_nz'] ?></dd><?php endif ?>
+                <?php if ($settingsRecord['phone_number_usa']): ?><dt>USA:</dt>
+                <dd><?php echo $settingsRecord['phone_number_usa'] ?></dd><?php endif ?>
+                <?php if ($settingsRecord['phone_number_au']): ?><dt>AU:</dt>
+                <dd><?php echo $settingsRecord['phone_number_au'] ?></dd><?php endif ?>
+                <?php if ($settingsRecord['email_address']): ?><dt>Email:</dt>
+                <dd><a href="mailto:<?php echo $settingsRecord['email_address'] ?>"><?php echo $settingsRecord['email_address'] ?></a></dd><?php endif ?>
+               </dl>
+             </div>
+             <?php endif ?>
+
+            <?php if ($pagesRecord['contact_form'] ==1): ?>
+              <h2><?php echo htmlencode($settingsRecord['form_title']) ?></h2>
+              <p style="text-align: center;"><?php echo htmlencode($settingsRecord['form_text']) ?></p>
+              <?php include("includes/form.php"); ?>
+            <?php endif ?>
+
+            <?php if ($pagesRecord['charter_guide'] ==1): ?>
+              <?php include("includes/form-guide.php"); ?>
+            <?php endif ?>
+
+
           </div>
 
           <?php if ($pagesRecord['tab_2']): ?>
           <div class="tabs-panel" id="tab_2">
             <?php echo $pagesRecord['content_2']; ?>
-            <?php echo $pagesRecord['embed_2']; ?>
+            <?php if ($pagesRecord['embed_2']): ?>
+              <div class="grid-x grid-padding-x">
+                <div class="large-10 large-offset-1 cell">
+                  <?php echo $pagesRecord['embed_2']; ?>
+                </div><!-- large-12 cell -->
+              </div>
+            <?php endif ?>
           </div>
           <?php endif ?>
 
           <?php if ($pagesRecord['tab_3']): ?>
             <div class="tabs-panel" id="tab_3">
               <?php echo $pagesRecord['content_3']; ?>
-              <?php echo $pagesRecord['embed_3']; ?>
+              <?php if ($pagesRecord['embed_3']): ?>
+                <div class="grid-x grid-padding-x">
+                  <div class="large-10 large-offset-1 cell">
+                    <?php echo $pagesRecord['embed_3']; ?>
+                  </div><!-- large-12 cell -->
+                </div>
+              <?php endif ?>
             </div>
           <?php endif ?>
 
           <?php if ($pagesRecord['tab_4']): ?>
             <div class="tabs-panel" id="tab_4">
               <?php echo $pagesRecord['content_4']; ?>
-              <?php echo $pagesRecord['embed_4']; ?>
+              <?php if ($pagesRecord['embed_4']): ?>
+                <div class="grid-x grid-padding-x">
+                  <div class="large-10 large-offset-1 cell">
+                    <?php echo $pagesRecord['embed_4']; ?>
+                  </div><!-- large-12 cell -->
+                </div>
+              <?php endif ?>
             </div>
           <?php endif ?>
 
           <?php if ($pagesRecord['tab_5']): ?>
             <div class="tabs-panel" id="tab_5">
               <?php echo $pagesRecord['content_5']; ?>
-              <?php echo $pagesRecord['embed_5']; ?>
+              <?php if ($pagesRecord['embed_5']): ?>
+                  <div class="grid-x grid-padding-x">
+                    <div class="large-10 large-offset-1 cell">
+                      <?php echo $pagesRecord['embed_5']; ?>
+                    </div><!-- large-12 cell -->
+                  </div>
+                <?php endif ?>
             </div>
           <?php endif ?>
 
@@ -259,7 +330,6 @@
             <h3 class="content-cta-title"><?php echo htmlencode($subpage_title) ?></h3>
           </div>
           <div class="card-list list-image-grid">
-
             <?php foreach ($subcatRecords as $subcat): ?>
               <?php if($subcat['parentNum']==$selectedCat && $subcat['depth'] == $pagedepthplusone): ?>
                 <?php if($subcat['hide_nav']!=1):  // Check if hidden from nav ?>
@@ -269,7 +339,7 @@
                       <div class="card-image">
                         <?php if ($subcat['list_image']): ?>
                         <?php foreach ($subcat['list_image'] as $index => $upload): ?>
-                        <img src="<?php echo htmlencode($upload['thumbUrlPath3']) ?>" alt="<?php echo htmlencode($subcat['name']) ?>">
+                        <img src="<?php echo htmlencode($upload['thumbUrlPath2']) ?>" alt="<?php echo htmlencode($subcat['name']) ?>">
                         <?php endforeach ?>
                         <?php else: ?>
                         <img src="/img/no-image.png" alt="<?php echo htmlencode($subcat['name']) ?>">
@@ -308,7 +378,7 @@
           <?php foreach ($yacht_type_listRecords as $record): ?>
             <?php if ($record['show_in_pages'] ==1): ?>
             <div class="card">
-              <a href="/yachts.php?destinations=<?php echo $pagesRecord['destination'] ?>&yacht_type=<?php echo $record['num'] ?>">
+              <a href="/yachts.php?destinations=<?php echo $pagesRecord['destination'] ?>&yacht_type=<?php echo $record['num'] ?>&charter_type=1">
                 <div class="card-image">
                   <?php if ($record['image']) {
                       foreach ($record['image'] as $index => $upload) {
@@ -322,7 +392,7 @@
                   <img src="<?php echo $yacht_type_image ?>" alt="<?php echo htmlencode($record['yacht_type']) ?>">
                 </div>
                 <div class="card-section">
-                  <h3 class="card-title"><?php echo htmlencode($record['yacht_type']) ?></h3>
+                  <h3 class="card-title">Bareboat <?php echo htmlencode($record['yacht_type']) ?></h3>
                 </div>
               </a>
             </div>
@@ -354,7 +424,7 @@
                   <img src="<?php echo $yacht_type_image ?>" alt="<?php echo htmlencode($record['charter_type']) ?>">
                 </div>
                 <div class="card-section">
-                  <h3 class="card-title"><?php echo htmlencode($record['charter_type']) ?></h3>
+                  <h3 class="card-title"><?php echo htmlencode($record['charter_type']) ?> Yachts</h3>
                 </div>
               </a>
             </div>
@@ -369,6 +439,8 @@
       </section>
       <?php endif ?>
 
+      
+      <?php if ($pagesRecord['cta_line_promo'] !=1): ?>
       <section class="section-cta-inline padding-bottom-3">
         <div class="grid-x content feature-box">
           <div class="medium-9 cell cell-center">
@@ -379,14 +451,106 @@
           </div>
         </div>
       </section>
+      <?php endif ?>
 
     </div><!-- large-12 cell -->
   </div><!-- grid-x grid-padding-x -->
 </div><!-- grid-container -->
 
+<?php if ($pagesRecord['cta_box_promo'] !=1): ?>
 <?php include("includes/footer-cta.php"); ?>
+<?php endif ?>
+
+<?php if ($pagesRecord['blog_posts'] !=1): ?>
+<?php 
+  // load records from 'blog'
+
+
+  if ($pagesRecord['destination']) {
+    $destNum = $pagesRecord['destination']; 
+    $destNum = "%\t".$destNum."\t%";
+    $relatedH1 = "Related Blog Posts";
+    list($blogRecords, $blogMetaData) = getRecords(array(
+      'tableName'   => 'blog',
+      'limit'       => '5',
+      'loadUploads' => true,
+      'allowSearch' => false,
+      'where'       => "destinations LIKE '". mysql_escape($destNum) ."'",
+    ));
+  } else {
+    $relatedH1 = "Latest Blog Posts";
+    list($blogRecords, $blogMetaData) = getRecords(array(
+      'tableName'   => 'blog',
+      'limit'       => '5',
+      'loadUploads' => true,
+      'allowSearch' => false,
+    ));
+  }
+?>
+
+<?php if ($blogRecords): ?>       
+<section class="section-articles">
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x">
+      <div class="cell">
+
+        <div class="content">
+          <div class="content-cta text-center">
+            <h3 class="content-cta-title"><?php echo $relatedH1 ?></h3>
+          </div>
+          <ul class="article-list list-unstyled">
+            
+            <?php foreach ($blogRecords as $record): ?>
+              <li class="article-list-item">
+              <div class="article-list-image">
+                <a href="<?php echo $record['_link'] ?>">
+                  <?php foreach ($record['list_image'] as $index => $upload): ?><img src="<?php echo htmlencode($upload['thumbUrlPath']) ?>" alt="<?php echo htmlencode($record['title']) ?>"></a><?php endforeach ?>
+              </div>
+              <div class="article-list-content">
+                <h4 class="article-list-title"><a href="<?php echo $record['_link'] ?>"><?php echo htmlencode($record['title']) ?></a></h4>
+                <p><?php if ($record['meta_description']): ?><?php echo htmlencode($record['meta_description']) ?><?php else: ?><?php echo htmlencode($record['intro']) ?><?php endif ?></p>
+              </div>
+            </li>
+            <?php endforeach ?>
+
+          </ul>
+          <div class="content-cta text-center">
+            <a href="<?php echo $settingsRecord['blog_link'] ?>" class="button secondary">View more blog posts...</a>
+          </div>
+        </div>
+
+      </div>
+      <!-- large-12 cell -->
+    </div>
+    <!-- grid-x grid-padding-x -->
+  </div>
+  <!-- grid-container -->
+</section>
+<?php endif ?>
+<?php endif ?>
+
+<?php if ($pagesRecord['footer_promo'] !=1): ?>
 <?php include("includes/footer-promo.php"); ?>
+<?php endif ?>
+
 <?php include("includes/footer.php"); ?>
+
+</div><!-- END Off-canvas Content -->
+
+<?php include("includes/form-modal.php"); ?>
+<?php include("includes/footer-scripts.php"); ?>
+
+<script>
+  // Reload Google Maps on Tab Change
+jQuery().ready(function($) {
+      $('#page-tabs li').not(':first').click(function() { 
+          tab_id=$(this).children('a').attr('href');
+          iframe_id=$(tab_id + " iframe").attr('id');
+          if(iframe_id)
+            $(tab_id + " iframe").attr('src', function(i, val){return val;})
+      });
+  });
+</script>
 
 </body>
 </html>
