@@ -16,11 +16,25 @@
 		"oAP": "/.gitignore",
 		"oF": 0
 		},
+	"/404.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/404.php",
+		"oF": 0
+		},
 	"/blog-post.html": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "/blog-post.html",
+		"oF": 0
+		},
+	"/blog.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/blog.php",
 		"oF": 0
 		},
 	"/css/app.css": {
@@ -366,11 +380,39 @@
 		"oAP": "/includes/footer-promo.php",
 		"oF": 0
 		},
+	"/includes/footer-scripts.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/includes/footer-scripts.php",
+		"oF": 0
+		},
 	"/includes/footer.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "/includes/footer.php",
+		"oF": 0
+		},
+	"/includes/form-guide.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/includes/form-guide.php",
+		"oF": 0
+		},
+	"/includes/form-modal.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/includes/form-modal.php",
+		"oF": 0
+		},
+	"/includes/form.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/includes/form.php",
 		"oF": 0
 		},
 	"/includes/head.php": {
@@ -392,6 +434,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "/includes/header.php",
+		"oF": 0
+		},
+	"/includes/headers.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/includes/headers.php",
 		"oF": 0
 		},
 	"/includes/search.php": {
@@ -442,6 +491,16 @@
 		"oAP": "/js/min/app-min.js.map",
 		"oF": 0
 		},
+	"/js/min/utm_form-1.0.3.min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/js/min/utm_form-1.0.3.min-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
 	"/node_modules": {
 		"ft": 65536,
 		"oA": 2,
@@ -469,6 +528,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "/page.php",
+		"oF": 0
+		},
+	"/post.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/post.php",
 		"oF": 0
 		},
 	"/Sail Connections - Website Icons.json": {
@@ -806,6 +872,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "/search.html",
+		"oF": 0
+		},
+	"/sitemap.xml": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/sitemap.xml",
 		"oF": 0
 		},
 	"/temp/yacht.php": {
